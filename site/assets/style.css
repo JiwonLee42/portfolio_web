@@ -477,6 +477,14 @@ a.item:hover .item-title {
   color: var(--label-neutral);
   font-size: 13px;
 }
+.proj-note {
+  color: var(--label-neutral);
+  font-size: 13px;
+}
+.link .ext-i {
+  margin-left: 3px;
+  vertical-align: -1px;
+}
 .proj-name {
   color: var(--label-strong);
   font-weight: 500;
