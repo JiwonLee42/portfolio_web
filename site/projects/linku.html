@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ko" data-lang="ko"
+  data-title-en="Linku | Jiwon Lee" data-title-ko="링큐 | 이지원"
+  data-desc-en="Linku is a link discovery and sharing app. Jiwon Lee replaced a findAll-based monthly report with Spring Batch and keyset paging, and built token blacklisting and login limits with Redis and Lua scripts."
+  data-desc-ko="링큐는 링크 추천·정리·공유 앱입니다. findAll 기반 월간 리포트를 Spring Batch와 키셋 페이징으로 바꿔 OOM 위험을 없애고, Redis와 Lua Script로 토큰 블랙리스트와 로그인 제한을 구현했습니다.">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>링큐 | 이지원</title>
+  <meta name="description" content="링큐는 링크 추천·정리·공유 앱입니다. findAll 기반 월간 리포트를 Spring Batch와 키셋 페이징으로 바꿔 OOM 위험을 없애고, Redis와 Lua Script로 토큰 블랙리스트와 로그인 제한을 구현했습니다.">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1c1e" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230066ff'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='800' text-anchor='middle' fill='white'%3EJL%3C/text%3E%3C/svg%3E">
+  <script>
+    (function () {
+      var d = document.documentElement, lang, theme;
+      try { lang = new URLSearchParams(location.search).get("lang") || localStorage.getItem("lang"); theme = localStorage.getItem("theme"); } catch (e) {}
+      if (lang !== "en" && lang !== "ko") lang = "ko";
+      d.dataset.lang = lang; d.lang = lang;
+      if (theme === "light" || theme === "dark") d.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script src="../assets/variants.js" defer></script>
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="ko">본문으로 건너뛰기</span></a>
+
+  <div class="dock">
+    <header class="nav" id="nav">
+      <div class="nav-bar">
+        <a class="brand" href="../index.html" aria-label="Jiwon Lee, home">JL.</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
+          <span class="lbl-menu"><span data-l="en">Menu</span><span data-l="ko">메뉴</span></span><span class="lbl-close"><span data-l="en">Close</span><span data-l="ko">닫기</span></span>
+        </button>
+      </div>
+      <div class="nav-panel">
+        <nav class="menu" id="menu" aria-label="Site" inert>
+          <ul class="menu-list">
+          <li style="--i:0"><a href="../index.html"><span data-l="en">Home</span><span data-l="ko">홈</span></a></li>
+          <li class="group" style="--i:1"><span data-l="en">Projects</span><span data-l="ko">프로젝트</span></li>
+          <li style="--i:2"><a href="meogeodoe.html"><span data-l="en">Meogeodoe</span><span data-l="ko">먹어도돼?</span></a></li>
+          <li style="--i:3"><a href="nook.html"><span data-l="en">Nook</span><span data-l="ko">누크</span></a></li>
+          <li style="--i:4"><a href="linku.html" aria-current="page"><span data-l="en">Linku</span><span data-l="ko">링큐</span></a></li>
+          <li class="sep" style="--i:5" role="separator"></li>
+          <li style="--i:6"><a href="#contact" data-scroll-end><span data-l="en">Contact</span><span data-l="ko">연락처</span></a></li>
+          <li style="--i:7"><button type="button" data-toggle-theme><span><span data-l="en">Theme</span><span data-l="ko">테마</span></span><span><span data-mode="light" data-l="en">Light</span><span data-mode="light" data-l="ko">라이트</span><span data-mode="dark" data-l="en" hidden>Dark</span><span data-mode="dark" data-l="ko" hidden>다크</span></span></button></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="lang" role="group" aria-label="Language">
+      <button class="lang-btn" type="button" data-set-lang="ko" aria-pressed="true">한국어</button>
+      <button class="lang-btn" type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+  <nav class="toc" aria-labelledby="toc-title">
+    <h2 id="toc-title"><span data-l="en">On this page</span><span data-l="ko">이 페이지</span></h2>
+    <ol>
+        <li><a href="#sec-ov"><span data-l="en">What it does</span><span data-l="ko">서비스</span></a></li>
+        <li><a href="#sec-facts"><span data-l="en">Facts</span><span data-l="ko">정보</span></a></li>
+        <li><a href="#sec-did"><span data-l="en">What I did</span><span data-l="ko">역할</span></a></li>
+        <li><a href="#sec-back"><span data-l="en">Looking back</span><span data-l="ko">회고</span></a></li>
+      <li class="group"><span data-l="en">Case studies</span><span data-l="ko">케이스 스터디</span></li>
+        <li><a href="#batch"><span data-l="en">Spring Batch and OOM</span><span data-l="ko">Spring Batch로 OOM 해결</span></a></li>
+    </ol>
+  </nav>
+
+  <div class="sheet">
+    <main id="main">
+      <section class="wrap hero">
+        <a class="crumb" href="../index.html#projects"><span data-l="en">All projects</span><span data-l="ko">전체 프로젝트</span></a>
+        <header class="project-head">
+          <h1 data-l="en">Linku</h1><h1 data-l="ko">링큐</h1>
+          <p class="lede" data-l="en">A link discovery and sharing app. Get links recommended from your interests, then organize them by category and share them.</p>
+          <p class="lede" data-l="ko">링크 관리 서비스입니다. 관심사 기반으로 링크를 추천받고 카테고리별로 정리·공유합니다.</p>
+          <div class="tags">
+            <span class="status pending"><span data-l="en">In Play Store review</span><span data-l="ko">플레이스토어 심사 중</span></span>
+            <span class="pill">2026.04 – 2026.08</span>
+          </div>
+        </header>
+        <figure class="cover narrow">
+          <img src="../assets/img/linku-cover.webp" width="707" height="765" alt="Two phone screens of the Linku app: a link search screen and a folder overview, with the tagline Link U, Think YOU." decoding="async">
+        </figure>
+      </section>
+
+      <section class="wrap row tight" id="sec-ov" aria-labelledby="ov">
+        <h2 class="label" id="ov"><span data-l="en">What it does</span><span data-l="ko">서비스</span></h2>
+        <div>
+          <ul class="bullets" data-l="en">
+            <li>Recommends links based on your interests and organizes them by category.</li>
+            <li>Saves links, generates an AI summary, sorts them into folders, and shares them with other people.</li>
+          </ul>
+          <ul class="bullets" data-l="ko">
+            <li>관심사 기반으로 링크를 추천받고 카테고리별로 정리·공유합니다.</li>
+            <li>링크를 저장하고 AI 요약을 생성할 수 있으며, 폴더에 나눠 저장하거나 다른 사람과 공유할 수 있습니다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="wrap row tight" id="sec-facts" aria-labelledby="facts">
+        <h2 class="label" id="facts"><span data-l="en">Facts</span><span data-l="ko">정보</span></h2>
+        <dl class="facts">
+          <div><dt data-l="en">Origin</dt><dt data-l="ko">출처</dt>
+            <dd data-l="en">Team project. I joined in the middle of April.</dd>
+            <dd data-l="ko">팀 프로젝트(4월 중간 합류)</dd></div>
+          <div><dt data-l="en">Team</dt><dt data-l="ko">구성원</dt>
+            <dd data-l="en">Spring Boot 3, Android 4, PM 1, Design 1</dd>
+            <dd data-l="ko">Spring Boot 3명, Android 4명, PM 1명, Design 1명</dd></div>
+          <div><dt data-l="en">My share</dt><dt data-l="ko">기여도</dt>
+            <dd data-l="en">Backend, 40%</dd>
+            <dd data-l="ko">백엔드 40%</dd></div>
+          <div><dt data-l="en">Stack</dt><dt data-l="ko">기술 스택</dt>
+            <dd class="stack-groups">
+              <div><span class="sg">Backend</span><ul class="chips"><li class="main">Spring Boot</li><li>Spring Batch</li><li>Firebase</li><li>Gemini API</li></ul></div>
+              <div><span class="sg">Data</span><ul class="chips"><li>PostgreSQL</li><li>Redis</li></ul></div>
+              <div><span class="sg">Infra</span><ul class="chips"><li>Terraform</li><li>Nginx</li><li>EC2</li></ul></div>
+            </dd></div>
+        </dl>
+      </section>
+
+      <section class="wrap row tight" id="sec-did" aria-labelledby="did">
+        <h2 class="label" id="did"><span data-l="en">What I did</span><span data-l="ko">역할</span></h2>
+        <div>
+          <ul class="bullets" data-l="en">
+            <li>Split the development and production servers, managed them on AWS with <strong>Terraform</strong>, and built the <strong>CI/CD pipeline</strong>.</li>
+            <li>After joining mid-project, improved the existing <strong>login logic</strong> and set the testing conventions.</li>
+            <li>Designed the notification tables and APIs, and a subscription-based announcement notification with <strong>Firebase Topics</strong>.</li>
+            <li>Built token blacklisting and session management with <strong>Redis and Lua scripts</strong>, and a limit of three concurrent logins.</li>
+            <li>Redesigned the monthly curation job as a batch that combines Gemini API and FCM, and moved it to <strong>Spring Batch</strong>.</li>
+          </ul>
+          <ul class="bullets" data-l="ko">
+            <li>개발계·운영계 서버를 분리해 AWS <strong>Terraform</strong>으로 관리하고 <strong>CI/CD 파이프라인</strong>을 구축했습니다.</li>
+            <li>프로젝트 중간 합류로 기존 <strong>로그인 로직</strong>을 개선하고, 테스트 컨벤션을 확립했습니다.</li>
+            <li>알림 기능 DB 테이블 설계 및 API 구현, <strong>Firebase Topic</strong> 구독 기반 공지 알림을 설계했습니다.</li>
+            <li><strong>Redis + Lua Script</strong>로 토큰 블랙리스트·세션 관리, 동시 로그인 3대 제한을 구현했습니다.</li>
+            <li>월간 큐레이션 생성 로직을 Gemini API·FCM 연동 배치로 설계하고 <strong>Spring Batch</strong>로 전환했습니다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="wrap row tight" id="sec-back" aria-labelledby="back">
+        <h2 class="label" id="back"><span data-l="en">Looking back</span><span data-l="ko">회고</span></h2>
+        <div>
+          <ul class="bullets" data-l="en">
+            <li>Using a <strong>TSID</strong> lowers how predictable an ID exposed outside the system is. I learned that an identifier design can be a security requirement.</li>
+            <li>With a <strong>Lua script</strong>, checking and applying can be one atomic operation, which removes race conditions such as the concurrent-login limit.</li>
+            <li>Diagnosing a failure from thread dumps showed me the <strong>risk of naive implementations like findAll</strong>, and that team conventions survive only when they are documented.</li>
+          </ul>
+          <ul class="bullets" data-l="ko">
+            <li><strong>TSID</strong>로 외부 노출 ID의 예측 가능성을 줄이며, 식별자 설계도 보안 요구사항이 될 수 있다는 걸 배웠습니다.</li>
+            <li><strong>Lua Script</strong>로 확인·반영을 하나의 원자 연산으로 묶어 동시 로그인 제한 같은 경합 문제를 없애는 방법을 익혔습니다.</li>
+            <li>스레드 덤프 기반 장애 진단으로 <strong>findAll 같은 단순 구현의 위험</strong>을 확인하고, 팀 컨벤션은 문서화해야 실제로 유지된다는 걸 배웠습니다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Case study -->
+      <article class="wrap case" id="batch">
+        <header>
+          <h2 data-l="en">Removing the out-of-memory risk of the monthly report with Spring Batch</h2>
+          <h2 data-l="ko">전체 유저 배치의 OOM 위험을 Spring Batch로 해결</h2>
+          <p class="lede" data-l="en">I replaced a findAll that loaded every user at once with chunk processing and keyset paging.</p>
+          <p class="lede" data-l="ko">findAll로 인한 배치 OOM 위험을 Spring Batch 청크 처리와 키셋 페이징으로 해결한 경험입니다.</p>
+        </header>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Requirements</span><span data-l="ko">요구사항</span></h3>
+          <div>
+            <ul class="bullets" data-l="en">
+              <li>On the first of every month, generate a monthly report <strong>for all users</strong>.</li>
+              <li>Even as users grow, the batch must run to the end <strong>without memory problems</strong>.</li>
+              <li>If a user is deleted or changed during the batch, <strong>no data may be missed</strong>.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li>매월 1일 <strong>전체 유저</strong>를 대상으로 월간 Report를 생성해야 합니다.</li>
+              <li>유저 수가 늘어나도 배치가 <strong>메모리 문제 없이</strong> 끝까지 돌아야 합니다.</li>
+              <li>배치 도중 유저가 삭제·변경돼도 <strong>데이터가 누락되지 않아야</strong> 합니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Problem</span><span data-l="ko">문제</span></h3>
+          <div>
+            <ul class="bullets" data-l="en">
+              <li>The monthly batch loaded all users at once with <span class="code">findAll</span>, so memory kept accumulating as users grew and the <strong>risk of an out-of-memory error</strong> kept rising.</li>
+              <li>The query also read everything in one go, so a single failed batch would <strong>affect the whole month's report</strong>.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li>매월 전체 유저 Report 배치가 <span class="code">findAll</span>로 유저 전체를 한 번에 로딩해, 유저가 늘수록 메모리에 계속 쌓여 <strong>OOM 위험</strong>이 커졌습니다.</li>
+              <li>조회 자체도 전체를 한 번에 읽는 구조라, 배치 하나가 실패하면 그 달 <strong>전체 Report에 영향</strong>을 줬습니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Approach</span><span data-l="ko">해결</span></h3>
+          <div>
+            <ul class="bullets" data-l="en">
+              <li><strong>Chunk processing:</strong> Spring Batch reads a fixed number of users at a time and frees the memory after each chunk.</li>
+              <li><strong>Keyset paging:</strong> the reader continues with <span class="code">user.id &gt; :lastUserId</span> instead of OFFSET, so it picks up where it left off without gaps even if users are deleted or changed midway.</li>
+              <li><strong>Retry and skip:</strong> a failure is either retried (a temporary error) or skipped (bad data), so a single error does not stop the whole batch.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li><strong>청크 처리:</strong> Spring Batch 청크 처리로 전환해, 일정 개수씩 나눠 읽고 청크가 끝날 때마다 메모리를 비웁니다.</li>
+              <li><strong>키셋 페이징:</strong> Reader 조회는 OFFSET 대신 키셋 페이징(<span class="code">user.id &gt; :lastUserId</span>)으로 해, 유저가 중간에 삭제·변경돼도 누락 없이 이어서 조회합니다.</li>
+              <li><strong>retry·skip:</strong> 실패는 retry(일시 오류)와 skip(잘못된 데이터)으로 나눠, 하나의 오류로 배치 전체가 멈추지 않게 했습니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Why not OFFSET</span><span data-l="ko">OFFSET이 아닌 이유</span></h3>
+          <div>
+            <ul class="bullets" data-l="en">
+              <li>OFFSET gets more expensive on later pages because it has to skip everything before them. And if a user is deleted during the batch, the values shift and <strong>records can be skipped</strong>.</li>
+              <li>Keyset paging only reads rows after the last processed ID, so <strong>deletes and changes do not disturb</strong> which rows come next.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li>OFFSET은 뒤 페이지로 갈수록 앞부분을 건너뛰는 비용이 커지고, 배치 도중 유저가 삭제되면 값이 밀려 <strong>레코드를 건너뛸 수 있습니다.</strong></li>
+              <li>키셋 페이징은 마지막 처리 ID보다 큰 데이터만 이어서 조회하므로, <strong>삭제·변경에도 다음 대상을 안정적으로 가져옵니다.</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Result</span><span data-l="ko">결과와 배운 점</span></h3>
+          <div>
+            <ul class="bullets" data-l="en">
+              <li>The previous month's batch failed with an out-of-memory error. After the change, the next month's batch <strong>ran to the end normally</strong>.</li>
+              <li>I went deeper into <strong>why memory piled up</strong>: how transactions and the persistence context work inside, where entities keep accumulating in the first-level cache.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li>전월 배치는 OOM으로 실패했고, 전환을 적용한 다음 달 배치는 <strong>끝까지 정상 완료</strong>됐습니다.</li>
+              <li>메모리 문제의 원인을 트랜잭션·영속성 컨텍스트의 내부 동작 방식, 즉 <strong>엔티티가 1차 캐시에 계속 쌓이는 구조</strong>까지 깊게 생각해 보게 됐습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <div class="wrap">
+        <a class="next" href="meogeodoe.html">
+          <span class="hint"><span data-l="en">Back to the first project</span><span data-l="ko">첫 번째 프로젝트로</span></span>
+          <span class="name" data-l="en">Meogeodoe</span><span class="name" data-l="ko">먹어도돼?</span>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <div class="foot-grid">
+        <h2 class="foot-title"><span data-l="en">Contact</span><span data-l="ko">연락처</span></h2>
+        <ul class="foot-list">
+          <li>
+            <span><span data-l="en">Email</span><span data-l="ko">이메일</span></span><i class="rule"></i>
+            <span class="val">ljw56b@gmail.com</span>
+            <button class="copy" type="button" data-copy="ljw56b@gmail.com"><svg class="i-clip" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3" width="9" height="10.5" rx="1.5"/><path d="M6 3v-.5a.5.5 0 01.5-.5h3a.5.5 0 01.5.5V3"/></svg><svg class="i-check" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-6.5"/></svg><span class="sr" data-l="en">Copy email address</span><span class="sr" data-l="ko">이메일 주소 복사</span></button>
+            <span class="sr" role="status" data-copy-status></span>
+          </li>
+          <li><a class="ext" href="https://github.com/JiwonLee42" target="_blank" rel="noopener"><span>GitHub</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><i class="rule"></i></li>
+          <li><a class="ext" href="https://velog.io/@jayaione_ele/posts" target="_blank" rel="noopener"><span>Velog</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><i class="rule"></i></li>
+        </ul>
+      </div>
+      <p class="foot-quote" data-l="en">Open to backend engineering roles.</p>
+      <p class="foot-quote" data-l="ko">백엔드 개발자로 함께할 곳을 찾고 있습니다.</p>
+      <div class="foot-legal"><small data-l="en">Jiwon Lee, 2026</small><small data-l="ko">이지원, 2026</small></div>
+    </div>
+  </footer>
+</body>
+</html>

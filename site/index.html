@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="ko" data-lang="ko"
+  data-title-en="Jiwon Lee | Backend Engineer" data-title-ko="이지원 | 백엔드 개발자"
+  data-desc-en="Jiwon Lee, a backend developer who keeps growing and improving. Likes owning a service through deployment and improving it by running it. Spring Boot, Redis, Terraform."
+  data-desc-ko="지속적으로 성장하고 개선하고자 하는 백엔드 개발자 이지원입니다. 배포까지 끝까지 책임지고, 운영해보면서 개선하는 걸 좋아합니다. Spring Boot, Redis, Terraform.">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>이지원 | 백엔드 개발자</title>
+  <meta name="description" content="지속적으로 성장하고 개선하고자 하는 백엔드 개발자 이지원입니다. 배포까지 끝까지 책임지고, 운영해보면서 개선하는 걸 좋아합니다. Spring Boot, Redis, Terraform.">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1c1e" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="이지원 | 백엔드 개발자">
+  <meta property="og:description" content="지속적으로 성장하고 개선하고자 하는 백엔드 개발자 이지원입니다. 배포까지 끝까지 책임지고, 운영해보면서 개선하는 걸 좋아합니다.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "이지원", "alternateName": "Jiwon Lee", "jobTitle": "Backend Engineer", "email": "mailto:ljw56b@gmail.com", "alumniOf": {"@type": "CollegeOrUniversity", "name": "Sungshin Women's University"}, "knowsAbout": ["Spring Boot", "Kotlin", "Redis", "Terraform", "Spring Batch", "PostgreSQL"], "sameAs": ["https://github.com/JiwonLee42", "https://velog.io/@jayaione_ele/posts"]}</script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230066ff'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='800' text-anchor='middle' fill='white'%3EJL%3C/text%3E%3C/svg%3E">
+  <script>
+    // Korean is the default. A saved choice or ?lang=en overrides it. Runs before first paint.
+    (function () {
+      var d = document.documentElement, lang, theme;
+      try { lang = new URLSearchParams(location.search).get("lang") || localStorage.getItem("lang"); theme = localStorage.getItem("theme"); } catch (e) {}
+      if (lang !== "en" && lang !== "ko") lang = "ko";
+      d.dataset.lang = lang; d.lang = lang;
+      if (theme === "light" || theme === "dark") d.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/data/contributions.js" defer></script>
+  <script src="assets/variants.js" defer></script>
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="ko">본문으로 건너뛰기</span></a>
+
+  <div class="dock">
+    <header class="nav" id="nav">
+      <div class="nav-bar">
+        <a class="brand" href="index.html" aria-label="Jiwon Lee, home">JL.</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
+          <span class="lbl-menu"><span data-l="en">Menu</span><span data-l="ko">메뉴</span></span><span class="lbl-close"><span data-l="en">Close</span><span data-l="ko">닫기</span></span>
+        </button>
+      </div>
+      <div class="nav-panel">
+        <nav class="menu" id="menu" aria-label="Site" inert>
+          <ul class="menu-list">
+          <li style="--i:0"><a href="#skills"><span data-l="en">Skills</span><span data-l="ko">기술 스택</span></a></li>
+          <li style="--i:1"><a href="#projects"><span data-l="en">Projects</span><span data-l="ko">프로젝트</span></a></li>
+          <li style="--i:2"><a href="#background"><span data-l="en">Background</span><span data-l="ko">이력</span></a></li>
+          <li style="--i:3"><a href="#contact" data-scroll-end><span data-l="en">Contact</span><span data-l="ko">연락처</span></a></li>
+          <li style="--i:4"><button type="button" data-toggle-theme><span><span data-l="en">Theme</span><span data-l="ko">테마</span></span><span><span data-mode="light" data-l="en">Light</span><span data-mode="light" data-l="ko">라이트</span><span data-mode="dark" data-l="en" hidden>Dark</span><span data-mode="dark" data-l="ko" hidden>다크</span></span></button></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="lang" role="group" aria-label="Language">
+      <button class="lang-btn" type="button" data-set-lang="ko" aria-pressed="true">한국어</button>
+      <button class="lang-btn" type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <main id="main">
+      <section class="wrap hero">
+        <div data-l="en">
+          <h1 class="display rise">
+            <span class="line">I'm Jiwon Lee, a <span class="hl accent">backend developer</span> who keeps growing and improving.</span>
+            <span class="line">I like owning a service <span class="hl accent">all the way through deployment</span>, then improving it as I run it.</span>
+          </h1>
+        </div>
+        <div data-l="ko">
+          <h1 class="display rise">
+            <span class="line">지속적으로 성장하고 개선하고자 하는 <span class="hl accent">백엔드 개발자</span> 이지원입니다.</span>
+            <span class="line">배포까지 <span class="hl accent">끝까지 책임지고</span>, 운영해보면서 개선하는 걸 좋아합니다.</span>
+          </h1>
+        </div>
+        <div class="hero-body">
+          <div class="prose" data-l="en">
+            <p>I graduated from Sungshin Women's University in August 2026 with a degree in computer science and a minor in convergence security.</p>
+            <p>This year I released <a class="link" href="projects/meogeodoe.html">Meogeodoe</a> on the App Store and Google Play, led the backend of <a class="link" href="projects/nook.html">Nook</a>, a reading tracker that is now deployed, and worked on the backend of <a class="link" href="projects/linku.html">Linku</a>, which is in Play Store review.</p>
+            <p>Since 2022 I've been part of developer communities such as UMC, where I served as Spring Boot part lead, and Prography.</p>
+            <p>I write down what I learn on <a class="link" href="https://velog.io/@jayaione_ele/posts" target="_blank" rel="noopener">my blog</a>.</p>
+          </div>
+          <div class="prose" data-l="ko">
+            <p>2026년 8월 성신여자대학교 컴퓨터공학과를 졸업했고, 융합보안공학과를 부전공했습니다.</p>
+            <p>올해 <a class="link" href="projects/meogeodoe.html">먹어도돼?</a>를 App Store와 Google Play에 출시했고, 배포를 마친 독서 기록 서비스 <a class="link" href="projects/nook.html">누크</a>의 백엔드를 리드했습니다. Play Store 심사 중인 <a class="link" href="projects/linku.html">링큐</a>의 백엔드도 맡았습니다.</p>
+            <p>2022년부터 UMC, 프로그라피 같은 개발 동아리에서 활동했고, UMC에서는 Spring Boot 파트장을 맡았습니다.</p>
+            <p>배운 것은 <a class="link" href="https://velog.io/@jayaione_ele/posts" target="_blank" rel="noopener">블로그</a>에 정리합니다.</p>
+          </div>
+          <figure class="portrait">
+            <img src="assets/img/profile.webp" width="438" height="520" alt="이지원 (Jiwon Lee)" decoding="async" fetchpriority="high">
+          </figure>
+        </div>
+      </section>
+
+      <section class="wrap row" id="skills" aria-labelledby="skills-label">
+        <h2 class="label" id="skills-label"><span data-l="en">Skills</span><span data-l="ko">기술 스택</span></h2>
+        <div class="stack roomy">
+          <div data-key="backend">
+            <h3 class="sub" data-l="en">Backend</h3><h3 class="sub" data-l="ko">백엔드</h3>
+            <dl class="defs" style="margin-top:12px">
+              <div><dt>Spring Boot</dt>
+                <dd data-l="en">REST API design and service logic. Multi-module MSA environment.</dd>
+                <dd data-l="ko">REST API 설계 및 서비스 로직 구현, 멀티모듈 기반 MSA 환경 개발</dd></div>
+              <div><dt>Spring Security</dt>
+                <dd data-l="en">JWT authentication and authorization. Social login with Google, Kakao and Naver.</dd>
+                <dd data-l="ko">JWT 기반 인증·인가 및 소셜 로그인(Google, Kakao, Naver) 구현</dd></div>
+              <div><dt data-l="en">Real-time</dt><dt data-l="ko">실시간 통신</dt>
+                <dd>SSE, WebSocket, WebRTC</dd></div>
+            </dl>
+          </div>
+          <div data-key="devops">
+            <h3 class="sub" data-l="en">DevOps and infrastructure</h3><h3 class="sub" data-l="ko">DevOps / 인프라</h3>
+            <dl class="defs" style="margin-top:12px">
+              <div><dt>Kubernetes</dt>
+                <dd data-l="en">GKE and NKS. MSA deployment, pod health checks and autoscaling, StatefulSet database deployment.</dd>
+                <dd data-l="ko">GKE, NKS. MSA 서비스 배포, Pod 헬스체크·오토 스케일링, StatefulSet 기반 DB 배포</dd></div>
+              <div><dt>Terraform</dt>
+                <dd data-l="en">Infrastructure as code.</dd>
+                <dd data-l="ko">인프라 구성 코드화</dd></div>
+              <div><dt>Docker Compose</dt>
+                <dd data-l="en">Container-based development environments.</dd>
+                <dd data-l="ko">컨테이너 기반 개발 환경 구성</dd></div>
+              <div><dt>CI/CD</dt>
+                <dd data-l="en">GitHub Actions, Naver Cloud SourceBuild and SourcePipeline.</dd>
+                <dd data-l="ko">GitHub Actions, Naver Cloud SourceBuild/SourcePipeline 기반 배포 자동화</dd></div>
+            </dl>
+          </div>
+          <div data-key="data">
+            <h3 class="sub" data-l="en">Data and cache</h3><h3 class="sub" data-l="ko">DB / 캐시</h3>
+            <dl class="defs" style="margin-top:12px">
+              <div><dt>Redis</dt>
+                <dd data-l="en">JWT token management. Sorted-set caching of statistics for fast reads.</dd>
+                <dd data-l="ko">JWT 토큰 관리, ZSET 기반 통계 캐싱으로 실시간 조회 성능 개선</dd></div>
+              <div><dt>JPA / QueryDSL</dt>
+                <dd data-l="en">ORM-based data access, dynamic queries and index tuning.</dd>
+                <dd data-l="ko">ORM 기반 데이터 관리, 동적 쿼리 및 인덱스 튜닝</dd></div>
+            </dl>
+          </div>
+          <div data-key="frontend">
+            <h3 class="sub" data-l="en">Frontend</h3><h3 class="sub" data-l="ko">프론트엔드</h3>
+            <dl class="defs" style="margin-top:12px">
+              <div><dt>Android</dt>
+                <dd data-l="en">Server API integration with XML and Jetpack Compose. An MVVM structure that keeps UI, state management and the data-request flow separate.</dd>
+                <dd data-l="ko">XML, Jetpack Compose로 서버 API 연동 및 MVVM 구조를 적용하여 UI, 상태 관리, 데이터 요청 흐름 분리 경험</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap row" id="projects" aria-labelledby="projects-label">
+        <h2 class="label" id="projects-label"><span data-l="en">Projects</span><span data-l="ko">프로젝트</span></h2>
+        <div class="stack roomy">
+          <a class="item" data-key="meogeodoe" href="projects/meogeodoe.html">
+            <span class="item-title" data-l="en">Meogeodoe</span><span class="item-title" data-l="ko">먹어도돼?</span>
+            <span class="meta">
+              <span data-l="en">Meal-tracking app</span><span data-l="ko">식단 관리 앱</span>
+              <i class="rule"></i><span class="pill">2026.06 – 2026.09</span>
+            </span>
+            <span class="status"><span data-l="en">Live on App Store and Google Play</span><span data-l="ko">App Store, Google Play 출시</span></span>
+            <span class="item-desc" data-l="en">Search a food before you eat it and get a traffic-light grade for your stomach. I was the only backend developer: reminder scheduling, OIDC login, Gemini integration and monitoring.</span>
+            <span class="item-desc" data-l="ko">음식을 먹기 전에 검색하면 신호등 등급으로 판정해 주는 앱입니다. 백엔드 1인 개발로 알림 예약 발송, OIDC 로그인, Gemini 연동, 모니터링을 맡았습니다.</span>
+            <span class="stack-groups"><span class="sg-row"><span class="sg">Backend</span><span class="chips"><span class="chip main">Spring Boot</span><span class="chip main">Kotlin</span><span class="chip">Gemini API</span></span></span><span class="sg-row"><span class="sg">Data</span><span class="chips"><span class="chip">PostgreSQL</span></span></span><span class="sg-row"><span class="sg">Infra</span><span class="chips"><span class="chip">Railway</span><span class="chip">Docker</span></span></span><span class="sg-row"><span class="sg">Monitoring</span><span class="chips"><span class="chip">Better Stack</span><span class="chip">Sentry</span></span></span><span class="sg-row"><span class="sg">Test</span><span class="chips"><span class="chip">Testcontainers</span></span></span></span>
+            <span class="item-more link" data-l="en">Read the case studies</span><span class="item-more link" data-l="ko">상세 보기</span>
+          </a>
+
+          <a class="item" data-key="nook" href="projects/nook.html">
+            <span class="item-title" data-l="en">Nook</span><span class="item-title" data-l="ko">누크</span>
+            <span class="meta">
+              <span data-l="en">Reading-log service</span><span data-l="ko">독서 기록 서비스</span>
+              <i class="rule"></i><span class="pill">2026.01 – 2026.09</span>
+            </span>
+            <span class="status"><span data-l="en">Deployed, in QA</span><span data-l="ko">배포 완료, QA 중</span></span>
+            <span class="item-desc" data-l="en">Backend lead. A Redis sorted set for the home-screen stats API cut p95 latency by 20% in a local k6 load test, and I built zero-downtime blue/green deploys and monitoring with Terraform.</span>
+            <span class="item-desc" data-l="ko">백엔드 리드를 맡았습니다. Redis ZSET으로 홈 화면 통계 API를 개선해 로컬 k6 부하 테스트에서 p95 응답 시간을 20% 줄였고, Terraform으로 무중단 블루그린 배포와 모니터링을 구축했습니다.</span>
+            <span class="stack-groups"><span class="sg-row"><span class="sg">Backend</span><span class="chips"><span class="chip main">Spring Boot</span></span></span><span class="sg-row"><span class="sg">Data</span><span class="chips"><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Supabase</span><span class="chip">Cloudflare R2</span></span></span><span class="sg-row"><span class="sg">Infra</span><span class="chips"><span class="chip">AWS EC2 / RDS</span><span class="chip">Nginx</span><span class="chip">Docker Compose</span><span class="chip">Terraform</span></span></span><span class="sg-row"><span class="sg">Monitoring</span><span class="chips"><span class="chip">Prometheus</span><span class="chip">Loki</span><span class="chip">Grafana</span></span></span></span>
+            <span class="item-more link" data-l="en">Read the case studies</span><span class="item-more link" data-l="ko">상세 보기</span>
+          </a>
+
+          <a class="item" data-key="linku" href="projects/linku.html">
+            <span class="item-title" data-l="en">Linku</span><span class="item-title" data-l="ko">링큐</span>
+            <span class="meta">
+              <span data-l="en">Link discovery and sharing app</span><span data-l="ko">링크 추천·정리·공유 앱</span>
+              <i class="rule"></i><span class="pill">2026.04 – 2026.08</span>
+            </span>
+            <span class="status pending"><span data-l="en">In Play Store review</span><span data-l="ko">Play Store 심사 중</span></span>
+            <span class="item-desc" data-l="en">Replaced a findAll-based monthly report with Spring Batch and keyset paging to remove an out-of-memory risk, and built token blacklisting and login limits with Redis and Lua scripts.</span>
+            <span class="item-desc" data-l="ko">findAll로 만든 월간 리포트를 Spring Batch와 키셋 페이징으로 바꿔 OOM 위험을 없앴고, Redis와 Lua Script로 토큰 블랙리스트와 로그인 제한을 구현했습니다.</span>
+            <span class="stack-groups"><span class="sg-row"><span class="sg">Backend</span><span class="chips"><span class="chip main">Spring Boot</span><span class="chip">Spring Batch</span><span class="chip">Firebase</span><span class="chip">Gemini API</span></span></span><span class="sg-row"><span class="sg">Data</span><span class="chips"><span class="chip">PostgreSQL</span><span class="chip">Redis</span></span></span><span class="sg-row"><span class="sg">Infra</span><span class="chips"><span class="chip">Terraform</span><span class="chip">Nginx</span><span class="chip">EC2</span></span></span></span>
+            <span class="item-more link" data-l="en">Read the case studies</span><span class="item-more link" data-l="ko">상세 보기</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="wrap commits" id="activity" aria-labelledby="commits-title">
+        <h2 class="sr" id="commits-title"><span data-l="en">GitHub activity</span><span data-l="ko">GitHub 활동</span></h2>
+        <div class="cal" data-cal aria-hidden="true"></div>
+        <div class="cal-foot">
+          <svg class="branch" viewBox="0 0 312 58" width="312" height="58" fill="none" aria-hidden="true">
+              <path d="M0 8h273M157 8c0 22 12 36 30 36h124" stroke="currentColor" stroke-width="1.5"/>
+              <g fill="currentColor" opacity=".55">
+                <circle cx="15" cy="8" r="5"/><circle cx="43" cy="8" r="5"/><circle cx="71" cy="8" r="5"/><circle cx="99" cy="8" r="5"/><circle cx="128" cy="8" r="5"/><circle cx="157" cy="8" r="5"/><circle cx="185" cy="8" r="5"/><circle cx="213" cy="8" r="5"/><circle cx="242" cy="8" r="5"/><circle cx="270" cy="8" r="5"/>
+                <circle cx="187" cy="44" r="5"/><circle cx="214" cy="44" r="5"/><circle cx="242" cy="44" r="5"/><circle cx="270" cy="44" r="5"/><circle cx="298" cy="44" r="5"/>
+              </g>
+            </svg>
+          <a class="ext-link" href="https://github.com/JiwonLee42" target="_blank" rel="noopener"><span data-l="en">View on GitHub</span><span data-l="ko">GitHub에서 보기</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a>
+        </div>
+        <p class="note" data-l="en"><span data-cal-total></span> contributions in the last year, as of <span data-cal-date></span>.</p>
+        <p class="note" data-l="ko">최근 1년간 <span data-cal-total></span>회 기여, <span data-cal-date></span> 기준입니다.</p>
+      </section>
+
+      <section class="wrap row" id="background" aria-labelledby="edu-label">
+        <h2 class="label" id="edu-label"><span data-l="en">Education</span><span data-l="ko">학력</span></h2>
+        <div class="stack">
+          <div class="item">
+            <span class="item-title" data-l="en">Sungshin Women's University</span><span class="item-title" data-l="ko">성신여자대학교</span>
+            <span class="meta">
+              <span data-l="en">B.S. Computer Science, minor in Convergence Security</span><span data-l="ko">컴퓨터공학 전공, 융합보안공학 부전공</span>
+              <i class="rule"></i><span class="pill">2021.03 – 2026.08</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap row tight" aria-labelledby="comm-label">
+        <h2 class="label" id="comm-label"><span data-l="en">Communities</span><span data-l="ko">활동</span></h2>
+        <div class="stack">
+          <div class="item">
+            <span class="item-title" data-l="en">Prography 11th, Server</span><span class="item-title" data-l="ko">프로그라피 11기 Server</span>
+            <span class="meta"><span data-l="en">Working professionals and students launching apps together</span><span data-l="ko">현직자와 대학생이 함께 앱을 런칭하는 IT 동아리</span><i class="rule"></i><span class="pill now" data-l="en">2026.04 – now</span><span class="pill now" data-l="ko">2026.04 – 현재</span></span>
+          </div>
+          <div class="item">
+            <span class="item-title" data-l="en">UMC 10th, Server</span><span class="item-title" data-l="ko">UMC 10기 Server</span>
+            <span class="meta"><span data-l="en">Spring Boot part lead, Android challenger</span><span data-l="ko">Spring Boot 파트장, Android 챌린저</span><i class="rule"></i><span class="pill">2026.03 – 2026.08</span></span>
+          </div>
+          <div class="item">
+            <span class="item-title" data-l="en">UMC 9th, Server</span><span class="item-title" data-l="ko">UMC 9기 Server</span>
+            <span class="meta"><span data-l="en">Spring Boot part lead</span><span data-l="ko">Spring Boot 파트장</span><i class="rule"></i><span class="pill">2025.09 – 2026.02</span></span>
+          </div>
+          <div class="item">
+            <span class="item-title" data-l="en">UMC 8th, Server</span><span class="item-title" data-l="ko">UMC 8기 Server</span>
+            <span class="meta"><span data-l="en">Spring Boot challenger</span><span data-l="ko">Spring Boot 챌린저</span><i class="rule"></i><span class="pill">2025.03 – 2025.08</span></span>
+          </div>
+          <div class="item">
+            <span class="item-title" data-l="en">9oormthon Deep Dive, full-stack course</span><span class="item-title" data-l="ko">9oormthon DEEP DIVE 풀스택 개발자 과정</span>
+            <span class="meta"><span data-l="en">Cohort 11, university track. Spring Boot and React. Completed.</span><span data-l="ko">11회차(유니브 과정), Spring Boot·React, 수료</span><i class="rule"></i><span class="pill">2024.08 – 2025.02</span></span>
+          </div>
+          <div class="item">
+            <span class="item-title" data-l="en">9oormthon Univ. Sungshin 3rd, Server</span><span class="item-title" data-l="ko">구름톤 유니브 성신여대 3기 Server</span>
+            <span class="meta"><span data-l="en">University IT club</span><span data-l="ko">대학생 IT 동아리</span><i class="rule"></i><span class="pill">2024.08 – 2024.12</span></span>
+          </div>
+          <div class="item">
+            <span class="item-title" data-l="en">UMC 3rd, Server</span><span class="item-title" data-l="ko">UMC 3기 Server</span>
+            <span class="meta"><span data-l="en">Node.js</span><span data-l="ko">Node.js</span><i class="rule"></i><span class="pill">2022.09 – 2023.02</span></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap row tight" aria-labelledby="awards-label">
+        <h2 class="label" id="awards-label"><span data-l="en">Awards</span><span data-l="ko">수상</span></h2>
+        <div class="stack">
+          <div class="item">
+            <span class="item-title" data-l="en">Grand Prize, Capstone Design category</span><span class="item-title" data-l="ko">캡스톤디자인 부문 대상</span>
+            <span class="meta"><span data-l="en">2025 Made in Sungshin competition</span><span data-l="ko">2025 Made in Sungshin 공모전</span><i class="rule"></i><span class="pill">2026.02</span></span>
+          </div>
+          <div class="item">
+            <span class="item-title" data-l="en">Excellence Award</span><span class="item-title" data-l="ko">우수상</span>
+            <span class="meta"><span data-l="en">9oormthon Deep Dive full-stack course</span><span data-l="ko">구름톤 딥다이브 풀스택 과정</span><i class="rule"></i><span class="pill">2025.02</span></span>
+          </div>
+          <div class="item">
+            <span class="item-title" data-l="en">Silver Prize</span><span class="item-title" data-l="ko">은상</span>
+            <span class="meta"><span data-l="en">2023 Sungshin Software Competition</span><span data-l="ko">2023 성신여자대학교 소프트웨어 경진대회</span><i class="rule"></i><span class="pill">2023.09</span></span>
+          </div>
+          <div class="item">
+            <span class="item-title" data-l="en">Bronze Prize</span><span class="item-title" data-l="ko">동상</span>
+            <span class="meta"><span data-l="en">2022 Sungshin Software Competition</span><span data-l="ko">2022 성신여자대학교 소프트웨어 경진대회</span><i class="rule"></i><span class="pill">2022.09</span></span>
+          </div>
+          <div class="item">
+            <span class="item-title" data-l="en">Selected entry</span><span class="item-title" data-l="ko">입선</span>
+            <span class="meta"><span data-l="en">2022 Hanieum contest</span><span data-l="ko">2022 한이음 공모전</span><i class="rule"></i><span class="pill">2022.12</span></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap row tight" aria-labelledby="cred-label">
+        <h2 class="label" id="cred-label"><span data-l="en">Credentials</span><span data-l="ko">자격·어학</span></h2>
+        <div class="stack">
+          <div class="item">
+            <span class="item-title" data-l="en">Engineer Information Processing</span><span class="item-title" data-l="ko">정보처리기사</span>
+            <span class="meta"><span data-l="en">Korean national certification</span><span data-l="ko">국가기술자격</span><i class="rule"></i><span class="pill">2025.09</span></span>
+          </div>
+          <div class="item">
+            <span class="item-title">SQLD</span>
+            <span class="meta"><span data-l="en">SQL Developer certification</span><span data-l="ko">SQL 개발자 자격</span><i class="rule"></i><span class="pill">2024.05</span></span>
+          </div>
+          <div class="item">
+            <span class="item-title">TOEIC 800</span>
+            <span class="meta"><span data-l="en">English</span><span data-l="ko">영어</span><i class="rule"></i><span class="pill">2025.02</span></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap row tight" aria-labelledby="writing-label">
+        <h2 class="label" id="writing-label"><span data-l="en">Writing</span><span data-l="ko">블로그</span></h2>
+        <a class="item" href="https://velog.io/@jayaione_ele/posts" target="_blank" rel="noopener">
+          <span class="item-title">Velog</span>
+          <span class="item-desc" data-l="en">Notes on what I learn while building.</span>
+          <span class="item-desc" data-l="ko">개발하며 배운 것을 정리합니다.</span>
+        </a>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <div class="foot-grid">
+        <h2 class="foot-title"><span data-l="en">Contact</span><span data-l="ko">연락처</span></h2>
+        <ul class="foot-list">
+          <li>
+            <span><span data-l="en">Email</span><span data-l="ko">이메일</span></span><i class="rule"></i>
+            <span class="val">ljw56b@gmail.com</span>
+            <button class="copy" type="button" data-copy="ljw56b@gmail.com"><svg class="i-clip" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3" width="9" height="10.5" rx="1.5"/><path d="M6 3v-.5a.5.5 0 01.5-.5h3a.5.5 0 01.5.5V3"/></svg><svg class="i-check" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-6.5"/></svg><span class="sr" data-l="en">Copy email address</span><span class="sr" data-l="ko">이메일 주소 복사</span></button>
+            <span class="sr" role="status" data-copy-status></span>
+          </li>
+          <li><a class="ext" href="https://github.com/JiwonLee42" target="_blank" rel="noopener"><span>GitHub</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><i class="rule"></i></li>
+          <li><a class="ext" href="https://velog.io/@jayaione_ele/posts" target="_blank" rel="noopener"><span>Velog</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><i class="rule"></i></li>
+        </ul>
+      </div>
+      <p class="foot-quote" data-l="en">Open to backend engineering roles.</p>
+      <p class="foot-quote" data-l="ko">백엔드 개발자로 함께할 곳을 찾고 있습니다.</p>
+      <div class="foot-legal"><small data-l="en">Jiwon Lee, 2026</small><small data-l="ko">이지원, 2026</small></div>
+    </div>
+  </footer>
+</body>
+</html>

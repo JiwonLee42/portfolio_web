@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="ko" data-lang="ko"
+  data-title-en="Nook | Jiwon Lee" data-title-ko="누크 | 이지원"
+  data-desc-en="Nook is a reading-log service. Jiwon Lee led the backend: a Redis sorted set for the home-screen stats API, and zero-downtime blue/green deploys with monitoring on Terraform."
+  data-desc-ko="누크는 독서 기록 서비스입니다. 백엔드 리드로 홈 화면 통계 API를 Redis ZSET으로 개선하고, Terraform으로 무중단 블루그린 배포와 모니터링을 구축했습니다.">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>누크 | 이지원</title>
+  <meta name="description" content="누크는 독서 기록 서비스입니다. 백엔드 리드로 홈 화면 통계 API를 Redis ZSET으로 개선하고, Terraform으로 무중단 블루그린 배포와 모니터링을 구축했습니다.">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1c1e" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230066ff'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='800' text-anchor='middle' fill='white'%3EJL%3C/text%3E%3C/svg%3E">
+  <script>
+    (function () {
+      var d = document.documentElement, lang, theme;
+      try { lang = new URLSearchParams(location.search).get("lang") || localStorage.getItem("lang"); theme = localStorage.getItem("theme"); } catch (e) {}
+      if (lang !== "en" && lang !== "ko") lang = "ko";
+      d.dataset.lang = lang; d.lang = lang;
+      if (theme === "light" || theme === "dark") d.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script src="../assets/variants.js" defer></script>
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="ko">본문으로 건너뛰기</span></a>
+
+  <div class="dock">
+    <header class="nav" id="nav">
+      <div class="nav-bar">
+        <a class="brand" href="../index.html" aria-label="Jiwon Lee, home">JL.</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
+          <span class="lbl-menu"><span data-l="en">Menu</span><span data-l="ko">메뉴</span></span><span class="lbl-close"><span data-l="en">Close</span><span data-l="ko">닫기</span></span>
+        </button>
+      </div>
+      <div class="nav-panel">
+        <nav class="menu" id="menu" aria-label="Site" inert>
+          <ul class="menu-list">
+          <li style="--i:0"><a href="../index.html"><span data-l="en">Home</span><span data-l="ko">홈</span></a></li>
+          <li class="group" style="--i:1"><span data-l="en">Projects</span><span data-l="ko">프로젝트</span></li>
+          <li style="--i:2"><a href="meogeodoe.html"><span data-l="en">Meogeodoe</span><span data-l="ko">먹어도돼?</span></a></li>
+          <li style="--i:3"><a href="nook.html" aria-current="page"><span data-l="en">Nook</span><span data-l="ko">누크</span></a></li>
+          <li style="--i:4"><a href="linku.html"><span data-l="en">Linku</span><span data-l="ko">링큐</span></a></li>
+          <li class="sep" style="--i:5" role="separator"></li>
+          <li style="--i:6"><a href="#contact" data-scroll-end><span data-l="en">Contact</span><span data-l="ko">연락처</span></a></li>
+          <li style="--i:7"><button type="button" data-toggle-theme><span><span data-l="en">Theme</span><span data-l="ko">테마</span></span><span><span data-mode="light" data-l="en">Light</span><span data-mode="light" data-l="ko">라이트</span><span data-mode="dark" data-l="en" hidden>Dark</span><span data-mode="dark" data-l="ko" hidden>다크</span></span></button></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="lang" role="group" aria-label="Language">
+      <button class="lang-btn" type="button" data-set-lang="ko" aria-pressed="true">한국어</button>
+      <button class="lang-btn" type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+  <nav class="toc" aria-labelledby="toc-title">
+    <h2 id="toc-title"><span data-l="en">On this page</span><span data-l="ko">이 페이지</span></h2>
+    <ol>
+        <li><a href="#sec-ov"><span data-l="en">What it does</span><span data-l="ko">서비스</span></a></li>
+        <li><a href="#sec-facts"><span data-l="en">Facts</span><span data-l="ko">정보</span></a></li>
+        <li><a href="#sec-did"><span data-l="en">What I did</span><span data-l="ko">역할</span></a></li>
+        <li><a href="#sec-back"><span data-l="en">Looking back</span><span data-l="ko">회고</span></a></li>
+      <li class="group"><span data-l="en">Case studies</span><span data-l="ko">케이스 스터디</span></li>
+        <li><a href="#stats"><span data-l="en">Monthly stats API</span><span data-l="ko">월별 통계 API 개선</span></a></li>
+        <li><a href="#infra"><span data-l="en">Zero-downtime deploys</span><span data-l="ko">무중단 배포·모니터링</span></a></li>
+    </ol>
+  </nav>
+
+  <div class="sheet">
+    <main id="main">
+      <section class="wrap hero">
+        <a class="crumb" href="../index.html#projects"><span data-l="en">All projects</span><span data-l="ko">전체 프로젝트</span></a>
+        <header class="project-head">
+          <h1 data-l="en">Nook</h1><h1 data-l="ko">누크</h1>
+          <p class="lede" data-l="en">A reading-log service. Search a book, put it on your shelf, read in focused sessions and see your reading stats on the home screen.</p>
+          <p class="lede" data-l="ko">독서 기록 서비스입니다. 책을 검색해 서재에 추가하고, 집중 독서를 하고, 홈 화면에서 독서 통계를 볼 수 있습니다.</p>
+          <div class="tags">
+            <span class="status"><span data-l="en">Deployed Sept 2026, in QA</span><span data-l="ko">2026년 9월 배포 완료, 지속적 QA 중</span></span>
+            <span class="pill">2026.01 – 2026.09</span>
+          </div>
+        </header>
+        <figure class="cover narrow">
+          <img src="../assets/img/nook-cover.webp" width="704" height="864" alt="Nook logo above two phone screens: a reading calendar on the home screen and a focused reading timer." decoding="async">
+        </figure>
+      </section>
+
+      <section class="wrap row tight" id="sec-ov" aria-labelledby="ov">
+        <h2 class="label" id="ov"><span data-l="en">What it does</span><span data-l="ko">서비스</span></h2>
+        <div>
+          <ul class="bullets" data-l="en">
+            <li>Search for books and add them to a bookshelf. Read in focused sessions and see reading stats on the home screen.</li>
+            <li>Write reading logs for each book on the shelf and view them as a timeline.</li>
+            <li>The backend is fully implemented, and the service is deployed and under continuous QA.</li>
+          </ul>
+          <ul class="bullets" data-l="ko">
+            <li>책을 검색하고 서재에 추가하며, 집중 독서와 홈 화면 독서 통계를 조회할 수 있습니다.</li>
+            <li>서재에 담은 책의 독서 기록을 작성하고 타임라인으로 조회할 수 있습니다.</li>
+            <li>백엔드는 구현을 마쳤고, 배포 후 지속적으로 QA 중입니다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="wrap row tight" id="sec-facts" aria-labelledby="facts">
+        <h2 class="label" id="facts"><span data-l="en">Facts</span><span data-l="ko">정보</span></h2>
+        <dl class="facts">
+          <div><dt data-l="en">Origin</dt><dt data-l="ko">출처</dt>
+            <dd data-l="en">UMC 8th, a university student IT club. Team project.</dd>
+            <dd data-l="ko">UMC(대학생 IT 동아리) 8기 팀 프로젝트</dd></div>
+          <div><dt data-l="en">Team</dt><dt data-l="ko">구성원</dt>
+            <dd data-l="en">Spring Boot 2, React 4, PM 1, Design 1</dd>
+            <dd data-l="ko">Spring Boot 2명, React 4명, PM 1명, Design 1명</dd></div>
+          <div><dt data-l="en">My share</dt><dt data-l="ko">기여도</dt>
+            <dd data-l="en">Backend lead, 60% of the backend</dd>
+            <dd data-l="ko">백엔드 리드, 백엔드 60%</dd></div>
+          <div><dt data-l="en">Stack</dt><dt data-l="ko">기술 스택</dt>
+            <dd class="stack-groups">
+              <div><span class="sg">Backend</span><ul class="chips"><li class="main">Spring Boot</li></ul></div>
+              <div><span class="sg">Data</span><ul class="chips"><li>PostgreSQL</li><li>Redis</li><li>Supabase</li><li>Cloudflare R2</li></ul></div>
+              <div><span class="sg">Infra</span><ul class="chips"><li>AWS EC2 / RDS</li><li>Nginx</li><li>Docker Compose</li><li>Terraform</li></ul></div>
+              <div><span class="sg">Monitoring</span><ul class="chips"><li>Prometheus</li><li>Loki</li><li>Grafana</li></ul></div>
+            </dd></div>
+        </dl>
+      </section>
+
+      <section class="wrap row tight" id="sec-did" aria-labelledby="did">
+        <h2 class="label" id="did"><span data-l="en">What I did</span><span data-l="ko">역할</span></h2>
+        <div>
+          <ul class="bullets" data-l="en">
+            <li>Led the backend: set the <strong>project structure, conventions and error-handling structure</strong>.</li>
+            <li>Designed the database and APIs for members, bookshelves and reading logs, and fixed <strong>N+1 queries with fetch join and query projection</strong>.</li>
+            <li>Built photo upload with <strong>Cloudflare R2 presigned URLs</strong>.</li>
+            <li>Designed the <strong>Redis cache</strong> structure and tuned indexes.</li>
+            <li>Introduced <strong>Testcontainers</strong> integration tests and RestDocs with Swagger.</li>
+            <li>Built <strong>Prometheus, Loki and Grafana</strong> monitoring.</li>
+            <li>Turned EC2, security groups, VPC and subnets into <strong>Terraform</strong> modules for the dev, prod and monitoring servers.</li>
+            <li>Built zero-downtime CI/CD: <strong>GitHub Actions to ECR to Blue/Green</strong>.</li>
+          </ul>
+          <ul class="bullets" data-l="ko">
+            <li>Backend 리드를 맡아 <strong>프로젝트 구조·컨벤션 확립 및 에러 핸들링 구조</strong>를 구축했습니다.</li>
+            <li>회원·서재·독서 기록 DB 설계 및 API 구현, <strong>N+1 문제는 fetch join 및 Query Projection</strong>으로 개선했습니다.</li>
+            <li><strong>Cloudflare R2 presigned URL</strong> 기반 사진 업로드를 구현했습니다.</li>
+            <li><strong>Redis 캐시 구조</strong>를 설계하고 인덱스를 튜닝했습니다.</li>
+            <li><strong>Testcontainers</strong> 통합 테스트, RestDocs·Swagger를 도입했습니다.</li>
+            <li><strong>Prometheus·Loki·Grafana</strong> 기반 모니터링 구조를 구축했습니다.</li>
+            <li>EC2·보안그룹·VPC·서브넷을 <strong>Terraform</strong>으로 인프라 모듈화하고, 개발계·운영계·모니터링 서버를 구축했습니다.</li>
+            <li><strong>GitHub Actions → ECR → Blue/Green</strong> 무중단 배포 및 CI/CD를 구축했습니다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="wrap row tight" id="sec-back" aria-labelledby="back">
+        <h2 class="label" id="back"><span data-l="en">Looking back</span><span data-l="ko">회고</span></h2>
+        <div>
+          <ul class="bullets" data-l="en">
+            <li>After the demo I took in feedback from <strong>more than 50 users</strong>, and built the habit of load testing before a feature is done so that growth does not surprise me.</li>
+            <li>A <strong>cache strategy has to be designed from the start</strong>. Reading query execution plans taught me how to choose indexes that are actually used.</li>
+            <li>Learned rolling and <strong>blue/green traffic switching with Nginx upstream</strong>, and managed infrastructure as code with <strong>Terraform</strong> for the first time.</li>
+          </ul>
+          <ul class="bullets" data-l="ko">
+            <li>데모 후 <strong>50명 이상의 사용자 피드백</strong>을 반영하며, 기능 완성 전 부하 테스트로 사용자 증가에 미리 대비하는 습관을 만들었습니다.</li>
+            <li><strong>캐시 전략은 처음부터 설계</strong>해야 함을 배우고, 쿼리 실행 계획 분석으로 인덱스가 실제로 타는 컬럼을 선택하는 방법을 배웠습니다.</li>
+            <li>무중단 배포 전환으로 롤링·블루그린 방식과 <strong>Nginx upstream 트래픽 전환</strong>을 학습했고, <strong>Terraform IaC</strong>로 인프라를 처음으로 코드로 관리해 봤습니다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Case study 1 -->
+      <article class="wrap case" id="stats">
+        <header>
+          <h2 data-l="en">Speeding up the monthly stats API on the home screen</h2>
+          <h2 data-l="ko">홈 화면 월별 통계 API 속도 개선</h2>
+          <p class="lede" data-l="en">I stopped re-aggregating on every read and cached the aggregate itself in a Redis sorted set.</p>
+          <p class="lede" data-l="ko">홈 화면 월별 통계 API의 반복 집계 비용을 캐싱과 인덱싱으로 줄인 경험입니다.</p>
+        </header>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Requirements</span><span data-l="ko">요구사항</span></h3>
+          <div>
+            <ul class="bullets" data-l="en">
+              <li>The home screen shows stats as a calendar, such as the most-read book of each day and the time read per book. It is a low-write, high-read screen, so <strong>responses must be fast</strong>.</li>
+              <li>Even when reads pile up, <strong>database load must not keep growing</strong>.</li>
+              <li>With containers replaced on every deploy, including blue/green, an empty cache right after a deploy must not send a surge of load to the database.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li>홈 화면은 달력 형태로 통계를 보여 주는 API를 쓰는데, '날짜별 가장 많이 읽은 책', '책 읽은 시간 통계'는 조회가 잦은 화면이라 <strong>응답이 빨라야</strong> 합니다.</li>
+              <li>조회가 몰려도 <strong>DB 부하가 계속 커지면 안 됩니다.</strong></li>
+              <li>배포마다 컨테이너가 새로 뜨는 블루그린 환경에서도, 배포 직후 캐시가 비어 부하가 몰리는 일이 없어야 합니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Before</span><span data-l="ko">기존 방식</span></h3>
+          <div>
+            <p class="sub" data-l="en">A GROUP BY recomputed on every read</p>
+            <p class="sub" data-l="ko">조회할 때마다 GROUP BY로 재계산</p>
+            <ul class="bullets" data-l="en">
+              <li>Each request ran a plain aggregate query. <span class="code">EXTRACT</span> on a date column stopped the index from being used and forced a <strong>full scan</strong>, so more reads meant slower responses and more database load together.</li>
+              <li>Splitting the date column and adding an index cut query time by about <strong>12%</strong>. But the structure that recomputes on every read stayed, so the root problem, load growing with reads, was still there.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li>홈 화면 통계를 조회할 때마다 DB에서 GROUP BY를 매번 다시 계산하는 단순 집계 조회 방식이었습니다. <span class="code">EXTRACT</span> 함수가 걸린 컬럼이라 인덱스를 타지 못하고 <strong>풀스캔</strong>까지 겹쳐, 조회가 몰리면 응답 지연과 DB 부하가 함께 커졌습니다.</li>
+              <li>날짜 컬럼을 분리해 인덱스를 타도록 고쳤고 실제로 조회 시간이 약 <strong>12%</strong> 줄었습니다. 하지만 조회할 때마다 매번 재계산하는 구조 자체는 그대로라, 조회가 몰릴수록 부하가 계속 늘어나는 근본 문제는 남아 있었습니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Approach</span><span data-l="ko">해결</span></h3>
+          <div>
+            <p class="sub" data-l="en">Change the structure so nothing is recomputed</p>
+            <p class="sub" data-l="ko">Redis ZSET으로 재계산 자체를 하지 않는 구조로 변경</p>
+            <ol class="flow" data-l="en">
+              <li><b>A reading log ends</b><span>The book's score is added with <span class="code">ZINCRBY</span>, so the ranking is updated in real time.</span></li>
+              <li><b>The home screen is opened</b><span><span class="code">ZREVRANGE</span> returns the top few from an order that is already sorted.</span></li>
+              <li class="end"><b>If Redis is down</b><span>The request falls back to the GROUP BY query on the database.</span></li>
+            </ol>
+            <ol class="flow" data-l="ko">
+              <li><b>독서 기록이 끝나면</b><span><span class="code">ZINCRBY</span>로 해당 책의 점수를 더해 순위를 실시간으로 갱신합니다.</span></li>
+              <li><b>홈 화면을 조회하면</b><span><span class="code">ZREVRANGE</span>로 이미 정렬돼 있는 순서에서 상위 몇 개만 바로 꺼냅니다.</span></li>
+              <li class="end"><b>Redis 장애 시</b><span>DB에서 GROUP BY 연산을 실행하는 경로로 대체합니다.</span></li>
+            </ol>
+            <ul class="bullets" style="margin-top:20px" data-l="en">
+              <li>“The most-read book of a day” is <strong>hot data at a point in time that is read again and again</strong>. So instead of recomputing on each read, the aggregate result itself is cached.</li>
+              <li>A sorted set always keeps its members ordered by score, so there is <strong>nothing to re-sort or recalculate</strong> at read time.</li>
+            </ul>
+            <ul class="bullets" style="margin-top:20px" data-l="ko">
+              <li>'날짜별 가장 많이 읽은 책'의 통계는 <strong>특정 시점의 인기 데이터가 반복 조회되는 패턴</strong>이라, 매번 재계산하는 대신 집계 결과 자체를 Redis ZSET에 캐싱합니다.</li>
+              <li>ZSET은 항상 score 순 정렬을 유지하는 자료구조라 <strong>조회 시점에 다시 정렬·계산할 필요가 없습니다.</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Result</span><span data-l="ko">결과</span></h3>
+          <div>
+            <dl class="stats">
+              <div><dt data-l="en">Average response</dt><dt data-l="ko">평균 응답</dt><dd>−18%</dd></div>
+              <div><dt data-l="en">p95 response</dt><dt data-l="ko">p95 응답</dt><dd>−20%</dd></div>
+              <div><dt data-l="en">Max response</dt><dt data-l="ko">최대 응답</dt><dd>−77%</dd></div>
+            </dl>
+            <p class="note" data-l="en">k6 load test after inserting 500,000 rows, on a local environment.</p>
+            <p class="note" data-l="ko">k6로 50만 건 삽입 후 부하 테스트, 로컬 환경 기준입니다.</p>
+            <p style="margin-top:16px" data-l="en">A cache is not only a speed technique. To use it in a real service, it has to be designed together with <strong>TTL and invalidation rules, and how the internals behave on failure</strong>.</p>
+            <p style="margin-top:16px" data-l="ko">캐시는 속도 개선만을 위한 기술이 아니라, TTL·무효화 기준과 장애 시 내부 처리 구조까지 함께 설계해야 실제 서비스에 쓸 수 있다는 걸 배웠습니다.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case study 2 -->
+      <article class="wrap case" id="infra">
+        <header>
+          <h2 data-l="en">Zero-downtime deploys and monitoring on Terraform</h2>
+          <h2 data-l="ko">Terraform 기반 무중단 배포·모니터링 구축</h2>
+          <p class="lede" data-l="en">I turned infrastructure that was managed by hand in the console into code, then built zero-downtime deploys and warning-signal monitoring on top of it.</p>
+          <p class="lede" data-l="ko">콘솔로 수동 관리하던 인프라를 Terraform으로 코드화하고, 그 위에 무중단 배포와 위험 신호 기반 모니터링 구조를 구축한 경험입니다.</p>
+        </header>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Before</span><span data-l="ko">기존 방식</span></h3>
+          <div>
+            <ul class="bullets" data-l="en">
+              <li><strong>Infrastructure:</strong> values were looked up and typed in by hand in the AWS console. Development convenience and production control were mixed together.</li>
+              <li><strong>Deploys:</strong> <span class="code">git pull</span> and restart the application. The service was down during the restart, and there was no automated way back after a failure.</li>
+              <li><strong>Monitoring:</strong> none. When something went wrong in operation, there was no way to notice it.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li><strong>인프라:</strong> AWS 콘솔에서 값을 직접 조회해 입력하는 수동 관리 방식이라, 개발 편의와 운영 통제가 같은 방식으로 섞여 있었습니다.</li>
+              <li><strong>배포:</strong> git pull 후 애플리케이션을 재시작하는 방식이라 재시작 동안 서비스가 중단됐고, 실패 시 되돌리는 절차도 자동화돼 있지 않았습니다.</li>
+              <li><strong>모니터링:</strong> 관측 자체가 구축돼 있지 않아, 운영 중 이상이 생겨도 알아챌 방법이 없었습니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Infrastructure as code</span><span data-l="ko">IaC 도입</span></h3>
+          <div>
+            <ul class="bullets" data-l="en">
+              <li><strong>Independent Terraform modules:</strong> VPC, subnets, EC2 and security groups are separate modules wired together through outputs. One <span class="code">terraform apply</span> rebuilds the whole infrastructure, and the development server that already existed was brought in with <span class="code">import</span>.</li>
+              <li><strong>Separate instances:</strong> the same modules are applied to the development, production and monitoring servers. Development stays free to inspect and recreate, while production secrets and deploy steps are controlled separately.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li><strong>Terraform 독립 모듈 설정:</strong> 콘솔 수동 관리를 고치기 위해, VPC·서브넷·EC2·보안 그룹을 독립 모듈로 분리하고 output으로 체이닝합니다. <span class="code">terraform apply</span> 한 번으로 전체 인프라를 재현하며, 기존 배포한 개발 서버는 import 설정했습니다.</li>
+              <li><strong>인스턴스 분리:</strong> 개발 편의와 운영 통제가 섞여 있던 문제를 고치기 위해, 같은 모듈을 개발계·운영계·모니터링 서버로 나눠 각각 적용했습니다. 개발계는 자유롭게 확인·재현할 수 있게 두고, 운영계는 시크릿 관리와 배포 절차를 별도로 통제합니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Blue/green deploy</span><span data-l="ko">블루그린 배포</span></h3>
+          <div>
+            <p class="sub" data-l="en">Two containers of the same app, and Nginx only switches traffic</p>
+            <p class="sub" data-l="ko">동일 애플리케이션을 blue/green 두 컨테이너로 운영하고 Nginx는 트래픽 전환만 담당</p>
+            <ol class="flow" data-l="en">
+              <li><b>GitHub Actions builds the image</b><span>It is pushed to ECR.</span></li>
+              <li><b>The new version starts on the idle container</b><span>The container that is serving traffic is left untouched.</span></li>
+              <li><b>Health check</b><span>Traffic is passed over only after the new container is healthy.</span></li>
+              <li class="end"><b>Nginx switches the upstream</b><span>If the new version fails, the old one keeps serving and the deploy rolls back automatically.</span></li>
+            </ol>
+            <ol class="flow" data-l="ko">
+              <li><b>GitHub Actions가 이미지를 빌드</b><span>ECR에 올립니다.</span></li>
+              <li><b>유휴 컨테이너에 신버전을 먼저 띄움</b><span>서비스 중인 컨테이너는 건드리지 않습니다.</span></li>
+              <li><b>헬스체크</b><span>통과 후에만 트래픽을 넘깁니다.</span></li>
+              <li class="end"><b>Nginx upstream 전환</b><span>실패하면 기존 버전이 그대로 서비스를 유지하고 자동 롤백됩니다.</span></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Monitoring</span><span data-l="ko">모니터링</span></h3>
+          <div>
+            <p class="sub" data-l="en">A monitoring server, separate from development and production</p>
+            <p class="sub" data-l="ko">모니터링 서버를 운영·개발 서버와 별도로 구축</p>
+            <ul class="bullets" data-l="en">
+              <li>Logs from each server are collected by <strong>Grafana Alloy</strong>, sent to <strong>Loki</strong>, and viewed in Grafana by the <span class="code">environment</span> label (dev or prod).</li>
+              <li><strong>Prometheus</strong> scrapes Spring Boot Actuator (JVM memory and GC, database connection pool) and Redis Exporter (cache hit rate and memory usage), so application state and cache state are observed together.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li>각 서버의 로그를 <strong>Grafana Alloy</strong>로 수집해 <strong>Loki</strong>로 연결하고, Grafana에서 <span class="code">environment</span>(dev/prod) 라벨별로 조회할 수 있게 구성했습니다.</li>
+              <li><strong>Prometheus</strong>가 Spring Boot Actuator(JVM 메모리·GC, DB 커넥션 풀 지표)와 Redis Exporter(캐시 hit rate·메모리 사용량)를 각각 스크래핑해, 애플리케이션 상태와 캐시 상태를 함께 관측합니다.</li>
+            </ul>
+            <figure class="shot diagram">
+              <a href="../assets/img/nook-architecture.webp" target="_blank" rel="noopener"><img src="../assets/img/nook-architecture.webp" width="1800" height="1305" alt="Nook architecture. A React client reaches Nginx, which routes to a blue and a green Spring Boot API server on an EC2 instance with Redis, Supabase, Grafana Alloy and a Prometheus exporter. A separate EC2 instance runs Grafana, Loki and the Prometheus server, which sends alerts to Discord. Both instances are created with Terraform." loading="lazy" decoding="async"></a>
+              <figcaption data-l="en">Architecture: Nginx in front of the blue and green API servers, and a separate monitoring server that alerts Discord</figcaption>
+              <figcaption data-l="ko">아키텍처: Nginx 뒤의 Blue/Green API 서버와, Discord로 알림을 보내는 별도 모니터링 서버</figcaption>
+            </figure>
+            <div class="shots" style="margin-top:20px">
+              <figure class="shot" style="margin-top:0">
+                <img src="../assets/img/nook-grafana-redis.webp" width="936" height="661" alt="Grafana dashboard for Redis showing keyspace hits and misses, command latency, connections and errors." loading="lazy" decoding="async">
+                <figcaption data-l="en">Redis dashboard: cache hit rate and memory</figcaption>
+                <figcaption data-l="ko">Redis 대시보드: 캐시 hit rate·메모리 사용량</figcaption>
+              </figure>
+              <figure class="shot" style="margin-top:0">
+                <img src="../assets/img/nook-grafana-app.webp" width="1082" height="661" alt="Grafana dashboard for the prod server showing Spring HTTP request rate and latency, JVM CPU and memory, and Tomcat threads." loading="lazy" decoding="async">
+                <figcaption data-l="en">Dev and prod dashboard: JVM and connection metrics</figcaption>
+                <figcaption data-l="ko">Dev/Prod Server 대시보드: JVM·DB 커넥션 등 애플리케이션 지표</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Alerts</span><span data-l="ko">알림 연동</span></h3>
+          <div>
+            <ol class="flow" data-l="en">
+              <li><b>Prometheus</b><span>Collects metrics from the development and production servers, split by the <span class="code">environment</span> label.</span></li>
+              <li><b>Alert rules</b><span>App is down, 5xx ratio above 5%, or p95 response time above 1 second, evaluated per environment.</span></li>
+              <li class="end"><b>Alertmanager to Discord</b><span>It matches the same label and posts to separate development and production channels.</span></li>
+            </ol>
+            <ol class="flow" data-l="ko">
+              <li><b>Prometheus</b><span>개발·운영 서버의 지표를 <span class="code">environment</span> 라벨로 구분해 수집합니다.</span></li>
+              <li><b>알림 규칙</b><span>앱 다운, 5xx 비율 5% 초과, p95 응답 1초 초과 등을 environment별로 집계해 정의했습니다.</span></li>
+              <li class="end"><b>Alertmanager에서 Discord로</b><span>이 라벨로 매칭해 개발용과 운영용 Discord 채널로 나눠 전송합니다.</span></li>
+            </ol>
+            <figure class="shot" style="max-width:420px">
+              <img src="../assets/img/nook-discord-alert.webp" width="579" height="267" alt="Discord messages from an alert bot: a firing alert that the prod API target is down, then a resolved message." loading="lazy" decoding="async">
+              <figcaption data-l="en">Discord alert when a server goes down and when it recovers</figcaption>
+              <figcaption data-l="ko">Discord 알림: 서버 다운·복구 시 알림</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <div class="wrap">
+        <a class="next" href="linku.html">
+          <span class="hint"><span data-l="en">Next project</span><span data-l="ko">다음 프로젝트</span></span>
+          <span class="name" data-l="en">Linku</span><span class="name" data-l="ko">링큐</span>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <div class="foot-grid">
+        <h2 class="foot-title"><span data-l="en">Contact</span><span data-l="ko">연락처</span></h2>
+        <ul class="foot-list">
+          <li>
+            <span><span data-l="en">Email</span><span data-l="ko">이메일</span></span><i class="rule"></i>
+            <span class="val">ljw56b@gmail.com</span>
+            <button class="copy" type="button" data-copy="ljw56b@gmail.com"><svg class="i-clip" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3" width="9" height="10.5" rx="1.5"/><path d="M6 3v-.5a.5.5 0 01.5-.5h3a.5.5 0 01.5.5V3"/></svg><svg class="i-check" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-6.5"/></svg><span class="sr" data-l="en">Copy email address</span><span class="sr" data-l="ko">이메일 주소 복사</span></button>
+            <span class="sr" role="status" data-copy-status></span>
+          </li>
+          <li><a class="ext" href="https://github.com/JiwonLee42" target="_blank" rel="noopener"><span>GitHub</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><i class="rule"></i></li>
+          <li><a class="ext" href="https://velog.io/@jayaione_ele/posts" target="_blank" rel="noopener"><span>Velog</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><i class="rule"></i></li>
+        </ul>
+      </div>
+      <p class="foot-quote" data-l="en">Open to backend engineering roles.</p>
+      <p class="foot-quote" data-l="ko">백엔드 개발자로 함께할 곳을 찾고 있습니다.</p>
+      <div class="foot-legal"><small data-l="en">Jiwon Lee, 2026</small><small data-l="ko">이지원, 2026</small></div>
+    </div>
+  </footer>
+</body>
+</html>
