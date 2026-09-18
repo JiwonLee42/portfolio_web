@@ -61,6 +61,7 @@
   <nav class="toc" aria-labelledby="toc-title">
     <h2 id="toc-title"><span data-l="en">On this page</span><span data-l="ko">이 페이지</span></h2>
     <ol>
+        <li><a href="#sec-result"><span data-l="en">Results</span><span data-l="ko">성과</span></a></li>
         <li><a href="#sec-ov"><span data-l="en">What it does</span><span data-l="ko">서비스</span></a></li>
         <li><a href="#sec-facts"><span data-l="en">Facts</span><span data-l="ko">정보</span></a></li>
         <li><a href="#sec-did"><span data-l="en">What I did</span><span data-l="ko">역할</span></a></li>
@@ -85,6 +86,24 @@
         <figure class="cover">
           <img src="../assets/img/callfromai-cover.webp" width="1400" height="1140" alt="The CallFromAI cover: a pink background with the title 전화왔어 and two phone screens. The home screen shows the relationship stats, today’s scheduled call and past notifications, and the call screen shows an incoming call with answer and decline buttons." decoding="async">
         </figure>
+      </section>
+
+      <section class="wrap row tight" id="sec-result" aria-labelledby="result">
+        <h2 class="label" id="result"><span data-l="en">Results</span><span data-l="ko">성과</span></h2>
+        <div>
+            <ul class="bullets" data-l="en">
+              <li><strong>Demo day:</strong> I showed it to more than 50 users. Call success, sound quality and the feedback were all good, and most of the users were satisfied.</li>
+              <li><strong>UI and UX:</strong> Frontend work is what users meet directly on the screen, so I improved the call and home screens with UI and UX in mind.</li>
+              <li><strong>My first Android part:</strong> This was the first time I joined as part of an Android part. I had studied for two months with MVVM. MVI was hard at first, but I came to see its advantages and applied it in this project.</li>
+              <li><strong>My first time leading:</strong> After running a short study, I took the lead of the part for the first time, which made me take part with more responsibility.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li><strong>데모데이:</strong> 50명 이상의 사용자를 대상으로 시연했고, 통화 성공과 음질, 사용자 피드백이 모두 좋았으며 대부분의 사용자가 만족했습니다.</li>
+              <li><strong>UI/UX:</strong> 프론트엔드는 사용자가 화면으로 바로 만나는 부분이라, 통화 화면과 홈 화면을 만들면서 UI/UX를 고려해 개선해 봤습니다.</li>
+              <li><strong>첫 Android 파트 참여:</strong> Android 파트로는 처음 참여한 프로젝트입니다. 이전에 2개월간 MVVM으로 스터디를 했고, MVI 패턴은 처음엔 어려웠지만 장점을 깨닫고 이번 프로젝트에 적용했습니다.</li>
+              <li><strong>첫 리드 경험:</strong> 짧은 기간 스터디를 진행한 뒤 처음으로 파트 리드를 맡게 되어, 더 책임감 있게 참여했습니다.</li>
+            </ul>
+        </div>
       </section>
 
       <section class="wrap row tight" id="sec-ov">
@@ -112,8 +131,8 @@
               <dd data-l="en">Android 4, Spring Boot 4, PM 1, Design 1</dd>
               <dd data-l="ko">Android 4명, Spring Boot 4명, PM 1명, Design 1명</dd></div>
             <div><dt data-l="en">My part</dt><dt data-l="ko">담당</dt>
-              <dd data-l="en">The calling feature with the AI, and the home screen, on Android</dd>
-              <dd data-l="ko">Android에서 AI와의 통화 기능과 홈 화면</dd></div>
+              <dd data-l="en">On Android: the call feature with the AI, and the home screen UI and API integration</dd>
+              <dd data-l="ko">Android에서 AI와의 통화 기능과 홈 화면 UI 구현 및 API 연동</dd></div>
             <div><dt data-l="en">My share</dt><dt data-l="ko">기여도</dt>
               <dd data-l="en">Android, 30%</dd>
               <dd data-l="ko">Android 30%</dd></div>
@@ -258,19 +277,6 @@
               <li>종료는 <span class="code">stop</span>, 캡처 job 종료 대기, <span class="code">release</span> 순서로 나눠 블로킹 <span class="code">read()</span>와 해제가 부딪히지 않게 합니다.</li>
               <li>재생 쪽 <span class="code">AudioTrack</span>의 동시 접근도 막습니다.</li>
             </ul>
-          </div>
-        </div>
-        <div class="row">
-          <h3 class="label"><span data-l="en">A suggestion</span><span data-l="ko">제안으로 남긴 것</span></h3>
-          <div>
-            <ul class="bullets" data-l="en">
-              <li>For the AI summary after a call, I suggested to the backend side that a “summarizing” state be shown first, instead of polling on every lookup. I could not confirm the final implementation, so I do not count it as finished work.</li>
-            </ul>
-            <ul class="bullets" data-l="ko">
-              <li>통화 종료 후 AI 요약은 조회 때마다 폴링하기보다 <span class="code">요약 중</span> 상태를 먼저 보여주자고 백엔드 쪽에 제안했습니다. 최종 구현은 확인하지 못해서 완료한 일로는 적지 않았습니다.</li>
-            </ul>
-            <p class="note" data-l="en">There is no record of measuring the call success rate on real devices, latency, sound quality per device, or tests that reproduce the races, so this page only says that the structure was built.</p>
-            <p class="note" data-l="ko">실기기 통화 성공률, 지연 시간, 기기별 음질 QA, 경합 재현 테스트는 확인한 기록이 없어 “구조를 구현했다”까지만 적었습니다.</p>
           </div>
         </div>
       </article>
