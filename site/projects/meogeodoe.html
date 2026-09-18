@@ -68,7 +68,7 @@
       <li class="group"><span data-l="en">Case studies</span><span data-l="ko">케이스 스터디</span></li>
         <li><a href="#notifications"><span data-l="en">Scheduled reminders</span><span data-l="ko">식후 알림 예약 발송</span></a></li>
         <li><a href="#tracing"><span data-l="en">Exception tracing</span><span data-l="ko">예외 역추적</span></a></li>
-        <li><a href="#ai-review"><span data-l="en">AI review checks</span><span data-l="ko">AI 코드 리뷰 검증</span></a></li>
+        <li><a href="#ai-workflow"><span data-l="en">AI workflow</span><span data-l="ko">AI 활용 워크플로우</span></a></li>
     </ol>
   </nav>
 
@@ -334,69 +334,119 @@
       </article>
 
       <!-- Case study 3 -->
-      <article class="wrap case" id="ai-review">
+      <article class="wrap case" id="ai-workflow">
         <header>
-          <h2 data-l="en">Verifying AI code review with Claude Code hooks</h2>
-          <h2 data-l="ko">Claude Code 훅으로 AI 코드 리뷰 검증</h2>
-          <p class="lede" data-l="en">As a solo developer I built the habit of applying AI review comments only after checking them myself.</p>
-          <p class="lede" data-l="ko">1인 개발이라 하네스에 등록한 AI 코드 리뷰의 지적을 곧바로 반영하지 않고, 직접 검증한 뒤에만 반영하는 습관을 들인 경험입니다.</p>
+          <h2 data-l="en">Treating AI as a collaborator that needs checking: skills, hooks and a decision log</h2>
+          <h2 data-l="ko">스킬·훅·기록 3층으로 AI를 검증이 필요한 협업자로 다루기</h2>
+          <p class="lede" data-l="en">To work with AI as a collaborator whose output has to be checked, I built the development workflow in three layers: skills as guidance, hooks as enforcement, and <span class="code">decisions.log</span> as the record.</p>
+          <p class="lede" data-l="ko">AI를 “검증이 필요한 협업자”로 다루기 위해, 스킬(가이드)·훅(강제)·<span class="code">decisions.log</span>(기록) 세 층으로 개발 워크플로우를 구성한 경험입니다.</p>
         </header>
 
         <div class="row">
-          <h3 class="label"><span data-l="en">Background</span><span data-l="ko">배경</span></h3>
+          <h3 class="label"><span data-l="en">Requirements</span><span data-l="ko">요구사항</span></h3>
           <div>
             <ul class="bullets" data-l="en">
-              <li>There was no human reviewer, so I registered an AI code-review skill in my harness to close the review gap.</li>
-              <li>Applying the comments as they came would mean <strong>taking correct and wrong ones alike</strong>.</li>
+              <li><strong>Cover the missing reviewer:</strong> repeated review criteria have to stay in place even without a human reviewer.</li>
+              <li><strong>Enforce the rules:</strong> rules that must hold through a long conversation, such as editing DTOs, the commit convention and risky commands, have to be held by a mechanism, not by an instruction.</li>
+              <li><strong>Trace the judgments:</strong> what the AI and the tools decided has to be checkable later.</li>
             </ul>
             <ul class="bullets" data-l="ko">
-              <li>1인 개발이라 사람 리뷰어가 따로 없어, 하네스에 AI 코드 리뷰 스킬을 등록해 리뷰 공백을 해결하고자 했습니다.</li>
-              <li>AI 지적을 곧이곧대로 받아 적용하면, <strong>맞는 지적과 틀린 지적을 구분 없이</strong> 그대로 반영하게 될 위험이 있었습니다.</li>
+              <li><strong>리뷰 공백 보완:</strong> 사람 리뷰어가 따로 없어도 반복 리뷰 기준이 유지돼야 합니다.</li>
+              <li><strong>규칙의 강제:</strong> 대화가 길어져도 지켜져야 하는 규칙(DTO 편집, 커밋 컨벤션, 위험 명령)은 지시가 아니라 장치로 걸려야 합니다.</li>
+              <li><strong>판단의 추적:</strong> AI·도구가 내린 판단을 나중에 확인할 수 있어야 합니다.</li>
             </ul>
           </div>
         </div>
-
         <div class="row">
-          <h3 class="label"><span data-l="en">Hooks</span><span data-l="ko">하네스 자동화</span></h3>
+          <h3 class="label"><span data-l="en">Problem</span><span data-l="ko">문제</span></h3>
           <div>
-            <p class="sub" data-l="en">Hooks in <span class="code">.claude/hooks</span> decide differently for each kind of action</p>
-            <p class="sub" data-l="ko"><span class="code">.claude/hooks</span>에 훅을 구축해 행동마다 판단을 다르게 설정</p>
+            <p class="sub" data-l="en">What goes wrong with guidance documents alone</p>
+            <p class="sub" data-l="ko">가이드 문서만 둘 경우 발생하는 문제</p>
             <ul class="bullets" data-l="en">
-              <li><strong>Run automatically:</strong> anything mechanical to fix, such as a ktlint violation.</li>
-              <li><strong>Block:</strong> commit-convention violations and hard-to-undo actions like <span class="code">push --force</span> or <span class="code">rm -rf</span>.</li>
-              <li><strong>Ask a human:</strong> areas that need a business decision, such as editing a DTO.</li>
-              <li><strong>Record:</strong> every one of these decisions goes into <span class="code">decisions.log</span>.</li>
+              <li><strong>Rules get lost:</strong> a rule like “do not touch DTO files without an explicit instruction” that lives only in <span class="code">CLAUDE.md</span> or a memory file may not be followed once the conversation gets long or is summarized. There was a guidance layer and nothing that enforced it.</li>
+              <li><strong>Taking comments uncritically:</strong> if AI review comments are applied without telling them apart, correct and wrong ones get mixed in.</li>
             </ul>
             <ul class="bullets" data-l="ko">
-              <li><strong>자동 실행:</strong> ktlint 위반처럼 기계적으로 바로 고칠 수 있는 건 자동으로 실행합니다.</li>
-              <li><strong>실행 차단:</strong> 커밋 컨벤션 위반이나 <span class="code">push --force</span>, <span class="code">rm -rf</span> 같은 되돌리기 어려운 행동은 차단합니다.</li>
-              <li><strong>사람 승인:</strong> DTO 편집처럼 비즈니스 판단이 필요한 영역은 사람 승인으로 남겨둡니다.</li>
-              <li><strong>판단 기록:</strong> 위 모든 판단을 <span class="code">decisions.log</span>에 기록합니다.</li>
+              <li><strong>규칙 유실:</strong> “DTO 파일은 명시적 지시 없이 건드리지 않는다” 같은 규칙이 <span class="code">CLAUDE.md</span>·메모리 파일로만 있으면, 대화 맥락이 길어지거나 요약될 때 지켜지지 않을 위험이 있습니다. 가이드 계층만 있고 강제하는 장치가 없는 상태였습니다.</li>
+              <li><strong>무비판 반영:</strong> AI 리뷰 지적을 구분 없이 반영하면, 맞는 지적과 틀린 지적이 그대로 섞여 들어갑니다.</li>
             </ul>
           </div>
         </div>
-
         <div class="row">
-          <h3 class="label"><span data-l="en">Verification</span><span data-l="ko">검증 절차</span></h3>
+          <h3 class="label"><span data-l="en">Approach</span><span data-l="ko">해결</span></h3>
           <div>
-            <p class="sub" data-l="en">Check the comment first, apply it only afterwards</p>
-            <p class="sub" data-l="ko">지적을 곧바로 반영하지 않고 직접 확인</p>
+            <p class="sub" data-l="en">Three layers: skills, hooks and a record</p>
+            <p class="sub" data-l="ko">스킬 · 훅 · 기록 3층 구조로 해결</p>
+            <ol class="flow" data-l="en">
+              <li><b>Skills: standards for review and writing</b><span>Repeated review and writing criteria are registered as skills.</span></li>
+              <li><b>Hooks: run, block or ask</b><span>Each kind of action gets its own decision.</span></li>
+              <li><b>decisions.log: every judgment recorded</b><span>What the hooks decided can be read back later.</span></li>
+              <li class="end"><b>Comments from the AI are traced by hand</b><span>A comment is applied only after I have confirmed it in the code. If the evidence is unclear, it is sent back.</span></li>
+            </ol>
+            <ol class="flow" data-l="ko">
+              <li><b>스킬: 리뷰·작성 기준</b><span>반복 리뷰·작성 기준을 스킬로 등록합니다.</span></li>
+              <li><b>훅: 실행·차단·승인</b><span>행동마다 판단을 다르게 둡니다.</span></li>
+              <li><b>decisions.log: 판단 기록</b><span>훅이 내린 판단을 나중에 다시 확인할 수 있습니다.</span></li>
+              <li class="end"><b>AI의 지적은 직접 추적</b><span>코드로 직접 확인된 것만 반영하고, 근거가 불명확하면 반려하거나 다시 확인합니다.</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+          <h3 class="label"><span data-l="en">Skills and commits</span><span data-l="ko">스킬과 커밋 규칙</span></h3>
+          <div>
             <ul class="bullets" data-l="en">
-              <li><strong>Example:</strong> when the review said a refresh token is not invalidated after account deletion, I traced the real withdrawal flow in code, social-login paths included, and checked that <strong>every path invalidates it</strong> before deciding anything.</li>
-              <li><strong>Apply only after the check:</strong> the AI comment is evidence. The final call on whether to apply it comes from the result I traced myself.</li>
+              <li><strong>Skills:</strong> I registered skills such as <span class="code">code-review</span>, <span class="code">security-check</span>, <span class="code">test-writing</span>, <span class="code">performance-check</span>, <span class="code">api-design</span>, <span class="code">service-layer</span> as the standards for repeated review and writing. For example, <span class="code">code-review</span> is defined to put finding defects before summarizing, to list findings by file and line evidence in order of severity, to call out missing tests as a separate risk, and to postpone matters of taste that are not real risks.</li>
+              <li><strong>Commit convention:</strong> <span class="code">git-commit-guard</span> checks the Conventional Commits format and the <span class="code">Co-Authored-By</span> trailer and blocks violations, and warns when a section of the PR template is missing.</li>
             </ul>
             <ul class="bullets" data-l="ko">
-              <li><strong>활용 예시:</strong> 탈퇴 후 Refresh Token이 무효화되지 않는다는 지적을 받았을 때도, <strong>실제 탈퇴 플로우(소셜 로그인 경로 포함)를 코드로 추적해 모든 경로에서 무효화가 걸리는지</strong> 먼저 확인했습니다.</li>
-              <li><strong>확인이 끝난 뒤에만 반영:</strong> AI 지적을 근거로 삼되, 반영 여부의 최종 판단은 직접 추적한 결과로 내립니다.</li>
+              <li><strong>스킬:</strong> <span class="code">code-review</span>, <span class="code">security-check</span>, <span class="code">test-writing</span>, <span class="code">performance-check</span>, <span class="code">api-design</span>, <span class="code">service-layer</span> 같은 스킬로 반복 리뷰·작성 기준을 등록했습니다. 예를 들어 <span class="code">code-review</span>는 요약보다 결함 탐지를 우선하고, 파일·라인 근거와 심각도 순으로 정리하며, 테스트 누락을 별도 리스크로 명시하고, 실제 위험이 아닌 취향 지적은 뒤로 미루도록 정의했습니다.</li>
+              <li><strong>커밋 컨벤션:</strong> <span class="code">git-commit-guard</span>가 Conventional Commits 형식과 <span class="code">Co-Authored-By</span> 트레일러를 검사해 위반 시 차단하고, PR 템플릿 섹션이 빠지면 경고합니다.</li>
             </ul>
           </div>
         </div>
-
         <div class="row">
-          <h3 class="label"><span data-l="en">What I learned</span><span data-l="ko">배운 점</span></h3>
+          <h3 class="label"><span data-l="en">Hooks</span><span data-l="ko">훅</span></h3>
           <div>
-            <p data-l="en">Putting AI review into the harness does not fill the review gap by itself. How much you doubt a comment and verify it yourself is what makes the review real.</p>
-            <p data-l="ko">AI 리뷰를 하네스에 넣었다고 리뷰 공백이 저절로 채워지는 게 아니었으며, 지적을 얼마나 의심하고 직접 확인하느냐가 진짜 리뷰의 몫이라는 걸 겪으며 알게 됐습니다.</p>
+            <p class="sub" data-l="en">Four hooks in <span class="code">.claude/hooks</span> decide differently for each action</p>
+            <p class="sub" data-l="ko"><span class="code">.claude/hooks</span>의 PreToolUse·PostToolUse 훅 4종으로 행동마다 판단을 다르게 둠</p>
+            <ul class="bullets" data-l="en">
+              <li><strong>Ask a human:</strong> DTO edits always ask for confirmation.</li>
+              <li><strong>Block:</strong> hard-to-undo commands such as <span class="code">push --force</span>, <span class="code">reset --hard</span> and <span class="code">rm -rf</span> are denied.</li>
+              <li><strong>Run automatically:</strong> when a Kotlin file is edited, ktlint runs right away and feeds violations back.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li><strong>사람 승인:</strong> DTO 편집은 항상 확인을 요청합니다.</li>
+              <li><strong>실행 차단:</strong> <span class="code">push --force</span>·<span class="code">reset --hard</span>·<span class="code">rm -rf</span> 같은 되돌리기 어려운 명령은 차단합니다.</li>
+              <li><strong>자동 실행:</strong> Kotlin 파일을 수정하면 ktlint를 바로 실행해 위반 시 피드백을 되돌려줍니다.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <h3 class="label"><span data-l="en">Record and refining</span><span data-l="ko">기록과 다듬기</span></h3>
+          <div>
+            <ul class="bullets" data-l="en">
+              <li><strong>Judgment record:</strong> every hook judgment is written to <span class="code">decisions.log</span> as <span class="code">{ts, hook, decision, reason, detail}</span>.</li>
+              <li><strong>Refined after false positives and misses:</strong> the DTO rule changed from a file name suffix to a <span class="code">/dto/</span> segment in the path. The commit hook relied only on the <span class="code">if</span> condition in <span class="code">settings.local.json</span> and slipped through multi-line bash, so it now checks once more inside the script.</li>
+              <li><strong>Applied to another area:</strong> the same hook system covers Nook’s Terraform. <span class="code">terraform fmt</span> runs when a <span class="code">.tf</span> file is edited, and a plan result is commented on every infrastructure PR.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li><strong>판단 기록:</strong> 모든 훅 판단을 <span class="code">decisions.log</span>에 <span class="code">{ts, hook, decision, reason, detail}</span> 형태로 남깁니다.</li>
+              <li><strong>오탐·누락을 겪으며 다듬음:</strong> DTO 판단 기준을 파일명 접미사에서 경로의 <span class="code">/dto/</span> 세그먼트로 바꿨고, 커밋 훅은 <span class="code">settings.local.json</span>의 <span class="code">if</span> 조건만 믿었다가 멀티라인 bash에서 빠져나가는 걸 겪어 스크립트 안에서 한 번 더 검증하도록 고쳤습니다.</li>
+              <li><strong>다른 영역에 반복 적용:</strong> 같은 훅 체계를 누크의 Terraform에도 적용했습니다. <span class="code">.tf</span> 편집 시 <span class="code">terraform fmt</span>가 자동으로 실행되고, 인프라 변경 PR마다 plan 결과를 코멘트로 남깁니다.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <h3 class="label"><span data-l="en">Verification case</span><span data-l="ko">검증 사례</span></h3>
+          <div>
+            <ul class="bullets" data-l="en">
+              <li>When the AI review said the refresh token is not invalidated after account deletion, I did not apply it right away. I traced the withdrawal flow, social-login paths included, in code, and applied the change only after confirming it.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li>AI 코드 리뷰가 탈퇴 후 RefreshToken이 무효화되지 않는다고 지적했을 때, 곧바로 반영하지 않고 소셜 로그인 경로를 포함한 탈퇴 플로우를 코드로 추적해 확인한 뒤에만 반영했습니다.</li>
+            </ul>
+            <p class="note" data-l="en">There is no count of how many comments I verified or rejected, no analysis of <span class="code">decisions.log</span>, no agentic loops with retry or budget limits, and no split between an implementing and a verifying agent. This page only describes a structure where a person verifies each comment directly.</p>
+            <p class="note" data-l="ko">AI 지적을 몇 건 검증·반려했는지의 정량 기록, <span class="code">decisions.log</span> 집계·분석, 재시도·예산 상한 같은 에이전틱 루프, 구현/검증 에이전트 분리는 없습니다. 사람이 지적을 직접 검증하는 구조까지만 적었습니다.</p>
           </div>
         </div>
       </article>
