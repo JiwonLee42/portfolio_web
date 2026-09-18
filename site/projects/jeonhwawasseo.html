@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ko" data-lang="ko"
+  data-title-en="Jeonhwawasseo | Jiwon Lee" data-title-ko="전화왔어 | 이지원"
+  data-desc-en="Jeonhwawasseo is an AI phone and chat dating simulator. Jiwon Lee led the Android part and built the real-time voice call: session lifecycle over WebSocket, a ready signal, and restart safety."
+  data-desc-ko="전화왔어는 AI 전화·채팅 연애 시뮬레이션 서비스입니다. Android 파트 리드로 실시간 음성 통화의 세션 수명 관리, 준비 신호, 재시작 경합 방어를 구현했습니다.">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>전화왔어 | 이지원</title>
+  <meta name="description" content="전화왔어는 AI 전화·채팅 연애 시뮬레이션 서비스입니다. Android 파트 리드로 실시간 음성 통화의 세션 수명 관리, 준비 신호, 재시작 경합 방어를 구현했습니다.">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1c1e" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230066ff'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='800' text-anchor='middle' fill='white'%3EJL%3C/text%3E%3C/svg%3E">
+  <script>
+    (function () {
+      var d = document.documentElement, lang, theme;
+      try { lang = new URLSearchParams(location.search).get("lang") || localStorage.getItem("lang"); theme = localStorage.getItem("theme"); } catch (e) {}
+      if (lang !== "en" && lang !== "ko") lang = "ko";
+      d.dataset.lang = lang; d.lang = lang;
+      if (theme === "light" || theme === "dark") d.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script src="../assets/variants.js" defer></script>
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="ko">본문으로 건너뛰기</span></a>
+
+  <div class="dock">
+    <header class="nav" id="nav">
+      <div class="nav-bar">
+        <a class="brand" href="../index.html" aria-label="Jiwon Lee, home">JL.</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
+          <span class="lbl-menu"><span data-l="en">Menu</span><span data-l="ko">메뉴</span></span><span class="lbl-close"><span data-l="en">Close</span><span data-l="ko">닫기</span></span>
+        </button>
+      </div>
+      <div class="nav-panel">
+        <nav class="menu" id="menu" aria-label="Site" inert>
+          <ul class="menu-list">
+          <li style="--i:0"><a href="../index.html"><span data-l="en">Home</span><span data-l="ko">홈</span></a></li>
+          <li class="group" style="--i:1"><span data-l="en">Projects</span><span data-l="ko">프로젝트</span></li>
+          <li style="--i:2"><a href="meogeodoe.html"><span data-l="en">Can I eat this?</span><span data-l="ko">먹어도돼?</span></a></li>
+          <li style="--i:3"><a href="nook.html"><span data-l="en">Nook</span><span data-l="ko">누크</span></a></li>
+          <li style="--i:4"><a href="linku.html"><span data-l="en">Linku</span><span data-l="ko">링큐</span></a></li>
+          <li style="--i:5"><a href="jeonhwawasseo.html" aria-current="page"><span data-l="en">Jeonhwawasseo</span><span data-l="ko">전화왔어</span></a></li>
+          <li class="sep" style="--i:6" role="separator"></li>
+          <li style="--i:7"><a href="#contact" data-scroll-end><span data-l="en">Contact</span><span data-l="ko">연락처</span></a></li>
+          <li style="--i:8"><button type="button" data-toggle-theme><span><span data-l="en">Theme</span><span data-l="ko">테마</span></span><span><span data-mode="light" data-l="en">Light</span><span data-mode="light" data-l="ko">라이트</span><span data-mode="dark" data-l="en" hidden>Dark</span><span data-mode="dark" data-l="ko" hidden>다크</span></span></button></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="lang" role="group" aria-label="Language">
+      <button class="lang-btn" type="button" data-set-lang="ko" aria-pressed="true">한국어</button>
+      <button class="lang-btn" type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+  <nav class="toc" aria-labelledby="toc-title">
+    <h2 id="toc-title"><span data-l="en">On this page</span><span data-l="ko">이 페이지</span></h2>
+    <ol>
+        <li><a href="#sec-ov"><span data-l="en">What it does</span><span data-l="ko">서비스</span></a></li>
+        <li><a href="#sec-facts"><span data-l="en">Facts</span><span data-l="ko">정보</span></a></li>
+        <li><a href="#sec-did"><span data-l="en">What I did</span><span data-l="ko">역할</span></a></li>
+        <li><a href="#sec-back"><span data-l="en">Looking back</span><span data-l="ko">회고</span></a></li>
+      <li class="group"><span data-l="en">Case studies</span><span data-l="ko">케이스 스터디</span></li>
+        <li><a href="#call"><span data-l="en">Real-time voice calls</span><span data-l="ko">실시간 음성 통화 구현</span></a></li>
+    </ol>
+  </nav>
+
+  <div class="sheet">
+    <main id="main">
+      <section class="wrap hero">
+        <a class="crumb" href="../index.html#projects"><span data-l="en">All projects</span><span data-l="ko">전체 프로젝트</span></a>
+        <header class="project-head">
+          <h1 data-l="en">Jeonhwawasseo</h1><h1 data-l="ko">전화왔어</h1>
+          <p class="lede" data-l="en">An AI phone and chat dating simulator. You talk with an AI character by phone or chat and simulate a relationship. The Korean name means “You have a call.”</p>
+          <p class="lede" data-l="ko">AI 캐릭터와 전화나 채팅으로 대화하면서 연애를 시뮬레이션하는 서비스입니다.</p>
+          <div class="tags">
+            <span class="pill">2026.07 – 2026.08</span>
+          </div>
+        </header>
+      </section>
+
+      <section class="wrap row tight" id="sec-ov">
+        <h2 class="label"><span data-l="en">What it does</span><span data-l="ko">서비스</span></h2>
+        <div>
+            <ul class="bullets" data-l="en">
+              <li>During a call, your voice and the AI’s voice are exchanged in real time.</li>
+              <li>The home screen shows call history and notifications, and past calls can be played back from their recordings.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li>통화 중에는 내 목소리와 AI 목소리를 실시간으로 주고받습니다.</li>
+              <li>홈에서 통화 이력과 알림을 확인하고, 지난 통화는 녹음으로 다시 들을 수 있습니다.</li>
+            </ul>
+        </div>
+      </section>
+
+      <section class="wrap row tight" id="sec-facts">
+        <h2 class="label"><span data-l="en">Facts</span><span data-l="ko">정보</span></h2>
+        <div>
+          <dl class="facts">
+            <div><dt data-l="en">Origin</dt><dt data-l="ko">출처</dt>
+              <dd data-l="en">UMC 10th team project. Android part lead.</dd>
+              <dd data-l="ko">UMC 10기 팀 프로젝트, Android 파트 리드</dd></div>
+            <div><dt data-l="en">Team</dt><dt data-l="ko">구성원</dt>
+              <dd data-l="en">Android 4, Spring Boot 4, PM 1, Design 1</dd>
+              <dd data-l="ko">Android 4명, Spring Boot 4명, PM 1명, Design 1명</dd></div>
+            <div><dt data-l="en">My part</dt><dt data-l="ko">담당</dt>
+              <dd data-l="en">The calling feature with the AI, and the home screen, on Android</dd>
+              <dd data-l="ko">Android에서 AI와의 통화 기능과 홈 화면</dd></div>
+            <div><dt data-l="en">My share</dt><dt data-l="ko">기여도</dt>
+              <dd data-l="en">Android, 30%</dd>
+              <dd data-l="ko">Android 30%</dd></div>
+            <div><dt data-l="en">Stack</dt><dt data-l="ko">기술 스택</dt>
+              <dd class="stack-groups">
+              <div><span class="sg">Android</span><ul class="chips"><li class="main">Kotlin</li><li class="main">Jetpack Compose</li><li>MVI</li></ul></div>
+              <div><span class="sg">Realtime</span><ul class="chips"><li>OkHttp WebSocket</li></ul></div>
+              <div><span class="sg">Audio</span><ul class="chips"><li>AudioRecord</li><li>AudioTrack</li><li>Media3</li></ul></div>
+            </dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="wrap row tight" id="sec-did">
+        <h2 class="label"><span data-l="en">What I did</span><span data-l="ko">역할</span></h2>
+        <div>
+            <ul class="bullets" data-l="en">
+              <li>Built the whole calling feature on Android, as one flow: entering the call, connecting, sending and receiving audio, ending and restarting, and checking the record afterwards.</li>
+              <li>Managed the call session over <strong>WebSocket</strong>. No audio is sent before the server’s <span class="code">CALL_READY</span> signal arrives, and the call fails if it does not come within 5 seconds.</li>
+              <li>Added a <strong>generation value</strong> so that late callbacks from a previous call cannot mix into a new one when the user hangs up and calls again, and changed the shutdown order so that recording resources are released only after the work has finished.</li>
+              <li>Handled Bluetooth and speaker output paths per Android version and device, and fell back to the default path so that the call continues when a connection fails.</li>
+              <li>Built the home and call history screens with <strong>MVI and Jetpack Compose</strong>, and connected recording playback and its progress with <strong>Media3</strong>.</li>
+              <li>As Android part lead, I tried to run the schedule and a code review culture.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li>통화 기능을 Android에서 처음부터 끝까지 구현했습니다. 전화 진입, 연결, 오디오 송수신, 종료와 재시작, 통화 후 기록 확인까지 한 흐름으로 맡았습니다.</li>
+              <li><strong>WebSocket</strong>으로 통화 세션을 관리하고, 서버의 <span class="code">CALL_READY</span> 준비 신호가 오기 전에는 오디오를 보내지 않게 했습니다. 5초 안에 신호가 없으면 실패로 종료합니다.</li>
+              <li>통화를 끝내고 바로 다시 걸어도 이전 통화의 지연된 콜백이 섞이지 않도록 <strong>세대 값</strong>을 두고, 녹음 자원은 작업이 끝난 뒤에 해제하도록 종료 순서를 바꿨습니다.</li>
+              <li>Android 버전과 기기에 따라 블루투스·스피커 출력 경로를 나눠 처리하고, 연결이 안 되면 기본 경로로 통화를 이어가게 했습니다.</li>
+              <li><strong>MVI와 Jetpack Compose</strong>로 홈과 통화 이력 화면을 만들고, <strong>Media3</strong>로 녹음 재생과 진행 상태를 연결했습니다.</li>
+              <li>Android 파트 리드로 일정 관리와 코드 리뷰 문화 운영을 시도했습니다.</li>
+            </ul>
+        </div>
+      </section>
+
+      <section class="wrap row tight" id="sec-back">
+        <h2 class="label"><span data-l="en">Looking back</span><span data-l="ko">회고</span></h2>
+        <div>
+            <ul class="bullets" data-l="en">
+              <li>Working on the restart race taught me that the connection state alone cannot filter out callbacks left by a previous call. Each call needs a value that tells it apart.</li>
+              <li>A connected WebSocket does not mean the other side is ready. Without a separate ready signal, the server can be sent data at a moment it cannot accept it.</li>
+              <li>For the AI summary after a call, I suggested showing a “summarizing” state first instead of polling again and again. It made me think about easing server load and improving the UX together.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li>세션 재시작 경합을 다루면서, 연결 상태만으로는 이전 통화가 남긴 콜백을 걸러낼 수 없고 통화마다 구분되는 값이 필요하다는 걸 배웠습니다.</li>
+              <li>WebSocket은 연결됐다고 해서 상대가 받을 준비까지 된 게 아니라서, 별도의 준비 완료 신호가 없으면 서버가 받을 수 없는 시점에 데이터를 보낼 수 있다는 걸 배웠습니다.</li>
+              <li>통화 종료 후 AI 요약은 계속 물어보는 폴링보다 <span class="code">요약 중</span> 상태를 먼저 보여주는 UX를 제안했고, 서버 부하도 줄이고 UX도 개선하는 방식에 대해 생각해 보게 됐습니다.</li>
+            </ul>
+        </div>
+      </section>
+
+      <article class="wrap case" id="call">
+        <header>
+          <h2 data-l="en">Building a real-time voice call as one session flow</h2>
+          <h2 data-l="ko">AI와의 실시간 음성 통화를 한 세션의 흐름으로 구현</h2>
+          <p class="lede" data-l="en">I split the call into connecting, getting ready, sending and receiving, ending and restarting, and checking the record afterwards, and guarded each stage against the problems it can cause.</p>
+          <p class="lede" data-l="ko">AI와의 실시간 음성 통화를 연결, 준비, 송수신, 종료와 재시작, 통화 후 기록 확인까지 한 세션의 흐름으로 나눠 구현하고, 단계마다 생길 수 있는 문제를 막은 경험입니다.</p>
+        </header>
+
+        <div class="row">
+          <h3 class="label"><span data-l="en">Requirements</span><span data-l="ko">요구사항</span></h3>
+          <div>
+            <ul class="bullets" data-l="en">
+              <li><strong>Real-time, both ways:</strong> voice must go back and forth with the AI character without breaking up.</li>
+              <li><strong>Session lifetime:</strong> connecting, getting ready, sending and receiving, ending and restarting have to hold together inside one call.</li>
+              <li><strong>Device differences:</strong> the call has to work whichever input and output path the speaker, Bluetooth or Android version gives.</li>
+              <li><strong>After the call:</strong> the history has to be visible on the home screen, and the recording has to be playable again.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li><strong>실시간 양방향:</strong> AI 캐릭터와 음성을 서로 끊김 없이 주고받아야 합니다.</li>
+              <li><strong>세션 수명 관리:</strong> 연결, 준비, 송수신, 종료, 재시작이 하나의 통화 안에서 이어져야 합니다.</li>
+              <li><strong>기기 환경 대응:</strong> 스피커, 블루투스, Android 버전에 따라 입력·출력 경로가 달라도 통화가 되어야 합니다.</li>
+              <li><strong>통화 이후:</strong> 통화가 끝난 뒤에도 홈에서 이력을 확인하고 녹음을 다시 들을 수 있어야 합니다.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <h3 class="label"><span data-l="en">Problem</span><span data-l="ko">문제</span></h3>
+          <div>
+            <p class="sub" data-l="en">What goes wrong if it is done the simple way</p>
+            <p class="sub" data-l="ko">단순하게 구현할 경우 발생할 수 있는 문제</p>
+            <ul class="bullets" data-l="en">
+              <li><strong>Sending before ready:</strong> if microphone audio is sent as soon as the socket connects, the server takes the noise before it is ready for the user cutting in, and the AI voice breaks off.</li>
+              <li><strong>Interference from the previous call:</strong> when a call ends and a new one starts right away, delayed callbacks from the old session can touch the state of the new one.</li>
+              <li><strong>Racing on resources:</strong> releasing a recorder or player while it is still working can touch a resource that is already released.</li>
+              <li><strong>Output differs by device:</strong> if Bluetooth fails to connect or the permission is missing, the call itself may not work.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li><strong>준비 전 송신:</strong> 연결되자마자 마이크 오디오를 보내면, 서버가 준비 전 잡음을 사용자의 끼어들기로 오인해 AI 음성이 끊깁니다.</li>
+              <li><strong>이전 통화의 간섭:</strong> 통화를 끝내고 바로 새로 걸면, 이전 세션의 지연된 콜백이 새 세션 상태를 건드릴 수 있습니다.</li>
+              <li><strong>자원 해제 경합:</strong> 녹음이나 재생이 진행 중인데 자원을 바로 해제하면, 이미 해제된 자원에 접근할 수 있습니다.</li>
+              <li><strong>기기별 출력 차이:</strong> 블루투스 연결이 실패하거나 권한이 없을 때 통화 자체가 안 될 수 있습니다.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <h3 class="label"><span data-l="en">Approach</span><span data-l="ko">해결</span></h3>
+          <div>
+            <p class="sub" data-l="en">One call as one flow</p>
+            <p class="sub" data-l="ko">통화 한 건의 흐름으로 나눠서 해결</p>
+            <ol class="flow" data-l="en">
+              <li><b>Enter the call and connect</b><span>The connection and the session are managed in the call repository, over an OkHttp WebSocket.</span></li>
+              <li><b>Wait for CALL_READY, 5 second timeout</b><span>A 5 second timer starts when the socket connects. Captured PCM is thrown away until the server’s <span class="code">CALL_READY</span> arrives. If it does not arrive in time, the call fails with <span class="code">READY_TIMEOUT</span> and the connection is closed. The point is to treat “connected” and “the server is ready to receive” as two different moments.</span></li>
+              <li><b>Send and receive PCM both ways</b><span>Audio captured with <span class="code">AudioRecord</span> is sent, and audio from the server is played with <span class="code">AudioTrack</span>.</span></li>
+              <li><b>End the call</b><span>Shutdown runs as stop, wait for the capture job to finish, then release. Calling again raises the generation value and the flow starts again from the connection.</span></li>
+              <li class="end"><b>Check the record afterwards</b><span>The home screen shows call history and notifications, and the record detail plays the recording with Media3 while keeping the progress in step with the screen.</span></li>
+            </ol>
+            <ol class="flow" data-l="ko">
+              <li><b>전화 진입, WebSocket 연결</b><span>OkHttp WebSocket 연결과 세션을 통화 Repository에서 관리합니다.</span></li>
+              <li><b>CALL_READY 대기, 5초 타임아웃</b><span>연결 성공 시점부터 5초 타이머를 걸고, 서버의 <span class="code">CALL_READY</span>를 받기 전에는 캡처된 PCM을 버립니다. 5초 안에 못 받으면 <span class="code">READY_TIMEOUT</span>으로 실패 처리하고 연결을 종료합니다. 연결됐다는 것과 서버가 받을 준비가 됐다는 것을 다른 시점으로 본 것이 핵심입니다.</span></li>
+              <li><b>PCM 양방향 송수신</b><span><span class="code">AudioRecord</span>로 캡처한 PCM을 전송하고, 서버에서 받은 오디오는 <span class="code">AudioTrack</span>으로 재생합니다.</span></li>
+              <li><b>종료</b><span>종료는 stop, 캡처 job 종료 대기, release 순서로 진행합니다. 다시 걸면 세대 값이 올라가고 연결부터 다시 시작합니다.</span></li>
+              <li class="end"><b>통화 후 기록 확인</b><span>홈에서 통화 이력과 알림을 보여주고, 기록 상세에서 Media3로 녹음을 재생하면서 진행 상태를 화면과 맞춥니다.</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+          <h3 class="label"><span data-l="en">While sending</span><span data-l="ko">송수신 중</span></h3>
+          <div>
+            <p class="sub" data-l="en">Two things handled during the call</p>
+            <p class="sub" data-l="ko">통화 중에 함께 처리한 것</p>
+            <ul class="bullets" data-l="en">
+              <li><strong>Sound processing:</strong> input is taken as <span class="code">VOICE_COMMUNICATION</span>, with an echo canceler and a noise suppressor on devices that support them. Audio focus and call mode are managed together.</li>
+              <li><strong>Output path:</strong> Android 12 and above use the communication device selection API. Lower versions use an asynchronous SCO connection and a BroadcastReceiver. Without the permission or the device, the call falls back to the default path, so a Bluetooth failure does not become a call failure.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li><strong>음향 처리:</strong> 입력은 <span class="code">VOICE_COMMUNICATION</span>으로 받고, 지원하는 기기에서는 에코 캔슬러와 노이즈 서프레서를 적용합니다. 오디오 포커스와 통화 모드도 함께 관리합니다.</li>
+              <li><strong>출력 경로 분기:</strong> Android 12 이상은 통신 장치 선택 API를, 그보다 낮은 버전은 비동기 SCO 연결과 BroadcastReceiver를 사용합니다. 권한이나 기기가 없으면 기본 경로로 넘어가서, 블루투스 실패가 통화 실패로 이어지지 않게 합니다.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <h3 class="label"><span data-l="en">Ending and restarting</span><span data-l="ko">종료와 재시작</span></h3>
+          <div>
+            <ul class="bullets" data-l="en">
+              <li>The socket and the recorder carry a <strong>generation value</strong>, so callbacks from a previous session ignore themselves.</li>
+              <li>Shutdown is split into stop, waiting for the capture job to finish, and release, so that the blocking <span class="code">read()</span> and the release do not collide.</li>
+              <li>Concurrent access to <span class="code">AudioTrack</span> on the playback side is also blocked.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li>소켓과 레코더에 <strong>세대 값</strong>을 둬 이전 세션의 콜백이 스스로 무시되게 합니다.</li>
+              <li>종료는 <span class="code">stop</span>, 캡처 job 종료 대기, <span class="code">release</span> 순서로 나눠 블로킹 <span class="code">read()</span>와 해제가 부딪히지 않게 합니다.</li>
+              <li>재생 쪽 <span class="code">AudioTrack</span>의 동시 접근도 막습니다.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <h3 class="label"><span data-l="en">A suggestion</span><span data-l="ko">제안으로 남긴 것</span></h3>
+          <div>
+            <ul class="bullets" data-l="en">
+              <li>For the AI summary after a call, I suggested to the backend side that a “summarizing” state be shown first, instead of polling on every lookup. I could not confirm the final implementation, so I do not count it as finished work.</li>
+            </ul>
+            <ul class="bullets" data-l="ko">
+              <li>통화 종료 후 AI 요약은 조회 때마다 폴링하기보다 <span class="code">요약 중</span> 상태를 먼저 보여주자고 백엔드 쪽에 제안했습니다. 최종 구현은 확인하지 못해서 완료한 일로는 적지 않았습니다.</li>
+            </ul>
+            <p class="note" data-l="en">There is no record of measuring the call success rate on real devices, latency, sound quality per device, or tests that reproduce the races, so this page only says that the structure was built.</p>
+            <p class="note" data-l="ko">실기기 통화 성공률, 지연 시간, 기기별 음질 QA, 경합 재현 테스트는 확인한 기록이 없어 “구조를 구현했다”까지만 적었습니다.</p>
+          </div>
+        </div>
+      </article>
+
+      <div class="wrap">
+        <a class="next" href="meogeodoe.html">
+          <span class="hint"><span data-l="en">Back to the first project</span><span data-l="ko">첫 번째 프로젝트로</span></span>
+          <span class="name" data-l="en">Can I eat this?</span><span class="name" data-l="ko">먹어도돼?</span>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <div class="foot-grid">
+        <h2 class="foot-title"><span data-l="en">Contact</span><span data-l="ko">연락처</span></h2>
+        <ul class="foot-list">
+          <li>
+            <span><span data-l="en">Email</span><span data-l="ko">이메일</span></span><i class="rule"></i>
+            <span class="val">ljw56b@gmail.com</span>
+            <button class="copy" type="button" data-copy="ljw56b@gmail.com"><svg class="i-clip" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3" width="9" height="10.5" rx="1.5"/><path d="M6 3v-.5a.5.5 0 01.5-.5h3a.5.5 0 01.5.5V3"/></svg><svg class="i-check" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-6.5"/></svg><span class="sr" data-l="en">Copy email address</span><span class="sr" data-l="ko">이메일 주소 복사</span></button>
+            <span class="sr" role="status" data-copy-status></span>
+          </li>
+          <li><a class="ext" href="https://github.com/JiwonLee42" target="_blank" rel="noopener"><span>GitHub</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><i class="rule"></i></li>
+          <li><a class="ext" href="https://velog.io/@jayaione_ele/posts" target="_blank" rel="noopener"><span>Velog</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><i class="rule"></i></li>
+        </ul>
+      </div>
+      <p class="foot-quote" data-l="en">Open to backend engineering roles.</p>
+      <p class="foot-quote" data-l="ko">백엔드 개발자로 함께할 곳을 찾고 있습니다.</p>
+      <div class="foot-legal"><small data-l="en">Jiwon Lee, 2026</small><small data-l="ko">이지원, 2026</small></div>
+    </div>
+  </footer>
+</body>
+</html>

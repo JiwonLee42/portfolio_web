@@ -6,7 +6,7 @@
 //
 // What one entry can change (every field is optional):
 //   hero      two lines of the headline, per language. [[double brackets]] mark the blue words.
-//   projects  order of the project cards. Keys: meogeodoe, nook, linku
+//   projects  order of the project cards. Keys: meogeodoe, nook, linku, jeonhwawasseo
 //   skills    order of the skill groups. Keys: backend, devops, data, frontend
 //   footer    the sentence above the copyright line, per language
 //   title     the browser tab title, per language
@@ -16,7 +16,7 @@
 // list somewhere private. Only write things here that are true.
 
 window.VARIANTS = {
-  // Leads with deployment and operations work. The project order stays as it is: Meogeodoe first.
+  // Leads with deployment and operations work. The project order stays as it is: Can I eat this? first.
   infra: {
     hero: {
       ko: [
@@ -43,7 +43,7 @@ window.VARIANTS = {
         "I like designing services that [[do not lose work when something fails]], then improving them as I run them.",
       ],
     },
-    projects: ["meogeodoe", "linku", "nook"],
+    projects: ["meogeodoe", "linku", "nook", "jeonhwawasseo"],
     skills: ["backend", "data", "devops", "frontend"],
   },
 };

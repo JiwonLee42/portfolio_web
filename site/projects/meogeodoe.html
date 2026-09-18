@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ko" data-lang="ko"
-  data-title-en="Meogeodoe | Jiwon Lee" data-title-ko="먹어도돼? | 이지원"
-  data-desc-en="Meogeodoe is a meal-tracking app for people with chronic stomach conditions. Jiwon Lee was its only backend developer: reminder scheduling, OIDC login, Gemini integration and monitoring."
+  data-title-en="Can I eat this? | Jiwon Lee" data-title-ko="먹어도돼? | 이지원"
+  data-desc-en="“Can I eat this?” is a meal-tracking app for people with chronic stomach conditions. Jiwon Lee was its only backend developer: reminder scheduling, OIDC login, Gemini integration and monitoring."
   data-desc-ko="먹어도돼?는 만성 위장 질환을 겪는 사람을 위한 식단 관리 앱입니다. 백엔드 1인 개발로 알림 예약 발송, OIDC 로그인, Gemini 연동, 모니터링을 맡았습니다.">
 <head>
   <meta charset="utf-8">
@@ -42,12 +42,13 @@
           <ul class="menu-list">
           <li style="--i:0"><a href="../index.html"><span data-l="en">Home</span><span data-l="ko">홈</span></a></li>
           <li class="group" style="--i:1"><span data-l="en">Projects</span><span data-l="ko">프로젝트</span></li>
-          <li style="--i:2"><a href="meogeodoe.html" aria-current="page"><span data-l="en">Meogeodoe</span><span data-l="ko">먹어도돼?</span></a></li>
+          <li style="--i:2"><a href="meogeodoe.html" aria-current="page"><span data-l="en">Can I eat this?</span><span data-l="ko">먹어도돼?</span></a></li>
           <li style="--i:3"><a href="nook.html"><span data-l="en">Nook</span><span data-l="ko">누크</span></a></li>
           <li style="--i:4"><a href="linku.html"><span data-l="en">Linku</span><span data-l="ko">링큐</span></a></li>
-          <li class="sep" style="--i:5" role="separator"></li>
-          <li style="--i:6"><a href="#contact" data-scroll-end><span data-l="en">Contact</span><span data-l="ko">연락처</span></a></li>
-          <li style="--i:7"><button type="button" data-toggle-theme><span><span data-l="en">Theme</span><span data-l="ko">테마</span></span><span><span data-mode="light" data-l="en">Light</span><span data-mode="light" data-l="ko">라이트</span><span data-mode="dark" data-l="en" hidden>Dark</span><span data-mode="dark" data-l="ko" hidden>다크</span></span></button></li>
+          <li style="--i:5"><a href="jeonhwawasseo.html"><span data-l="en">Jeonhwawasseo</span><span data-l="ko">전화왔어</span></a></li>
+          <li class="sep" style="--i:6" role="separator"></li>
+          <li style="--i:7"><a href="#contact" data-scroll-end><span data-l="en">Contact</span><span data-l="ko">연락처</span></a></li>
+          <li style="--i:8"><button type="button" data-toggle-theme><span><span data-l="en">Theme</span><span data-l="ko">테마</span></span><span><span data-mode="light" data-l="en">Light</span><span data-mode="light" data-l="ko">라이트</span><span data-mode="dark" data-l="en" hidden>Dark</span><span data-mode="dark" data-l="ko" hidden>다크</span></span></button></li>
           </ul>
         </nav>
       </div>
@@ -76,8 +77,8 @@
       <section class="wrap hero">
         <a class="crumb" href="../index.html#projects"><span data-l="en">All projects</span><span data-l="ko">전체 프로젝트</span></a>
         <header class="project-head">
-          <h1 data-l="en">Meogeodoe</h1><h1 data-l="ko">먹어도돼?</h1>
-          <p class="lede" data-l="en">A meal-tracking app for people in their 20s and 30s with chronic stomach conditions. The name is Korean for “Can I eat this?”</p>
+          <h1 data-l="en">Can I eat this?</h1><h1 data-l="ko">먹어도돼?</h1>
+          <p class="lede" data-l="en">A meal-tracking app for people in their 20s and 30s with chronic stomach conditions.</p>
           <p class="lede" data-l="ko">만성 위장 질환을 겪는 2030 세대를 위한 식단 관리 앱입니다.</p>
           <div class="tags">
             <span class="status"><span data-l="en">Live on App Store and Google Play, Aug 2026</span><span data-l="ko">2026년 8월 App Store, Google Play 출시</span></span>
@@ -89,7 +90,7 @@
           </div>
         </header>
         <figure class="cover narrow">
-          <img src="../assets/img/meogeodoe-cover.webp" width="757" height="821" alt="Two phone screens of the Meogeodoe app: the home screen with a turtle mascot and recent meals, and a meal guide showing a food grade." decoding="async">
+          <img src="../assets/img/meogeodoe-cover.webp" width="757" height="821" alt="Two phone screens of the Can I eat this? app: the home screen with a turtle mascot and recent meals, and a meal guide showing a food grade." decoding="async">
         </figure>
       </section>
 
@@ -270,7 +271,7 @@
         <div class="row">
           <h3 class="label"><span data-l="en">Background</span><span data-l="ko">배경</span></h3>
           <div>
-            <p data-l="en">Meogeodoe runs in production on both stores, so exceptions after release had to be visible in the running environment, not reproduced locally. I initialized the Sentry SDK and connected it to the Railway deployment.</p>
+            <p data-l="en">Can I eat this? runs in production on both stores, so exceptions after release had to be visible in the running environment, not reproduced locally. I initialized the Sentry SDK and connected it to the Railway deployment.</p>
             <p data-l="ko">먹어도돼?는 앱스토어와 안드로이드에 실제 출시해 운영 중인 서비스라, 배포 이후 발생하는 예외를 로컬에서 재현하는 대신 운영 환경에서 바로 알아챌 수 있어야 했습니다. 그래서 Sentry SDK를 초기화하고 Railway 배포 환경에 연결했습니다.</p>
           </div>
         </div>

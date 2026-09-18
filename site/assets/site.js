@@ -42,9 +42,10 @@
       };
       const reorder = (container, keys) => {
         if (!container || !keys) return;
-        keys.forEach((key) => {
+        // Listed keys go first, in the order given. Anything not listed keeps its place after them.
+        [...keys].reverse().forEach((key) => {
           const el = container.querySelector(':scope > [data-key="' + key + '"]');
-          if (el) container.append(el);
+          if (el) container.prepend(el);
         });
       };
 

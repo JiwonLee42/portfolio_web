@@ -9,7 +9,7 @@
 ```
 site/                  배포되는 폴더 (이 안의 파일만 공개됩니다)
   index.html           홈
-  projects/            프로젝트 상세 3페이지
+  projects/            프로젝트 상세 4페이지
   404.html
   assets/
     style.css          스타일. 색은 Wanted Montage semantic 토큰

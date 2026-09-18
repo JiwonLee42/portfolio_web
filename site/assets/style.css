@@ -465,6 +465,22 @@ a.item:hover .item-title {
 .item .stack-groups {
   margin-top: 14px;
 }
+.proj {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-top: 8px;
+  font-size: 14px;
+}
+.proj-label {
+  color: var(--label-neutral);
+  font-size: 13px;
+}
+.proj-name {
+  color: var(--label-strong);
+  font-weight: 500;
+}
 .item-more {
   display: inline-block;
   margin-top: 6px;
