@@ -32,6 +32,8 @@
   --label-assistive: light-dark(rgba(55, 56, 60, 0.28), rgba(174, 176, 182, 0.28));
 
   --positive: light-dark(#00bf40, #1ed45a);
+  --negative: light-dark(#ff4242, #ff6363);
+  --violet: light-dark(#6541f2, #7d5ef7);
   --cautionary: light-dark(#ff9200, #ffa938);
 
   --ease: cubic-bezier(0.33, 1, 0.68, 1);
@@ -975,6 +977,87 @@ figure.diagram img {
 }
 .commits .note {
   margin-top: 8px;
+}
+
+/* structure diagram of the AI workflow: drawn in SVG with the site tokens, so it follows light and dark */
+
+.dg-fig {
+  margin-top: 4px;
+}
+.dg-scroll {
+  overflow-x: auto;
+}
+.dg {
+  display: block;
+  width: 100%;
+  min-width: 420px;
+  height: auto;
+}
+.dg rect {
+  stroke-width: 1.2;
+}
+.dg .t {
+  fill: var(--label-strong);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.dg .s {
+  fill: var(--label-neutral);
+  font-size: 10.5px;
+}
+.dg .k {
+  fill: var(--label-neutral);
+  font-size: 10.5px;
+  font-weight: 600;
+}
+.dg .ln {
+  fill: none;
+  stroke: var(--label-alternative);
+  stroke-width: 1.3;
+}
+.dg .ln.dash {
+  stroke-dasharray: 4 3;
+}
+.dg .ah {
+  fill: var(--label-alternative);
+}
+.dg .c-group {
+  fill: var(--fill-alt);
+  stroke: var(--line);
+  stroke-dasharray: 4 3;
+}
+.dg .c-skill {
+  fill: color-mix(in srgb, var(--primary) 11%, var(--bg));
+  stroke: var(--primary);
+}
+.dg .c-auto {
+  fill: color-mix(in srgb, var(--positive) 11%, var(--bg));
+  stroke: var(--positive);
+}
+.dg .c-deny {
+  fill: color-mix(in srgb, var(--negative) 11%, var(--bg));
+  stroke: var(--negative);
+}
+.dg .c-ask {
+  fill: color-mix(in srgb, var(--cautionary) 11%, var(--bg));
+  stroke: var(--cautionary);
+}
+.dg .c-log {
+  fill: color-mix(in srgb, var(--violet) 11%, var(--bg));
+  stroke: var(--violet);
+}
+.dg .c-ok {
+  fill: color-mix(in srgb, var(--positive) 11%, var(--bg));
+  stroke: var(--positive);
+}
+.dg .c-ng {
+  fill: color-mix(in srgb, var(--negative) 11%, var(--bg));
+  stroke: var(--negative);
+}
+.dg .c-work,
+.dg .c-trace {
+  fill: var(--fill);
+  stroke: var(--label-alternative);
 }
 
 /* floating table of contents */
