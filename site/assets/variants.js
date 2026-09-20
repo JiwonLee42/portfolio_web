@@ -27,11 +27,13 @@ window.VARIANTS = {
         "언제나 안정적인 서비스를 제공하는 것을 목표로 하는 [[풀스택 개발자]] 이지원입니다.",
         "[[빠르고 안정적으로 동작하면서]] 계획한 기능을 정확하게 수행하는 서비스를 만들고자 합니다.",
         "먹어도돼?를 Spring Boot 기반으로 만들어 App Store와 Google Play에서 운영 중입니다.",
+        "전화왔어에서는 Android 프론트엔드를 맡아 통화 기능과 홈 화면 UI를 구현했습니다.",
       ],
       en: [
         "I'm Jiwon Lee, a [[full-stack developer]] who always aims to provide stable services.",
         "I want to build services that [[run fast and reliably]] and do exactly what was planned.",
         "I built Can I eat this? on Spring Boot, and it is live and running on the App Store and Google Play.",
+        "In CallFromAI I worked on the Android frontend, building the call feature and the home screen UI.",
       ],
     },
     projects: ["meogeodoe", "jeonhwawasseo", "nook", "linku"],
