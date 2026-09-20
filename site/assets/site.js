@@ -301,7 +301,7 @@
       value.days = window.CONTRIBUTIONS.counts.slice(-365).filter((n) => n > 0).length;
       value.contrib = window.CONTRIBUTIONS.total;
     }
-    value.projects = document.querySelectorAll("#projects a.item").length;
+    value.projects = document.querySelectorAll("#projects .item[data-key]").length;
     if (window.POSTS) value.posts = window.POSTS.total;
 
     const show = (el, n) => (el.textContent = Math.round(n).toLocaleString("en-US"));

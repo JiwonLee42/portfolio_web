@@ -157,8 +157,8 @@
       <section class="wrap row" id="projects" aria-labelledby="projects-label">
         <h2 class="label" id="projects-label"><span data-l="en">Projects</span><span data-l="ko">프로젝트</span></h2>
         <div class="stack roomy">
-          <a class="item" data-key="meogeodoe" href="projects/meogeodoe.html">
-            <span class="item-title" data-l="en">Can I eat this?</span><span class="item-title" data-l="ko">먹어도돼?</span>
+          <div class="item" data-key="meogeodoe">
+            <a class="item-link" href="projects/meogeodoe.html"><span class="item-title" data-l="en">Can I eat this?</span><span class="item-title" data-l="ko">먹어도돼?</span></a>
             <span class="meta">
               <span data-l="en">Meal-tracking app</span><span data-l="ko">식단 관리 앱</span>
               <i class="rule"></i><span class="pill">2026.06 – 2026.09</span>
@@ -167,11 +167,19 @@
             <span class="item-desc" data-l="en">Search a food before you eat it and get a traffic-light grade for your stomach. I was the only backend developer: reminder scheduling, OIDC login, Gemini integration and monitoring.</span>
             <span class="item-desc" data-l="ko">음식을 먹기 전에 검색하면 신호등 등급으로 판정해 주는 앱입니다. 백엔드 1인 개발로 알림 예약 발송, OIDC 로그인, Gemini 연동, 모니터링을 맡았습니다.</span>
             <span class="stack-groups"><span class="sg-row"><span class="sg">Backend</span><span class="chips"><span class="chip main">Spring Boot</span><span class="chip main">Kotlin</span><span class="chip">Gemini API</span></span></span><span class="sg-row"><span class="sg">Data</span><span class="chips"><span class="chip">PostgreSQL</span></span></span><span class="sg-row"><span class="sg">Infra</span><span class="chips"><span class="chip">Railway</span><span class="chip">Docker</span></span></span><span class="sg-row"><span class="sg">Monitoring</span><span class="chips"><span class="chip">Better Stack</span><span class="chip">Sentry</span></span></span><span class="sg-row"><span class="sg">Test</span><span class="chips"><span class="chip">Testcontainers</span></span></span></span>
-            <span class="item-more link" data-l="en">Read the case studies</span><span class="item-more link" data-l="ko">상세 보기</span>
-          </a>
+            <div class="cases">
+              <p class="cases-label"><span data-l="en">Case studies</span><span data-l="ko">케이스 스터디</span></p>
+              <ul>
+                <li><a href="projects/meogeodoe.html#notifications"><span data-l="en">Scheduling post-meal reminders with the database as a queue</span><span data-l="ko">DB를 예약 큐로 써서 식후 알림 예약 발송 설계</span></a></li>
+                <li><a href="projects/meogeodoe.html#tracing"><span data-l="en">Tracing exceptions with Sentry and a TraceFilter</span><span data-l="ko">Sentry와 TraceFilter로 예외 역추적 구조 구축</span></a></li>
+                <li><a href="projects/meogeodoe.html#ai-workflow"><span data-l="en">Treating AI as a collaborator that needs checking: skills, hooks and a decision log</span><span data-l="ko">스킬·훅·기록 3층으로 AI를 검증이 필요한 협업자로 다루기</span></a></li>
+              </ul>
+            </div>
+            <a class="item-more link" data-l="en" href="projects/meogeodoe.html">Read the details</a><a class="item-more link" data-l="ko" href="projects/meogeodoe.html">상세 보기</a>
+          </div>
 
-          <a class="item" data-key="nook" href="projects/nook.html">
-            <span class="item-title" data-l="en">Nook</span><span class="item-title" data-l="ko">누크</span>
+          <div class="item" data-key="nook">
+            <a class="item-link" href="projects/nook.html"><span class="item-title" data-l="en">Nook</span><span class="item-title" data-l="ko">누크</span></a>
             <span class="meta">
               <span data-l="en">Reading-log service</span><span data-l="ko">독서 기록 서비스</span>
               <i class="rule"></i><span class="pill">2026.01 – 2026.09</span>
@@ -180,11 +188,18 @@
             <span class="item-desc" data-l="en">Backend lead. A Redis sorted set for the home-screen stats API cut p95 latency by 20% in a local k6 load test, and I built zero-downtime blue/green deploys and monitoring with Terraform.</span>
             <span class="item-desc" data-l="ko">백엔드 리드를 맡았습니다. Redis ZSET으로 홈 화면 통계 API를 개선해 로컬 k6 부하 테스트에서 p95 응답 시간을 20% 줄였고, Terraform으로 무중단 블루그린 배포와 모니터링을 구축했습니다.</span>
             <span class="stack-groups"><span class="sg-row"><span class="sg">Backend</span><span class="chips"><span class="chip main">Spring Boot</span></span></span><span class="sg-row"><span class="sg">Data</span><span class="chips"><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Supabase</span><span class="chip">Cloudflare R2</span></span></span><span class="sg-row"><span class="sg">Infra</span><span class="chips"><span class="chip">AWS EC2 / RDS</span><span class="chip">Nginx</span><span class="chip">Docker Compose</span><span class="chip">Terraform</span></span></span><span class="sg-row"><span class="sg">Monitoring</span><span class="chips"><span class="chip">Prometheus</span><span class="chip">Loki</span><span class="chip">Grafana</span></span></span></span>
-            <span class="item-more link" data-l="en">Read the case studies</span><span class="item-more link" data-l="ko">상세 보기</span>
-          </a>
+            <div class="cases">
+              <p class="cases-label"><span data-l="en">Case studies</span><span data-l="ko">케이스 스터디</span></p>
+              <ul>
+                <li><a href="projects/nook.html#stats"><span data-l="en">Speeding up the monthly stats API on the home screen</span><span data-l="ko">홈 화면 월별 통계 API 속도 개선</span></a></li>
+                <li><a href="projects/nook.html#infra"><span data-l="en">Zero-downtime deploys and monitoring on Terraform</span><span data-l="ko">Terraform 기반 무중단 배포·모니터링 구축</span></a></li>
+              </ul>
+            </div>
+            <a class="item-more link" data-l="en" href="projects/nook.html">Read the details</a><a class="item-more link" data-l="ko" href="projects/nook.html">상세 보기</a>
+          </div>
 
-          <a class="item" data-key="linku" href="projects/linku.html">
-            <span class="item-title" data-l="en">Linku</span><span class="item-title" data-l="ko">링큐</span>
+          <div class="item" data-key="linku">
+            <a class="item-link" href="projects/linku.html"><span class="item-title" data-l="en">Linku</span><span class="item-title" data-l="ko">링큐</span></a>
             <span class="meta">
               <span data-l="en">Link discovery and sharing app</span><span data-l="ko">링크 추천·정리·공유 앱</span>
               <i class="rule"></i><span class="pill">2026.04 – 2026.08</span>
@@ -193,11 +208,17 @@
             <span class="item-desc" data-l="en">Replaced a findAll-based monthly report with Spring Batch and keyset paging to remove an out-of-memory risk, and built token blacklisting and login limits with Redis and Lua scripts.</span>
             <span class="item-desc" data-l="ko">findAll로 만든 월간 리포트를 Spring Batch와 키셋 페이징으로 바꿔 OOM 위험을 없앴고, Redis와 Lua Script로 토큰 블랙리스트와 로그인 제한을 구현했습니다.</span>
             <span class="stack-groups"><span class="sg-row"><span class="sg">Backend</span><span class="chips"><span class="chip main">Spring Boot</span><span class="chip">Spring Batch</span><span class="chip">Firebase</span><span class="chip">Gemini API</span></span></span><span class="sg-row"><span class="sg">Data</span><span class="chips"><span class="chip">PostgreSQL</span><span class="chip">Redis</span></span></span><span class="sg-row"><span class="sg">Infra</span><span class="chips"><span class="chip">Terraform</span><span class="chip">Nginx</span><span class="chip">EC2</span></span></span></span>
-            <span class="item-more link" data-l="en">Read the case studies</span><span class="item-more link" data-l="ko">상세 보기</span>
-          </a>
+            <div class="cases">
+              <p class="cases-label"><span data-l="en">Case studies</span><span data-l="ko">케이스 스터디</span></p>
+              <ul>
+                <li><a href="projects/linku.html#batch"><span data-l="en">Removing the out-of-memory risk of the monthly report with Spring Batch</span><span data-l="ko">전체 유저 배치의 OOM 위험을 Spring Batch로 해결</span></a></li>
+              </ul>
+            </div>
+            <a class="item-more link" data-l="en" href="projects/linku.html">Read the details</a><a class="item-more link" data-l="ko" href="projects/linku.html">상세 보기</a>
+          </div>
 
-          <a class="item" data-key="jeonhwawasseo" href="projects/jeonhwawasseo.html">
-            <span class="item-title" data-l="en">CallFromAI</span><span class="item-title" data-l="ko">전화왔어</span>
+          <div class="item" data-key="jeonhwawasseo">
+            <a class="item-link" href="projects/jeonhwawasseo.html"><span class="item-title" data-l="en">CallFromAI</span><span class="item-title" data-l="ko">전화왔어</span></a>
             <span class="meta">
               <span data-l="en">AI phone and chat dating simulator</span><span data-l="ko">AI 전화·채팅 연애 시뮬레이션 서비스</span>
               <i class="rule"></i><span class="pill">2026.07 – 2026.08</span>
@@ -205,8 +226,14 @@
             <span class="item-desc" data-l="en">Android part lead. I built the real-time voice call: the WebSocket session, a ready signal before any audio is sent, and a generation value so a new call is not disturbed by the previous one.</span>
             <span class="item-desc" data-l="ko">Android 파트 리드로 AI와의 실시간 음성 통화를 구현했습니다. WebSocket 세션 관리, 준비 신호 전에는 오디오를 보내지 않는 구조, 이전 통화가 새 통화를 건드리지 않게 하는 세대 값을 맡았습니다.</span>
             <span class="stack-groups"><span class="sg-row"><span class="sg">Android</span><span class="chips"><span class="chip main">Kotlin</span><span class="chip main">Jetpack Compose</span><span class="chip">MVI</span></span></span><span class="sg-row"><span class="sg">Realtime</span><span class="chips"><span class="chip">OkHttp WebSocket</span></span></span><span class="sg-row"><span class="sg">Audio</span><span class="chips"><span class="chip">AudioRecord</span><span class="chip">AudioTrack</span><span class="chip">Media3</span></span></span></span>
-            <span class="item-more link" data-l="en">Read the case studies</span><span class="item-more link" data-l="ko">상세 보기</span>
-          </a>
+            <div class="cases">
+              <p class="cases-label"><span data-l="en">Case studies</span><span data-l="ko">케이스 스터디</span></p>
+              <ul>
+                <li><a href="projects/jeonhwawasseo.html#call"><span data-l="en">Building a real-time voice call as one session flow</span><span data-l="ko">AI와의 실시간 음성 통화를 한 세션의 흐름으로 구현</span></a></li>
+              </ul>
+            </div>
+            <a class="item-more link" data-l="en" href="projects/jeonhwawasseo.html">Read the details</a><a class="item-more link" data-l="ko" href="projects/jeonhwawasseo.html">상세 보기</a>
+          </div>
         </div>
       </section>
 

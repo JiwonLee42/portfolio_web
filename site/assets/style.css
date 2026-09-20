@@ -441,20 +441,58 @@ strong {
   line-height: 1.5;
 }
 /* Project names on the home page are the entry points, so they are set larger than the other items. */
-a.item[href^="projects/"] .item-title {
+.item[data-key] .item-title {
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.4;
 }
-a.item .item-title {
+.item-link .item-title {
   display: inline;
   background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
   transition: background-size 0.25s ease, color 0.15s;
 }
-a.item:hover .item-title {
+.item-link:hover .item-title {
   color: var(--primary);
   background-size: 100% 1px;
+}
+/* the title link covers the whole card; links inside the card sit above it */
+.item[data-key] {
+  position: relative;
+}
+.item-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.item[data-key] .item-more,
+.cases a {
+  position: relative;
+  z-index: 1;
+}
+.cases {
+  margin-top: 16px;
+}
+.cases-label {
+  color: var(--label-neutral);
+  font-size: 13px;
+}
+.cases ul {
+  display: grid;
+  gap: 2px;
+  margin-top: 6px;
+  padding-left: 14px;
+  border-left: 1px solid var(--line-neutral);
+}
+.cases a {
+  display: inline-block;
+  color: var(--label-strong);
+  font-size: 14.5px;
+  line-height: 1.6;
+  transition: color 0.2s ease-out;
+}
+.cases a:hover {
+  color: var(--primary);
 }
 .item-desc {
   display: block;
