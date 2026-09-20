@@ -32,7 +32,7 @@ window.VARIANTS = {
       ],
     },
     projects: ["meogeodoe", "jeonhwawasseo", "nook", "linku"],
-    skills: ["tools", "backend", "frontend", "devops", "data"],
+    skills: ["backend", "frontend", "devops", "data"],
     footer: {
       ko: "Product Engineer로 함께할 곳을 찾고 있습니다.",
       en: "Open to product engineering roles.",
@@ -50,7 +50,7 @@ window.VARIANTS = {
         "I like managing infrastructure as code and building [[everything from deployment to monitoring]] myself.",
       ],
     },
-    skills: ["tools", "devops", "backend", "data", "frontend"],
+    skills: ["devops", "backend", "data", "frontend"],
   },
 
   // Leads with how the services behave when something goes wrong.
@@ -66,6 +66,6 @@ window.VARIANTS = {
       ],
     },
     projects: ["meogeodoe", "linku", "nook", "jeonhwawasseo"],
-    skills: ["tools", "backend", "data", "devops", "frontend"],
+    skills: ["backend", "data", "devops", "frontend"],
   },
 };
