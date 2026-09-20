@@ -482,9 +482,24 @@ strong {
   inset: 0;
 }
 .item[data-key] .item-more,
+.item-gh,
 .cases a {
   position: relative;
   z-index: 1;
+}
+.item-gh {
+  display: inline-block;
+  margin: 6px 0 0 16px;
+  color: var(--label-neutral);
+  font-size: 14px;
+  transition: color 0.2s ease-out;
+}
+.item-gh:hover {
+  color: var(--primary);
+}
+.item-gh svg {
+  margin-left: 3px;
+  vertical-align: -1px;
 }
 .cases {
   margin-top: 16px;

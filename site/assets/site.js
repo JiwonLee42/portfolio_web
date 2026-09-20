@@ -52,13 +52,15 @@
       ["ko", "en"].forEach((lang) => {
         const h1 = document.querySelector('.hero [data-l="' + lang + '"] h1');
         if (h1 && v.hero && v.hero[lang]) {
-          v.hero[lang].forEach((text, i) => {
+          v.hero[lang].forEach((item, i) => {
+            const text = typeof item === "string" ? item : item.text;
             let el = h1.querySelectorAll(".line")[i];
             if (!el) {
               el = document.createElement("span");
               el.className = "line minor";
               h1.append(el);
             }
+            if (typeof item === "object" && item.small) el.classList.add("minor");
             fill(el, text);
           });
         }
