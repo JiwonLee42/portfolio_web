@@ -50,8 +50,18 @@
       };
 
       ["ko", "en"].forEach((lang) => {
-        const lines = document.querySelectorAll('.hero [data-l="' + lang + '"] h1 .line');
-        if (v.hero && v.hero[lang]) lines.forEach((el, i) => v.hero[lang][i] && fill(el, v.hero[lang][i]));
+        const h1 = document.querySelector('.hero [data-l="' + lang + '"] h1');
+        if (h1 && v.hero && v.hero[lang]) {
+          v.hero[lang].forEach((text, i) => {
+            let el = h1.querySelectorAll(".line")[i];
+            if (!el) {
+              el = document.createElement("span");
+              el.className = "line minor";
+              h1.append(el);
+            }
+            fill(el, text);
+          });
+        }
         if (v.footer && v.footer[lang]) {
           document.querySelectorAll('.foot-quote[data-l="' + lang + '"]').forEach((el) => (el.textContent = v.footer[lang]));
         }

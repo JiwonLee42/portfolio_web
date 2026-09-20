@@ -350,6 +350,15 @@ a {
   display: block;
   text-wrap: balance;
 }
+.display .line.minor {
+  margin-top: 12px;
+  color: var(--label-neutral);
+  font-size: 0.6em;
+  line-height: 1.7;
+}
+.display .line.minor + .line.minor {
+  margin-top: 0;
+}
 
 .prose p + p {
   margin-top: 14px;
