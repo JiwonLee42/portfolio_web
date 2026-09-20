@@ -900,6 +900,10 @@ figure.diagram a {
   display: block;
   cursor: zoom-in;
 }
+.stats.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 32px;
+}
 figure.diagram img {
   background: #fff; /* the diagram is drawn on white, so it stays a white card in dark mode */
 }
@@ -907,6 +911,74 @@ figure.diagram img {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+}
+
+/* blog */
+
+.lead {
+  color: var(--label-strong);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+}
+.lead + .note,
+.lead + .lead + .note {
+  margin-top: 6px;
+}
+.posts {
+  display: grid;
+  margin-top: 20px;
+}
+.posts li {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 2px 16px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-top: 1px solid var(--line-alt);
+}
+.posts time {
+  color: var(--label-neutral);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.post-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+}
+.posts a {
+  color: var(--label-strong);
+  font-size: 14.5px;
+  line-height: 1.6;
+  transition: color 0.2s ease-out;
+}
+.posts a:hover {
+  color: var(--primary);
+}
+.posts a svg {
+  margin-left: 4px;
+  vertical-align: -1px;
+  color: var(--primary);
+  transition: transform 0.3s var(--ease);
+}
+.posts a:hover svg {
+  transform: translate(2px, -3px);
+}
+.post-tag {
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--fill);
+  color: var(--label-neutral);
+  font-size: 12px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+.posts + .ext-link {
+  margin-top: 16px;
+  font-size: 14px;
 }
 
 /* GitHub activity: one square per day, five steps of the brand blue */
@@ -1327,6 +1399,12 @@ figure.diagram img {
   }
   .commits {
     margin-top: 80px;
+  }
+  .stats.four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .posts li {
+    grid-template-columns: minmax(0, 1fr);
   }
   .cal {
     --cell: 12px;

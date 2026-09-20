@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css">
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/data/contributions.js" defer></script>
+  <script src="assets/data/posts.js" defer></script>
   <script src="assets/variants.js" defer></script>
   <script src="assets/site.js" defer></script>
 </head>
@@ -49,8 +50,9 @@
           <li style="--i:0"><a href="#skills"><span data-l="en">Skills</span><span data-l="ko">기술 스택</span></a></li>
           <li style="--i:1"><a href="#projects"><span data-l="en">Projects</span><span data-l="ko">프로젝트</span></a></li>
           <li style="--i:2"><a href="#background"><span data-l="en">Background</span><span data-l="ko">이력</span></a></li>
-          <li style="--i:3"><a href="#contact" data-scroll-end><span data-l="en">Contact</span><span data-l="ko">연락처</span></a></li>
-          <li style="--i:4"><button type="button" data-toggle-theme><span><span data-l="en">Theme</span><span data-l="ko">테마</span></span><span><span data-mode="light" data-l="en">Light</span><span data-mode="light" data-l="ko">라이트</span><span data-mode="dark" data-l="en" hidden>Dark</span><span data-mode="dark" data-l="ko" hidden>다크</span></span></button></li>
+          <li style="--i:3"><a href="#blog"><span data-l="en">Blog</span><span data-l="ko">블로그</span></a></li>
+          <li style="--i:4"><a href="#contact" data-scroll-end><span data-l="en">Contact</span><span data-l="ko">연락처</span></a></li>
+          <li style="--i:5"><button type="button" data-toggle-theme><span><span data-l="en">Theme</span><span data-l="ko">테마</span></span><span><span data-mode="light" data-l="en">Light</span><span data-mode="light" data-l="ko">라이트</span><span data-mode="dark" data-l="en" hidden>Dark</span><span data-mode="dark" data-l="ko" hidden>다크</span></span></button></li>
           </ul>
         </nav>
       </div>
@@ -210,6 +212,12 @@
 
       <section class="wrap commits" id="activity" aria-labelledby="commits-title">
         <h2 class="sr" id="commits-title"><span data-l="en">GitHub activity</span><span data-l="ko">GitHub 활동</span></h2>
+        <dl class="stats four" data-figures>
+          <div><dt><span data-l="en">Days with GitHub activity, last year</span><span data-l="ko">GitHub에 기여한 날, 최근 1년</span></dt><dd data-figure="days">254</dd></div>
+          <div><dt><span data-l="en">GitHub contributions, last year</span><span data-l="ko">GitHub 기여, 최근 1년</span></dt><dd data-figure="contrib">2,514</dd></div>
+          <div><dt><span data-l="en">Projects this year</span><span data-l="ko">올해 진행한 프로젝트</span></dt><dd data-figure="projects">4</dd></div>
+          <div><dt><span data-l="en">Blog posts on Velog</span><span data-l="ko">Velog 블로그 글</span></dt><dd data-figure="posts">67</dd></div>
+        </dl>
         <div class="cal" data-cal aria-hidden="true"></div>
         <div class="cal-foot">
           <svg class="branch" viewBox="0 0 312 58" width="312" height="58" fill="none" aria-hidden="true">
@@ -325,13 +333,25 @@
         </div>
       </section>
 
-      <section class="wrap row tight" aria-labelledby="writing-label">
-        <h2 class="label" id="writing-label"><span data-l="en">Writing</span><span data-l="ko">블로그</span></h2>
-        <a class="item" href="https://velog.io/@jayaione_ele/posts" target="_blank" rel="noopener">
-          <span class="item-title">Velog</span>
-          <span class="item-desc" data-l="en">Notes on what I learn while building.</span>
-          <span class="item-desc" data-l="ko">개발하며 배운 것을 정리합니다.</span>
-        </a>
+      <section class="wrap row" id="blog" aria-labelledby="blog-label">
+        <h2 class="label" id="blog-label"><span data-l="en">Blog</span><span data-l="ko">블로그</span></h2>
+        <div>
+          <p class="lead" data-l="en">I write on my blog steadily.</p>
+          <p class="lead" data-l="ko">꾸준히 블로그를 작성합니다.</p>
+          <p class="note" data-l="en"><span data-blog-total>67</span> posts since <span data-blog-since>2023.10</span>, <span data-blog-year>42</span> of them in the last 12 months.</p>
+          <p class="note" data-l="ko"><span data-blog-since>2023.10</span>부터 <span data-blog-total>67</span>편, 최근 12개월 동안 <span data-blog-year>42</span>편을 썼습니다.</p>
+          <ul class="posts" data-posts="8">
+            <li><time datetime="2026-09-17">2026.09.17</time><span class="post-main"><a href="https://velog.io/@jayaione_ele/Spring-%EC%8A%A4%ED%94%84%EB%A7%81-%EA%B8%B0%EB%B3%B84-%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84-%EC%9E%90%EB%8F%99-%EC%A3%BC%EC%9E%85" target="_blank" rel="noopener"><span>스프링 기본4 - 의존관계 자동 주입</span><svg class="ext-i" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><span class="post-tag">Spring</span></span></li>
+            <li><time datetime="2026-09-17">2026.09.17</time><span class="post-main"><a href="https://velog.io/@jayaione_ele/Spring-%EC%8A%A4%ED%94%84%EB%A7%81-%EA%B8%B0%EB%B3%B83-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%8A%A4%EC%BA%94" target="_blank" rel="noopener"><span>스프링 기본3 - 컴포넌트 스캔</span><svg class="ext-i" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><span class="post-tag">Spring</span></span></li>
+            <li><time datetime="2026-09-16">2026.09.16</time><span class="post-main"><a href="https://velog.io/@jayaione_ele/Spring-%EC%8A%A4%ED%94%84%EB%A7%81-%EA%B8%B0%EB%B3%B8-%EC%8B%B1%EA%B8%80%ED%86%A4-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88" target="_blank" rel="noopener"><span>스프링 기본2 - 싱글톤 컨테이너</span><svg class="ext-i" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><span class="post-tag">Spring</span></span></li>
+            <li><time datetime="2026-09-08">2026.09.08</time><span class="post-main"><a href="https://velog.io/@jayaione_ele/%ED%9A%8C%EA%B3%A0-%EB%8F%85%EC%84%9C-%EA%B8%B0%EB%A1%9D-%EC%84%9C%EB%B9%84%EC%8A%A4-NOOK-%ED%9A%8C%EA%B3%A0%EB%A1%9D" target="_blank" rel="noopener"><span>독서 기록 서비스 NOOK 회고록</span><svg class="ext-i" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><span class="post-tag">회고</span></span></li>
+            <li><time datetime="2026-09-03">2026.09.03</time><span class="post-main"><a href="https://velog.io/@jayaione_ele/Spring-IoCDI-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88" target="_blank" rel="noopener"><span>스프링 기본1 - IoC,DI, 스프링 컨테이너와 스프링 빈</span><svg class="ext-i" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><span class="post-tag">Spring</span></span></li>
+            <li><time datetime="2026-08-25">2026.08.25</time><span class="post-main"><a href="https://velog.io/@jayaione_ele/Server-HTTP-%EC%BA%90%EC%8B%9C" target="_blank" rel="noopener"><span>HTTP 캐시</span><svg class="ext-i" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><span class="post-tag">Server</span></span></li>
+            <li><time datetime="2026-08-25">2026.08.25</time><span class="post-main"><a href="https://velog.io/@jayaione_ele/Server-HTTP-%EC%A7%80%EC%8B%9D-%EB%A6%AC%EB%A7%88%EC%9D%B8%EB%93%9C" target="_blank" rel="noopener"><span>HTTP 지식 리마인드</span><svg class="ext-i" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><span class="post-tag">Server</span></span></li>
+            <li><time datetime="2026-08-25">2026.08.25</time><span class="post-main"><a href="https://velog.io/@jayaione_ele/Server-HTTP-3XX-%EB%A6%AC%EB%8B%A4%EC%9D%B4%EB%A0%89%EC%85%98" target="_blank" rel="noopener"><span>HTTP 3XX - 리다이렉션</span><svg class="ext-i" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><span class="post-tag">Server</span></span></li>
+          </ul>
+          <a class="ext-link" href="https://velog.io/@jayaione_ele/posts" target="_blank" rel="noopener"><span data-l="en">See all posts on Velog</span><span data-l="ko">Velog에서 모든 글 보기</span><svg class="ext-i" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a>
+        </div>
       </section>
     </main>
   </div>

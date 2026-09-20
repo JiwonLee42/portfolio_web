@@ -246,6 +246,101 @@
     document.querySelectorAll("[data-cal-date]").forEach((el) => (el.textContent = data.updated.replace(/-/g, ".")));
   }
 
+  // ---------- blog posts ----------
+  // Latest posts from window.POSTS (see scripts/update-posts.py). A leading [Category] in a title becomes a tag.
+  const blog = window.POSTS;
+  const postList = document.querySelector("[data-posts]");
+  if (blog && blog.posts.length) {
+    const ARROW =
+      '<svg class="ext-i" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg>';
+    if (postList) {
+      const shown = Number(postList.dataset.posts) || 8;
+      postList.replaceChildren(
+        ...blog.posts.slice(0, shown).map((p) => {
+          const m = p.t.match(/^\[([^\]]+)\]\s*(.*)$/);
+          const li = document.createElement("li");
+          const time = document.createElement("time");
+          time.dateTime = p.d;
+          time.textContent = p.d.replace(/-/g, ".");
+          const main = document.createElement("span");
+          main.className = "post-main";
+          const a = document.createElement("a");
+          a.href = "https://velog.io/@" + blog.login + "/" + encodeURIComponent(p.s);
+          a.target = "_blank";
+          a.rel = "noopener";
+          const title = document.createElement("span");
+          title.textContent = m ? m[2] : p.t;
+          a.append(title);
+          a.insertAdjacentHTML("beforeend", ARROW);
+          main.append(a);
+          if (m) {
+            const tag = document.createElement("span");
+            tag.className = "post-tag";
+            tag.textContent = m[1];
+            main.append(tag);
+          }
+          li.append(time, main);
+          return li;
+        })
+      );
+    }
+    const cutoff = new Date(blog.updated + "T00:00:00Z").getTime() - 365 * 86400000;
+    const lastYear = blog.posts.filter((p) => new Date(p.d + "T00:00:00Z").getTime() >= cutoff).length;
+    const set = (sel, text) => document.querySelectorAll(sel).forEach((el) => (el.textContent = text));
+    set("[data-blog-total]", String(blog.total));
+    set("[data-blog-year]", String(lastYear));
+    set("[data-blog-since]", blog.posts[blog.posts.length - 1].d.slice(0, 7).replace("-", "."));
+  }
+
+  // ---------- figures ----------
+  // The numbers come from the data files, so they change when the data does. They count up once when seen.
+  const figures = document.querySelectorAll("[data-figure]");
+  if (figures.length) {
+    const value = {};
+    if (window.CONTRIBUTIONS) {
+      value.days = window.CONTRIBUTIONS.counts.slice(-365).filter((n) => n > 0).length;
+      value.contrib = window.CONTRIBUTIONS.total;
+    }
+    value.projects = document.querySelectorAll("#projects a.item").length;
+    if (window.POSTS) value.posts = window.POSTS.total;
+
+    const show = (el, n) => (el.textContent = Math.round(n).toLocaleString("en-US"));
+    const targets = new Map();
+    figures.forEach((el) => {
+      const shown = parseInt(el.textContent.replace(/,/g, ""), 10) || 0;
+      const n = typeof value[el.dataset.figure] === "number" ? value[el.dataset.figure] : shown;
+      targets.set(el, n);
+      show(el, n);
+    });
+
+    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!still && "IntersectionObserver" in window) {
+      const count = (el) => {
+        const end = targets.get(el);
+        const t0 = performance.now();
+        const step = (now) => {
+          const p = Math.min(1, (now - t0) / 900);
+          show(el, end * (1 - Math.pow(1 - p, 4))); // ease-out, as in the reference
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
+      const io = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            io.unobserve(entry.target);
+            count(entry.target);
+          }),
+        { threshold: 0.6 }
+      );
+      figures.forEach((el) => {
+        show(el, 0);
+        io.observe(el);
+      });
+    }
+  }
+
   // ---------- copy email ----------
   document.querySelectorAll("[data-copy]").forEach((btn) => {
     const status = document.querySelector("[data-copy-status]");

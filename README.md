@@ -16,8 +16,10 @@ site/                  배포되는 폴더 (이 안의 파일만 공개됩니다
     site.js            언어/테마 전환, 메뉴, 스크롤 리빌, 목차, GitHub 활동 그래프
     variants.js        ?c=코드 로 열었을 때 바뀌는 내용 (아래 참고)
     data/contributions.js   GitHub 기여 데이터 (자동 갱신)
+    data/posts.js           Velog 글 목록 (자동 갱신)
     img/
 scripts/update-contributions.py
+scripts/update-posts.py
 .github/workflows/pages.yml
 ```
 
@@ -56,6 +58,16 @@ https://jiwonlee42.github.io/portfolio_web/?c=infra
 
 ```bash
 python3 scripts/update-contributions.py
+```
+
+## 블로그 글과 통계 숫자
+
+블로그 섹션은 `site/assets/data/posts.js`(Velog 공개 API에서 받은 글 목록)로 그립니다. 제목이 `[Spring] …`처럼 대괄호로 시작하면 대괄호 안의 말이 태그로 표시됩니다.
+통계 카드의 숫자(GitHub에 기여한 날, 기여 수, 프로젝트 수, 글 수)는 이 데이터 파일과 페이지의 프로젝트 카드 개수에서 계산되어, 데이터가 갱신되면 같이 바뀝니다.
+배포할 때와 매주 월요일에 Actions가 두 데이터 파일을 새로 받아 배포합니다. 저장소의 파일을 직접 갱신하려면:
+
+```bash
+python3 scripts/update-posts.py
 ```
 
 ## 배포

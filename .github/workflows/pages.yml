@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: "0 0 * * 1" # every Monday 09:00 KST, so the GitHub activity grid stays current
+    - cron: "0 0 * * 1" # every Monday 09:00 KST, so the GitHub activity grid and the blog list stay current
   workflow_dispatch:
 
 permissions:
@@ -29,6 +29,11 @@ jobs:
       - name: Refresh GitHub activity
         continue-on-error: true
         run: python3 scripts/update-contributions.py JiwonLee42
+
+      # Same for the blog list.
+      - name: Refresh blog posts
+        continue-on-error: true
+        run: python3 scripts/update-posts.py jayaione_ele
 
       - uses: actions/configure-pages@v5
 
