@@ -25,13 +25,13 @@ window.VARIANTS = {
     hero: {
       ko: [
         "안정적으로 운영되는 서비스를 만드는 [[백엔드 개발자]] 이지원입니다.",
-        "API 구현에서 멈추지 않고, [[직접 출시하고 운영하며 개선]]합니다.",
+        "출시한 뒤에도 [[직접 운영하며 개선]]합니다.",
         "먹어도돼?를 Spring Boot 기반으로 만들어 App Store와 Google Play에서 운영 중입니다.",
         "Android 앱도 직접 만들어 봤습니다.",
       ],
       en: [
         "I'm Jiwon Lee, a [[backend developer]] who builds services that run reliably.",
-        "I don't stop at implementing the API. I [[release, run and keep improving]] what I build.",
+        "Even after release, I [[keep running and improving it myself]].",
         "I built Can I eat this? on Spring Boot, and it is live and running on the App Store and Google Play.",
         "I have built an Android app too.",
       ],
