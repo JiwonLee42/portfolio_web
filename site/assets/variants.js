@@ -16,6 +16,28 @@
 // list somewhere private. Only write things here that are true.
 
 window.VARIANTS = {
+
+  // For product engineer roles: software developer first, with the backend as the main strength.
+  // Projects that users meet directly come first, and the frontend skills move up.
+  k7f3: {
+    title: { ko: "이지원 | 소프트웨어 개발자", en: "Jiwon Lee | Software Developer" },
+    hero: {
+      ko: [
+        "[[소프트웨어 개발자]] 이지원입니다.",
+        "[[백엔드를 중심으로]] 앱과 인프라까지 다루고, 배포까지 끝까지 책임지고 운영하며 개선하는 걸 좋아합니다.",
+      ],
+      en: [
+        "I'm Jiwon Lee, a [[software developer]].",
+        "I work mainly on the [[backend]] and also on apps and infrastructure. I like taking things all the way through deployment, then improving them as I run them.",
+      ],
+    },
+    projects: ["meogeodoe", "jeonhwawasseo", "nook", "linku"],
+    skills: ["backend", "frontend", "devops", "data"],
+    footer: {
+      ko: "Product Engineer로 함께할 곳을 찾고 있습니다.",
+      en: "Open to product engineering roles.",
+    },
+  },
   // Leads with deployment and operations work. The project order stays as it is: Can I eat this? first.
   infra: {
     hero: {
