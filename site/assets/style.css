@@ -560,6 +560,24 @@ strong {
   color: var(--label-strong);
   font-weight: 500;
 }
+.bullets.did {
+  margin-top: 12px;
+  gap: 4px;
+}
+.bullets.did li {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.outcome {
+  margin-top: 10px;
+  color: var(--label-strong);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.outcome b {
+  margin-right: 10px;
+  font-weight: 700;
+}
 .item-more {
   display: inline-block;
   margin-top: 6px;
@@ -681,9 +699,11 @@ strong {
   align-items: start;
 }
 .stack-groups .sg {
-  padding-top: 3px;
-  color: var(--label-neutral);
-  font-size: 13px;
+  padding-top: 2px;
+  color: var(--label-strong);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 .chips li.main,
 .chips .chip.main {

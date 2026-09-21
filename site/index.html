@@ -80,7 +80,7 @@
         </div>
         <div class="hero-body">
           <div class="prose" data-l="en">
-            <p><strong class="motto">Once I start, I take responsibility until the end.</strong> I do my best until I reach the goal I set. Leading team projects on and off campus many times, I worked for the team to reach its final goal rather than staying within my own role. I encouraged teammates to reach the goals they had taken on, and when needed I took on extra work beyond my role so that we completed the goal together. As the Android part lead of <a class="link" href="projects/jeonhwawasseo.html">CallFromAI</a> and the Spring Boot part lead in UMC, I have tried to help solve problems together even when they were not my part.</p>
+            <p><strong class="motto">I take responsibility from start to finish.</strong> I do my best until I reach the goal I set. Leading team projects on and off campus many times, I worked for the team to reach its final goal rather than staying within my own role. I encouraged teammates to reach the goals they had taken on, and when needed I took on extra work beyond my role so that we completed the goal together. As the Android part lead of <a class="link" href="projects/jeonhwawasseo.html">CallFromAI</a> and the Spring Boot part lead in UMC, I have tried to help solve problems together even when they were not my part.</p>
             <p><a class="link" href="projects/meogeodoe.html">Can I eat this?</a> is built with Spring Boot and live on the App Store and Google Play, and for the web service <a class="link" href="projects/nook.html">Nook</a> I also took care of the Spring Boot backend and the AWS infrastructure, deploying and running it. I don't limit myself to the backend. I aim to be full-stack, working on Android and infrastructure as well, and I use AI actively while building <a class="link" href="projects/meogeodoe.html#ai-workflow">a flow to check its comments myself</a>.</p>
           </div>
           <div class="prose" data-l="ko">
@@ -158,9 +158,23 @@
               <i class="rule"></i><span class="pill">2026.06 – 2026.09</span>
             </span>
             <span class="status"><span data-l="en">Live on App Store and Google Play</span><span data-l="ko">App Store, Google Play 출시</span></span>
-            <span class="item-desc" data-l="en">Search a food before you eat it and get a traffic-light grade for your stomach. I owned the backend: reminder scheduling, OIDC login, Gemini integration and monitoring.</span>
-            <span class="item-desc" data-l="ko">음식을 먹기 전에 검색하면 신호등 등급으로 판정해 주는 앱입니다. 백엔드를 전담해 알림 예약 발송, OIDC 로그인, Gemini 연동, 모니터링을 맡았습니다.</span>
-            <span class="stack-groups"><span class="sg-row"><span class="sg">Backend</span><span class="chips"><span class="chip main">Spring Boot</span><span class="chip main">Kotlin</span><span class="chip">Gemini API</span></span></span><span class="sg-row"><span class="sg">Data</span><span class="chips"><span class="chip">PostgreSQL</span></span></span><span class="sg-row"><span class="sg">Infra</span><span class="chips"><span class="chip">Railway</span><span class="chip">Docker</span></span></span><span class="sg-row"><span class="sg">Monitoring</span><span class="chips"><span class="chip">Better Stack</span><span class="chip">Sentry</span></span></span><span class="sg-row"><span class="sg">Test</span><span class="chips"><span class="chip">Testcontainers</span></span></span></span>
+            <ul class="bullets did" data-l="ko">
+              <li>전체 프로젝트 구조·DB 테이블 설계 및 API 구현</li>
+              <li>FCM 알림을 DB 예약 큐 구조로 설계해 야간 발송 방지, 실패 시 재시도</li>
+              <li>소셜 로그인(Google·Kakao·Naver)을 OIDC 서명 검증 방식으로 구현</li>
+              <li>Gemini API 판정 기능에 Retry·CircuitBreaker를 적용해 실패 격리</li>
+              <li>Railway 배포, Sentry·traceId 요청 추적, Better Stack(OTLP) 모니터링 구축</li>
+            </ul>
+            <ul class="bullets did" data-l="en">
+              <li>Designed the whole project structure and DB tables, and built the APIs</li>
+              <li>Designed FCM reminders as a DB reservation queue: no night sends, retry on failure</li>
+              <li>Implemented social login (Google, Kakao, Naver) with OIDC signature verification</li>
+              <li>Isolated Gemini API failures with Retry and CircuitBreaker</li>
+              <li>Deployed on Railway, and built request tracing (Sentry, traceId) and monitoring (Better Stack, OTLP)</li>
+            </ul>
+            <p class="outcome" data-l="ko"><b>성과</b>App Store·Google Play 출시(2026.08), 운영 중</p>
+            <p class="outcome" data-l="en"><b>Result</b>Released on the App Store and Google Play (Aug 2026), running in operation</p>
+            <span class="stack-groups"><span class="sg-row"><span class="sg">Backend</span><span class="chips"><span class="chip main">Spring Boot</span><span class="chip main">Kotlin</span><span class="chip">PostgreSQL</span><span class="chip">Gemini API</span><span class="chip">Testcontainers</span></span></span><span class="sg-row"><span class="sg">Infra</span><span class="chips"><span class="chip">Railway</span><span class="chip">Docker</span><span class="chip">Sentry</span><span class="chip">Better Stack</span></span></span></span>
             <div class="cases">
               <p class="cases-label"><span data-l="en">Case studies</span><span data-l="ko">케이스 스터디</span></p>
               <ul>
@@ -180,9 +194,23 @@
               <i class="rule"></i><span class="pill">2026.01 – 2026.09</span>
             </span>
             <span class="status"><span data-l="en">Deployed, in QA</span><span data-l="ko">배포 완료, QA 중</span></span>
-            <span class="item-desc" data-l="en">I took care of the backend and infrastructure. A Redis sorted set for the home-screen stats API cut p95 latency by 20% in a local k6 load test, and I built zero-downtime blue/green deploys and monitoring with Terraform.</span>
-            <span class="item-desc" data-l="ko">백엔드와 인프라를 맡았습니다. Redis ZSET으로 홈 화면 통계 API를 개선해 로컬 k6 부하 테스트에서 p95 응답 시간을 20% 줄였고, Terraform으로 무중단 블루그린 배포와 모니터링을 구축했습니다.</span>
-            <span class="stack-groups"><span class="sg-row"><span class="sg">Backend</span><span class="chips"><span class="chip main">Spring Boot</span></span></span><span class="sg-row"><span class="sg">Data</span><span class="chips"><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Supabase</span><span class="chip">Cloudflare R2</span></span></span><span class="sg-row"><span class="sg">Infra</span><span class="chips"><span class="chip">AWS EC2</span><span class="chip">Nginx</span><span class="chip">Docker Compose</span><span class="chip">Terraform</span></span></span><span class="sg-row"><span class="sg">Monitoring</span><span class="chips"><span class="chip">Prometheus</span><span class="chip">Loki</span><span class="chip">Grafana</span></span></span></span>
+            <ul class="bullets did" data-l="ko">
+              <li>프로젝트 구조·컨벤션 확립 및 에러 핸들링 구조 구축</li>
+              <li>회원·서재·독서 기록 DB 설계 및 API 구현, N+1을 fetch join·Query Projection으로 개선</li>
+              <li>홈 통계 API를 Redis ZSET 캐싱으로 재설계 (로컬 k6: 평균 −18%, p95 −20%)</li>
+              <li>Terraform으로 EC2·VPC 등 인프라 모듈화, GitHub Actions → ECR → Blue/Green 무중단 배포 구축</li>
+              <li>Prometheus·Loki·Grafana 모니터링 구축, Alertmanager → Discord 알림 연동</li>
+            </ul>
+            <ul class="bullets did" data-l="en">
+              <li>Set the project structure, conventions and error-handling structure</li>
+              <li>Designed the DB and APIs for members, bookshelves and reading logs, and fixed N+1 queries with fetch join and Query Projection</li>
+              <li>Redesigned the home stats API with a Redis sorted set (local k6: average −18%, p95 −20%)</li>
+              <li>Modularized EC2, VPC and more with Terraform, and built zero-downtime GitHub Actions, ECR and blue/green deploys</li>
+              <li>Built Prometheus, Loki and Grafana monitoring with Alertmanager alerts to Discord</li>
+            </ul>
+            <p class="outcome" data-l="ko"><b>성과</b>웹 배포·운영 중, 데모 후 50명 이상의 사용자 피드백을 반영</p>
+            <p class="outcome" data-l="en"><b>Result</b>Deployed and running; feedback from more than 50 users after the demo went into the next round</p>
+            <span class="stack-groups"><span class="sg-row"><span class="sg">Backend</span><span class="chips"><span class="chip main">Spring Boot</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Supabase</span><span class="chip">Cloudflare R2</span></span></span><span class="sg-row"><span class="sg">Infra</span><span class="chips"><span class="chip">AWS EC2</span><span class="chip">Nginx</span><span class="chip">Docker Compose</span><span class="chip">Terraform</span><span class="chip">Prometheus</span><span class="chip">Loki</span><span class="chip">Grafana</span></span></span></span>
             <div class="cases">
               <p class="cases-label"><span data-l="en">Case studies</span><span data-l="ko">케이스 스터디</span></p>
               <ul>
@@ -201,9 +229,23 @@
               <i class="rule"></i><span class="pill">2026.04 – 2026.08</span>
             </span>
             <span class="status pending"><span data-l="en">In Play Store review</span><span data-l="ko">Play Store 심사 중</span></span>
-            <span class="item-desc" data-l="en">Replaced a findAll-based monthly report with Spring Batch and keyset paging to remove an out-of-memory risk, and built token blacklisting and login limits with Redis and Lua scripts.</span>
-            <span class="item-desc" data-l="ko">findAll로 만든 월간 리포트를 Spring Batch와 키셋 페이징으로 바꿔 OOM 위험을 없앴고, Redis와 Lua Script로 토큰 블랙리스트와 로그인 제한을 구현했습니다.</span>
-            <span class="stack-groups"><span class="sg-row"><span class="sg">Backend</span><span class="chips"><span class="chip main">Spring Boot</span><span class="chip">Spring Batch</span><span class="chip">Firebase</span><span class="chip">Gemini API</span></span></span><span class="sg-row"><span class="sg">Data</span><span class="chips"><span class="chip">PostgreSQL</span><span class="chip">Redis</span></span></span><span class="sg-row"><span class="sg">Infra</span><span class="chips"><span class="chip">Terraform</span><span class="chip">Nginx</span><span class="chip">EC2</span></span></span></span>
+            <ul class="bullets did" data-l="ko">
+              <li>개발계·운영계 서버를 분리해 AWS Terraform으로 관리하고 CI/CD 파이프라인 구축</li>
+              <li>프로젝트 중간 합류로 기존 로그인 로직 개선, 테스트 컨벤션 확립</li>
+              <li>알림 기능 데이터베이스 테이블 설계 및 API 구현, Firebase Topic 구독 기반 공지 알림 설계</li>
+              <li>Redis + Lua Script로 토큰 블랙리스트·세션 관리, 동시 로그인 3대 제한 구현</li>
+              <li>월간 큐레이션 생성 로직을 Gemini API·FCM 연동 배치로 설계하고 Spring Batch로 전환</li>
+            </ul>
+            <ul class="bullets did" data-l="en">
+              <li>Separated development and production servers, managed them on AWS with Terraform, and built the CI/CD pipeline</li>
+              <li>Joined mid-project: improved the existing login logic and set the testing convention</li>
+              <li>Designed the notification tables and APIs, and announcement notifications by Firebase Topic subscription</li>
+              <li>Built token blacklisting and session management with Redis and Lua scripts, and a limit of three concurrent logins</li>
+              <li>Designed the monthly curation job as a Gemini API and FCM batch, and moved it to Spring Batch</li>
+            </ul>
+            <p class="outcome" data-l="ko"><b>성과</b>월간 리포트 배치를 OOM 실패에서 정상 완료로 개선, Play Store 심사 중</p>
+            <p class="outcome" data-l="en"><b>Result</b>Monthly report batch went from an out-of-memory failure to a normal run; in Play Store review</p>
+            <span class="stack-groups"><span class="sg-row"><span class="sg">Backend</span><span class="chips"><span class="chip main">Spring Boot</span><span class="chip">Spring Batch</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Firebase</span><span class="chip">Gemini API</span></span></span><span class="sg-row"><span class="sg">Infra</span><span class="chips"><span class="chip">Terraform</span><span class="chip">Nginx</span><span class="chip">EC2</span></span></span></span>
             <div class="cases">
               <p class="cases-label"><span data-l="en">Case studies</span><span data-l="ko">케이스 스터디</span></p>
               <ul>
@@ -220,9 +262,23 @@
               <span data-l="en">AI phone and chat dating simulator</span><span data-l="ko">AI 전화·채팅 연애 시뮬레이션 서비스</span>
               <i class="rule"></i><span class="pill">2026.07 – 2026.08</span>
             </span>
-            <span class="item-desc" data-l="en">Android part lead. I built the real-time voice call: the WebSocket session, a ready signal before any audio is sent, and a generation value so a new call is not disturbed by the previous one.</span>
-            <span class="item-desc" data-l="ko">Android 파트 리드로 AI와의 실시간 음성 통화를 구현했습니다. WebSocket 세션 관리, 준비 신호 전에는 오디오를 보내지 않는 구조, 이전 통화가 새 통화를 건드리지 않게 하는 세대 값을 맡았습니다.</span>
-            <span class="stack-groups"><span class="sg-row"><span class="sg">Frontend</span><span class="chips"><span class="chip main">Kotlin</span><span class="chip main">Jetpack Compose</span><span class="chip">MVI</span></span></span><span class="sg-row"><span class="sg">Realtime</span><span class="chips"><span class="chip">OkHttp WebSocket</span></span></span><span class="sg-row"><span class="sg">Audio</span><span class="chips"><span class="chip">AudioRecord</span><span class="chip">AudioTrack</span><span class="chip">Media3</span></span></span></span>
+            <ul class="bullets did" data-l="ko">
+              <li>Android 통화 기능 전 과정 구현: 전화 진입·연결·오디오 송수신·종료·재시작·통화 후 기록</li>
+              <li>CALL_READY 준비 신호 전에는 오디오 전송 금지(5초 타임아웃), 세대 값으로 지연 콜백 차단</li>
+              <li>블루투스·스피커 출력 경로를 나눠 처리, 실패 시 기본 경로로 통화 유지</li>
+              <li>MVI·Jetpack Compose로 홈·통화 이력 화면 구현, Media3로 녹음 재생 연결</li>
+              <li>Android 파트 리드로 일정 관리와 코드 리뷰 문화 운영 시도</li>
+            </ul>
+            <ul class="bullets did" data-l="en">
+              <li>Built the whole call feature on Android: entering, connecting, audio, ending and restarting, and the record afterwards</li>
+              <li>Sent no audio before the server’s CALL_READY signal (5 s timeout), and blocked late callbacks with a generation value</li>
+              <li>Handled Bluetooth and speaker paths, falling back to the default so calls continue</li>
+              <li>Built the home and call history screens with MVI and Jetpack Compose, and recording playback with Media3</li>
+              <li>Tried to run the schedule and a code review culture as Android part lead</li>
+            </ul>
+            <p class="outcome" data-l="ko"><b>성과</b>데모데이 50명 이상 시연, 통화 성공·음질·피드백 모두 좋았고 대부분 만족</p>
+            <p class="outcome" data-l="en"><b>Result</b>Shown to more than 50 users at demo day; calls, sound quality and feedback were good and most users were satisfied</p>
+            <span class="stack-groups"><span class="sg-row"><span class="sg">Frontend</span><span class="chips"><span class="chip main">Kotlin</span><span class="chip main">Jetpack Compose</span><span class="chip">MVI</span><span class="chip">OkHttp WebSocket</span><span class="chip">AudioRecord</span><span class="chip">AudioTrack</span><span class="chip">Media3</span></span></span></span>
             <div class="cases">
               <p class="cases-label"><span data-l="en">Case studies</span><span data-l="ko">케이스 스터디</span></p>
               <ul>
