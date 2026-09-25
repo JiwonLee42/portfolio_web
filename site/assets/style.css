@@ -486,15 +486,18 @@ strong {
 .item[data-key] {
   position: relative;
   display: grid;
-  grid-template-columns: 128px minmax(0, 1fr);
-  column-gap: 20px;
+  grid-template-columns: 132px minmax(0, 1fr);
+  column-gap: 28px;
 }
 .item-link::after {
   content: "";
   position: absolute;
   inset: 0;
 }
+/* aspect-ratio goes on the box, not the <img>: a replaced element with width/height
+   attributes falls back to its own natural ratio and ignores one set on itself. */
 .item-thumb {
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 10px;
   background: var(--fill-alt);
@@ -503,7 +506,7 @@ strong {
 .item-thumb img {
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
   object-fit: cover;
 }
 /* the role this project was mine to own, called out big since the bullets below are easy to skim past */
@@ -1542,8 +1545,8 @@ figure.diagram img {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .item[data-key] {
-    grid-template-columns: 72px minmax(0, 1fr);
-    column-gap: 14px;
+    grid-template-columns: 76px minmax(0, 1fr);
+    column-gap: 18px;
   }
   .role-badge {
     padding: 2px 11px;
