@@ -360,13 +360,6 @@ a {
   margin-top: 0;
 }
 
-.prose .motto {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 1.2em;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
-}
 .prose p + p {
   margin-top: 14px;
 }
@@ -374,6 +367,23 @@ a {
   max-width: 62ch;
   color: var(--label-neutral);
   text-wrap: pretty;
+}
+
+/* three keyword-led traits, each a bold lead sentence and a short line under it */
+.traits {
+  display: grid;
+  gap: 22px;
+}
+.trait .motto {
+  display: block;
+  color: var(--label-strong);
+  font-weight: 700;
+  font-size: 1.15em;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+.trait p + p {
+  margin-top: 4px;
 }
 
 .link {
