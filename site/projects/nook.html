@@ -138,7 +138,7 @@
             <li>Designed the <strong>Redis cache</strong> structure and tuned indexes.</li>
             <li>Introduced <strong>Testcontainers</strong> integration tests and RestDocs with Swagger.</li>
             <li>Built <strong>Prometheus, Loki and Grafana</strong> monitoring.</li>
-            <li>Turned EC2, security groups, VPC and subnets into <strong>Terraform</strong> modules for the dev, prod and monitoring servers.</li>
+            <li>Wrote a <strong>Terraform</strong> module for EC2, its security group, IAM role and EIP, and imported the existing dev server into it; a plan for production and monitoring is ready.</li>
             <li>Built zero-downtime CI/CD: <strong>GitHub Actions to ECR to Blue/Green</strong>.</li>
           </ul>
           <ul class="bullets" data-l="ko">
@@ -148,7 +148,7 @@
             <li><strong>Redis 캐시 구조</strong>를 설계하고 인덱스를 튜닝했습니다.</li>
             <li><strong>Testcontainers</strong> 통합 테스트, RestDocs·Swagger를 도입했습니다.</li>
             <li><strong>Prometheus·Loki·Grafana</strong> 기반 모니터링 구조를 구축했습니다.</li>
-            <li>EC2·보안그룹·VPC·서브넷을 <strong>Terraform</strong>으로 인프라 모듈화하고, 개발계·운영계·모니터링 서버를 구축했습니다.</li>
+            <li>EC2·보안그룹·IAM·EIP를 관리하는 <strong>Terraform</strong> 모듈을 작성해 기존 개발 서버를 import했고, 운영·모니터링 서버는 plan까지 작성해 두었습니다.</li>
             <li><strong>GitHub Actions → ECR → Blue/Green</strong> 무중단 배포 및 CI/CD를 구축했습니다.</li>
           </ul>
         </div>
@@ -282,12 +282,12 @@
           <h3 class="label"><span data-l="en">Infrastructure as code</span><span data-l="ko">IaC 도입</span></h3>
           <div>
             <ul class="bullets" data-l="en">
-              <li><strong>Independent Terraform modules:</strong> VPC, subnets, EC2 and security groups are separate modules wired together through outputs. One <span class="code">terraform apply</span> rebuilds the whole infrastructure, and the development server that already existed was brought in with <span class="code">import</span>.</li>
-              <li><strong>Separate instances:</strong> the same modules are applied to the development, production and monitoring servers. Development stays free to inspect and recreate, while production secrets and deploy steps are controlled separately.</li>
+              <li><strong>An EC2 Terraform module:</strong> to fix the manual console management, I wrote a module that manages the security group, IAM role, EC2 instance and EIP, with the VPC and subnet passed in as variables from the existing network. The development server that already existed was brought in with <span class="code">import</span>.</li>
+              <li><strong>One module, staged rollout:</strong> the same module is meant for the development, production and monitoring servers. Development is applied and used freely for inspection and reproduction; production and monitoring have a Terraform plan ready, with secrets and the deploy steps to be controlled separately once they are applied.</li>
             </ul>
             <ul class="bullets" data-l="ko">
-              <li><strong>Terraform 독립 모듈 설정:</strong> 콘솔 수동 관리를 고치기 위해, VPC·서브넷·EC2·보안 그룹을 독립 모듈로 분리하고 output으로 체이닝합니다. <span class="code">terraform apply</span> 한 번으로 전체 인프라를 재현하며, 기존 배포한 개발 서버는 import 설정했습니다.</li>
-              <li><strong>인스턴스 분리:</strong> 개발 편의와 운영 통제가 섞여 있던 문제를 고치기 위해, 같은 모듈을 개발계·운영계·모니터링 서버로 나눠 각각 적용했습니다. 개발계는 자유롭게 확인·재현할 수 있게 두고, 운영계는 시크릿 관리와 배포 절차를 별도로 통제합니다.</li>
+              <li><strong>EC2 Terraform 모듈:</strong> 콘솔 수동 관리를 고치기 위해, 보안 그룹·IAM 역할·EC2·EIP를 관리하는 모듈을 작성하고 VPC·서브넷은 기존 네트워크를 변수로 받게 했습니다. 기존에 배포해 둔 개발 서버는 <span class="code">import</span>로 편입했습니다.</li>
+              <li><strong>단계적 적용:</strong> 같은 모듈을 개발계·운영계·모니터링 서버에 쓰도록 설계했습니다. 개발계는 적용해 자유롭게 확인·재현하고 있고, 운영계·모니터링은 plan까지 작성해 둔 상태로, 적용 시 시크릿 관리와 배포 절차를 별도로 통제할 계획입니다.</li>
             </ul>
           </div>
         </div>
