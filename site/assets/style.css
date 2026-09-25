@@ -475,11 +475,50 @@ strong {
 /* the title link covers the whole card; links inside the card sit above it */
 .item[data-key] {
   position: relative;
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr);
+  column-gap: 20px;
 }
 .item-link::after {
   content: "";
   position: absolute;
   inset: 0;
+}
+.item-thumb {
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--fill-alt);
+  border: 1px solid var(--line-alt);
+}
+.item-thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+/* the role this project was mine to own, called out big since the bullets below are easy to skim past */
+.role-label {
+  color: var(--label-neutral);
+  font-size: 12px;
+}
+.role-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+.role-badge {
+  padding: 3px 14px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+}
+.role-badge.alt {
+  background: var(--label-strong);
 }
 .item[data-key] .item-more,
 .item-gh,
@@ -1491,6 +1530,14 @@ figure.diagram img {
   }
   .stats.four {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .item[data-key] {
+    grid-template-columns: 72px minmax(0, 1fr);
+    column-gap: 14px;
+  }
+  .role-badge {
+    padding: 2px 11px;
+    font-size: 13px;
   }
   .posts li {
     grid-template-columns: minmax(0, 1fr);
