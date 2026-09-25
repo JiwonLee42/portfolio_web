@@ -486,7 +486,7 @@ strong {
 .item[data-key] {
   position: relative;
   display: grid;
-  grid-template-columns: 132px minmax(0, 1fr);
+  grid-template-columns: 192px minmax(0, 1fr);
   column-gap: 28px;
 }
 .item-link::after {
@@ -530,8 +530,11 @@ strong {
   letter-spacing: -0.01em;
   line-height: 1.5;
 }
+/* fixed instead of var(--label-strong): that flips light/dark, which would
+   make the badge invisible against its own always-white text */
 .role-badge.alt {
-  background: var(--label-strong);
+  background: light-dark(#171719, #f7f7f8);
+  color: light-dark(#fff, #171719);
 }
 .item[data-key] .item-more,
 .item-gh,
@@ -1545,7 +1548,7 @@ figure.diagram img {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .item[data-key] {
-    grid-template-columns: 76px minmax(0, 1fr);
+    grid-template-columns: 110px minmax(0, 1fr);
     column-gap: 18px;
   }
   .role-badge {
