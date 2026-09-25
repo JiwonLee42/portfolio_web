@@ -410,16 +410,16 @@ strong {
 }
 .hero-body {
   display: grid;
-  grid-template-columns: 168px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 168px;
   align-items: start;
   gap: 40px;
   margin-top: 40px;
 }
 .hero-body .prose {
-  grid-area: 1 / 2;
+  grid-area: 1 / 1;
 }
 .portrait {
-  grid-area: 1 / 1;
+  grid-area: 1 / 2;
   overflow: hidden;
   border-radius: 6px;
   background: var(--fill-alt);
