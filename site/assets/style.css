@@ -712,10 +712,14 @@ strong {
 }
 .defs > div {
   display: grid;
-  grid-template-columns: 148px minmax(0, 1fr);
+  grid-template-columns: 160px minmax(0, 1fr);
   gap: 4px 16px;
 }
 .defs dt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 7px;
   color: var(--label-strong);
   font-weight: 500;
   font-size: 14px;
@@ -724,6 +728,24 @@ strong {
   color: var(--label-neutral);
   font-size: 14px;
   line-height: 1.7;
+}
+
+/* self-rated proficiency next to each skill name: High is what a case study backs, Mid is used but not as deeply */
+.level {
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+.level-high {
+  background: var(--primary);
+  color: #fff;
+}
+.level-mid {
+  background: var(--fill-strong);
+  color: var(--label-neutral);
 }
 
 .chips {
