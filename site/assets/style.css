@@ -486,8 +486,16 @@ strong {
 .item[data-key] {
   position: relative;
   display: grid;
-  grid-template-columns: 192px minmax(0, 1fr);
+  grid-template-columns: 224px minmax(0, 1fr);
   column-gap: 28px;
+}
+/* Projects only: the label sits above the cards instead of beside them,
+   so the freed column width goes to the thumbnail and card content. */
+@media (min-width: 641px) {
+  #projects.row {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 28px;
+  }
 }
 .item-link::after {
   content: "";
