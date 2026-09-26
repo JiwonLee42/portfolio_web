@@ -565,6 +565,7 @@ strong {
   vertical-align: -1px;
 }
 .cases {
+  display: none;
   margin-top: 16px;
 }
 .cases-label {
@@ -625,7 +626,7 @@ strong {
 }
 .bullets.did {
   margin-top: 12px;
-  gap: 4px;
+  gap: 9px;
 }
 .bullets.did li {
   font-size: 14px;

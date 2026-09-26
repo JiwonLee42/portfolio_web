@@ -91,6 +91,39 @@
     }
   }
 
+  // ---------- folder variant continuity (site/<company>/, see README "회사별 별도 경로") ----------
+  // Shared pages like site/projects/*.html hardcode "../index.html" for home/brand/breadcrumb
+  // links, since they don't know whether the visitor came from the root site or a company
+  // folder such as site/nhn/. This remembers which one for the current tab and, on those shared
+  // pages, sends "home" back to the company folder instead of always landing on the root.
+  (() => {
+    const FOLDER_VARIANTS = ["nhn"]; // add the folder name here when a new site/<company>/ is created
+    const parts = location.pathname.split("/").filter(Boolean);
+    const last = parts[parts.length - 1];
+    // A directory-style URL ("/", "/nhn", "/nhn/") has no ".", and serves an implicit index.html.
+    const isDirStyle = !last || !last.includes(".");
+    const file = isDirStyle ? "index.html" : last;
+    const dir = isDirStyle ? last : parts[parts.length - 2];
+    if (file === "index.html") {
+      try {
+        if (FOLDER_VARIANTS.includes(dir)) sessionStorage.setItem("folderVariant", dir);
+        else sessionStorage.removeItem("folderVariant");
+      } catch (e) {}
+    }
+    let folderVariant;
+    try {
+      folderVariant = sessionStorage.getItem("folderVariant");
+    } catch (e) {}
+    if (folderVariant && dir !== folderVariant) {
+      document.querySelectorAll("a[href]").forEach((a) => {
+        const href = a.getAttribute("href");
+        if (!href) return;
+        const m = href.match(/^(\.\.\/)?index\.html(#.*)?$/);
+        if (m) a.setAttribute("href", (m[1] || "") + folderVariant + "/index.html" + (m[2] || ""));
+      });
+    }
+  })();
+
   // ---------- language ----------
   const langButtons = document.querySelectorAll("[data-set-lang]");
 
