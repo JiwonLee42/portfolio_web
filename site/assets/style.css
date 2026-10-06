@@ -697,8 +697,8 @@ code {
   font-size: 18px;
 }
 .hero-lead .nt-trait-title {
-  font-size: clamp(24px, 4.4vw, 32px);
-  margin-bottom: 12px;
+  font-size: clamp(18px, 2.8vw, 22px);
+  margin-bottom: 8px;
 }
 .hero-lead .prose {
   max-width: 68ch;
@@ -863,6 +863,211 @@ code {
 }
 .nt-group figure.shot figcaption {
   font-size: 13px;
+}
+
+/* ?fullstack adds the Android project; the backend version hides it */
+.only-fullstack {
+  display: none;
+}
+html[data-variant="fullstack"] .only-fullstack {
+  display: block;
+}
+html[data-variant="fullstack"] li.only-fullstack {
+  display: list-item;
+}
+
+/* project cards: three side by side, short intro and headline results, details open underneath */
+.proj-hint {
+  margin: -8px 0 20px;
+  color: var(--label-neutral);
+  font-size: 15px;
+}
+.proj-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+.proj-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line-neutral);
+  border-radius: 14px;
+  background: var(--bg-alt);
+  transition: border-color 0.15s, box-shadow 0.2s;
+}
+.proj-card.is-open {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 35%, transparent);
+}
+.pc-img {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--fill-alt);
+}
+.pc-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+.pc-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px 20px 20px;
+}
+.pc-title {
+  color: var(--label-strong);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.pc-sub {
+  margin-top: 2px;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 600;
+}
+.pc-intro {
+  margin-top: 12px;
+  color: var(--label-neutral);
+  font-size: 15px;
+  line-height: 1.65;
+}
+.pc-meta {
+  margin-top: 10px;
+  color: var(--label-neutral);
+  font-size: 13px;
+  opacity: 0.85;
+}
+.pc-label {
+  margin-top: 18px;
+  color: var(--label-strong);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.pc-list {
+  margin-top: 8px;
+  padding-left: 16px;
+  list-style: disc;
+  color: var(--label-neutral);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.pc-list li + li {
+  margin-top: 6px;
+}
+.pc-list strong {
+  color: inherit;
+  font-weight: 600;
+}
+.pc-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 9px 16px;
+  border: 1px solid var(--primary);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--primary);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.pc-list + .pc-btn {
+  margin-top: 20px;
+}
+.pc-btn:hover,
+.pc-btn[aria-expanded="true"] {
+  background: var(--primary);
+  color: #fff;
+}
+.pc-close,
+.pc-btn[aria-expanded="true"] .pc-open {
+  display: none;
+}
+.pc-btn[aria-expanded="true"] .pc-close {
+  display: inline;
+}
+.pc-open::after {
+  content: " ▾";
+}
+.pc-close::after {
+  content: " ▴";
+}
+.proj-details {
+  margin-top: 56px;
+  scroll-margin-top: 80px;
+}
+.proj-details:not(:has(.nt-proj:not([hidden]))) {
+  margin-top: 0;
+}
+.nt-proj[hidden] {
+  display: none !important;
+}
+.proj-card.only-fullstack {
+  display: none;
+}
+html[data-variant="fullstack"] .proj-card.only-fullstack {
+  display: flex;
+}
+@media (max-width: 900px) {
+  .proj-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* short list of the main stack, just under the hero numbers */
+.stack-sum {
+  margin-top: 56px;
+}
+.ss-title {
+  color: var(--label-strong);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+.ss-list {
+  display: grid;
+  gap: 10px;
+}
+.ss-row {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 16px;
+}
+.ss-row dt {
+  color: var(--label-neutral);
+  font-size: 14px;
+  font-weight: 600;
+}
+.ss-row dd {
+  margin: 0;
+}
+.ss-row .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ss-row.only-fullstack {
+  display: none;
+}
+html[data-variant="fullstack"] .ss-row.only-fullstack {
+  display: grid;
+}
+@media (max-width: 640px) {
+  .ss-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
 }
 
 /* home hero: headline first, then the one measured result, then the two traits */
