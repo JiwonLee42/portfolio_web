@@ -904,8 +904,9 @@ html[data-variant="fullstack"] li.only-fullstack {
 .pc-list li + li {
   margin-top: 6px;
 }
-.pc-list strong {
-  color: inherit;
+.pc-list strong,
+.pc-intro strong {
+  color: var(--label-strong);
   font-weight: 600;
 }
 .pc-btn {
