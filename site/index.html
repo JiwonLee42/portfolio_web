@@ -64,71 +64,94 @@
         </nav>
       </div>
     </header>
+    <nav class="tabs" id="tabs" aria-label="섹션 이동">
+      <a href="#top" data-tab="top">메인</a>
+      <a href="#intro" data-tab="intro">소개</a>
+      <div class="tab-group">
+        <a href="#projects" data-tab="projects">프로젝트</a>
+        <div class="tab-sub">
+          <a href="#meogeodoe">먹어도돼?</a>
+          <a href="#nook">누크</a>
+          <a href="#linku">링큐</a>
+          <a href="#jeonhwawasseo" class="only-fullstack">전화왔어</a>
+        </div>
+      </div>
+      <a href="#skills" data-tab="skills">기술</a>
+      <a href="#activity-row" data-tab="activity-row">활동</a>
+      <a href="#awards" data-tab="awards">수상</a>
+      <a href="#blog" data-tab="blog">블로그</a>
+    </nav>
   </div>
-
-  <nav class="pgtoc" id="pgtoc" aria-label="목차">
-    <p class="pgtoc-title">목차</p>
-    <ul>
-      <li><a href="#main" data-toc="main">소개</a></li>
-      <li><a href="#projects" data-toc="projects">프로젝트</a>
-        <ul>
-          <li><a href="#meogeodoe" data-toc="meogeodoe">먹어도돼?</a></li>
-          <li><a href="#nook" data-toc="nook">누크</a></li>
-          <li><a href="#linku" data-toc="linku">링큐</a></li>
-          <li class="only-fullstack"><a href="#jeonhwawasseo" data-toc="jeonhwawasseo">전화왔어</a></li>
-        </ul>
-      </li>
-      <li><a href="#skills" data-toc="skills">기술</a></li>
-      <li><a href="#activity-row" data-toc="activity-row">활동</a></li>
-      <li><a href="#awards" data-toc="awards">수상</a></li>
-      <li><a href="#blog" data-toc="blog">블로그</a></li>
-    </ul>
-  </nav>
 
   <div class="sheet sheet-wide">
     <main id="main">
-      <section class="wrap hero hero-lead">
-        <h1 class="display rise">
-          <span class="line">문제의 <span class="hl accent">원인을 끝까지 추적해 병목을 수치로 증명해 해결하는 백엔드 개발자 이지원입니다.</span></span>
-          <span class="line minor">자주 조회되는 ‘홈 화면’에서 API의 응답 속도를 쿼리 최적화 및 Redis ZSET 캐싱으로 <span class="hl accent">최대 77%</span> 줄였습니다.</span>
-        </h1>
-        <div class="hero-body">
-          <div class="prose traits">
-<div class="nt-trait">
-  <h2 class="nt-trait-title">배우고 공유하며 성장하는 것을 좋아합니다</h2>
-  <p>velog에 배운 것을 정리해 공유하고 있습니다. <strong>60건 이상의 게시글을 작성</strong>했으며, <strong>누적 방문자 수 4,500명</strong> 이상을 달성했습니다.</p>
-</div>
-<div class="nt-trait">
-  <h2 class="nt-trait-title">직접 만들고 운영하며 사용자 경험을 확인합니다</h2>
-  <p><a class="link" href="#meogeodoe">먹어도돼?</a> 앱을 <strong>App Store와 Google Play</strong>에 출시하고, <a class="link" href="#linku">링큐</a> 앱을 Google Play에 출시했습니다.</p>
-  <p>운영 DB에 Metabase 대시보드를 연결하여 VIEW를 확인하고, APM 툴에서 안정성을 모니터링합니다.</p>
-  <p class="only-fullstack">지금은 백엔드 중심이지만, 전화왔어(Android) 경험을 바탕으로 화면까지 넓혀가고 있습니다.</p>
-</div>
-</div>
-          <figure class="portrait">
+
+      <section class="wrap hero hero-first" id="top">
+        <div class="hf-grid">
+          <div class="hf-text">
+            <h1 class="display rise"><span class="line">문제의 <span class="hl accent">원인을 끝까지 추적해</span></span><span class="line"><span class="hl accent">병목을 수치로 증명해 해결하는</span></span><span class="line"><span class="hl accent">백엔드 개발자 이지원입니다.</span></span></h1>
+            <p class="hf-sub">자주 조회되는 ‘홈 화면’ API의 응답 속도를<br>쿼리 최적화 및 Redis ZSET 캐싱으로 <strong>최대 77%</strong> 줄였습니다.</p>
+            <div class="hf-metric" role="img" aria-label="홈 화면 API 응답 속도 최대 77% 감소">
+              <div class="hm-left">
+                <p class="hm-title">홈 화면 API 응답 속도</p>
+                <div class="hm-bar"><span>개선 전</span><i class="hm-track"><b style="width:100%"></b></i></div>
+                <div class="hm-bar is-after"><span>개선 후</span><i class="hm-track"><b style="width:23%"></b></i></div>
+              </div>
+              <div class="hm-right"><p class="hm-num">−77%</p><p class="hm-note">최대 응답 기준<br>쿼리 최적화와 Redis ZSET</p></div>
+            </div>
+          </div>
+          <figure class="hf-photo">
             <img src="assets/img/profile.webp" width="438" height="520" alt="이지원" decoding="async" fetchpriority="high">
           </figure>
         </div>
-        
-<ul class="nt-contact">
-  <li><span>이메일</span><a class="link" href="mailto:ljw56b@gmail.com">ljw56b@gmail.com</a></li>
-  <li><span>GitHub</span><a class="link" href="https://github.com/JiwonLee42" target="_blank" rel="noopener">github.com/JiwonLee42</a></li>
-  <li><span>블로그</span><a class="link" href="https://velog.io/@jayaione_ele" target="_blank" rel="noopener">velog.io/@jayaione_ele</a></li>
-  <li><span>학력</span>성신여자대학교 컴퓨터공학과, 융합보안공학과 부전공 (2021.03 ~ 2026.08 졸업)</li>
-</ul>
-
+        <div class="hf-links">
+          <a class="hf-link" href="https://github.com/JiwonLee42" target="_blank" rel="noopener"><i><svg viewBox="0 0 16 16" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></i><span><small>GitHub</small><b>github.com/JiwonLee42</b></span></a>
+          <a class="hf-link" href="https://velog.io/@jayaione_ele" target="_blank" rel="noopener"><i><img src="assets/img/velog-icon.webp" width="28" height="28" alt="" loading="lazy" decoding="async"></i><span><small>블로그</small><b>velog.io/@jayaione_ele</b></span></a>
+          <a class="hf-link" href="mailto:ljw56b@gmail.com"><i><img src="assets/img/gmail-icon.webp" width="28" height="28" alt="" loading="lazy" decoding="async"></i><span><small>이메일</small><b>ljw56b@gmail.com</b></span></a>
+        </div>
       </section>
 
-      <section class="wrap gh-strip" aria-labelledby="gh-strip-title">
-        <h2 class="sr" id="gh-strip-title"><span data-l="en">GitHub</span><span data-l="ko">GitHub</span></h2>
-        <dl class="stats two" data-figures>
-          <div><dt><span data-l="en">Days with GitHub activity, last year</span><span data-l="ko">GitHub에 기여한 날, 최근 1년</span></dt><dd data-figure="days">254</dd></div>
-          <div><dt><span data-l="en">GitHub contributions, last year</span><span data-l="ko">GitHub 기여, 최근 1년</span></dt><dd data-figure="contrib">2,514</dd></div>
-        </dl>
-        <a class="ext-link" href="https://github.com/JiwonLee42" target="_blank" rel="noopener"><span data-l="en">View on GitHub</span><span data-l="ko">GitHub에서 보기</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a>
-      </section>
 
-      <section class="wrap stack-sum" id="stack-summary" aria-labelledby="ss-title"><h2 class="ss-title" id="ss-title">주요 기술 스택</h2><dl class="ss-list"><div class="ss-row"><dt>Backend</dt><dd><span class="chips"><span class="chip main">Spring Boot</span><span class="chip main">Kotlin</span><span class="chip main">Java 17</span><span class="chip">Spring Security</span><span class="chip">Spring Batch</span><span class="chip">JPA</span><span class="chip">QueryDSL</span></span></dd></div><div class="ss-row"><dt>Database</dt><dd><span class="chips"><span class="chip main">PostgreSQL</span><span class="chip main">Redis</span><span class="chip">pg_trgm</span></span></dd></div><div class="ss-row"><dt>CI/CD, Infra</dt><dd><span class="chips"><span class="chip main">GitHub Actions</span><span class="chip">Docker</span><span class="chip main">Terraform</span><span class="chip">AWS</span><span class="chip">Nginx Blue/Green</span><span class="chip">Railway</span><span class="chip">Kubernetes</span></span></dd></div><div class="ss-row"><dt>Monitoring</dt><dd><span class="chips"><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Loki</span><span class="chip">Sentry</span><span class="chip">Better Stack</span></span></dd></div><div class="ss-row"><dt>AI</dt><dd><span class="chips"><span class="chip">Gemini API</span><span class="chip main">Claude Code</span></span></dd></div><div class="ss-row"><dt>Test</dt><dd><span class="chips"><span class="chip">JUnit5</span><span class="chip">TestContainers</span><span class="chip">k6</span></span></dd></div><div class="ss-row"><dt>Frontend</dt><dd><span class="chips"><span class="chip">Android</span><span class="chip">Jetpack Compose</span><span class="chip">MVI</span></span></dd></div></dl></section>
+      <section class="wrap intro" id="intro" aria-labelledby="intro-title">
+        <h2 class="intro-title" id="intro-title">소개</h2>
+        <div class="intro-grid">
+          <article class="ic">
+            <i class="ic-bar" aria-hidden="true"></i>
+            <h3>배우고 공유하며<br>성장하는 것을 좋아합니다</h3>
+            <p>velog에 배운 것을 정리해 공유하고 있습니다.</p>
+            <dl class="ic-stats">
+              <div><dd>60+</dd><dt>작성한 게시글</dt></div>
+              <div><dd>4,500+</dd><dt>누적 방문자 수</dt></div>
+            </dl>
+          </article>
+          <article class="ic is-teal">
+            <i class="ic-bar" aria-hidden="true"></i>
+            <h3>직접 만들고 운영하며<br>사용자 경험을 확인합니다</h3>
+            <ul class="ic-list">
+              <li><strong><a class="link" href="#meogeodoe">먹어도돼?</a></strong> App Store, Google Play 출시</li>
+              <li><strong><a class="link" href="#linku">링큐</a></strong> Google Play 출시</li>
+              <li>운영 DB에 Metabase 대시보드를 연결해 VIEW 확인</li>
+              <li>APM 툴에서 안정성 모니터링</li>
+              <li class="only-fullstack">전화왔어(Android) 경험을 바탕으로 화면까지 넓혀가고 있습니다.</li>
+            </ul>
+          </article>
+          <article class="ic ic-short">
+            <div class="ic-head"><h3>GitHub</h3><span>최근 1년</span><a class="ext-link" href="https://github.com/JiwonLee42" target="_blank" rel="noopener">github.com/JiwonLee42<svg class="ext-i" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a></div>
+            <dl class="ic-stats ic-big" data-figures>
+              <div><dd data-figure="days">254</dd><dt>기여한 날</dt></div>
+              <div><dd data-figure="contrib">2,514</dd><dt>기여</dt></div>
+            </dl>
+          </article>
+          <article class="ic ic-short">
+            <p class="ic-label">학력</p>
+            <h3 class="ic-school">성신여자대학교</h3>
+            <p>컴퓨터공학과, 융합보안공학과 부전공</p>
+            <p class="ic-date">2021.03 ~ 2026.08 졸업</p>
+          </article>
+        </div>
+        <h3 class="intro-sub">주요 기술 스택</h3>
+        <div class="st-card"><dl><div class="st-row is-first"><dt>Backend</dt><dd><span class="chips"><span class="chip main">Spring Boot</span><span class="chip main">Kotlin</span><span class="chip main">Java 17</span><span class="chip">Spring Security</span><span class="chip">Spring Batch</span><span class="chip">JPA</span><span class="chip">QueryDSL</span></span></dd></div><div class="st-row"><dt>Database</dt><dd><span class="chips"><span class="chip main">PostgreSQL</span><span class="chip main">MySQL</span><span class="chip main">Redis</span></span></dd></div><div class="st-row"><dt>CI/CD, Infra</dt><dd><span class="chips"><span class="chip main">GitHub Actions</span><span class="chip">Docker</span><span class="chip main">Terraform</span><span class="chip">AWS</span><span class="chip">Nginx</span><span class="chip">Railway</span><span class="chip">Kubernetes</span></span></dd></div><div class="st-row"><dt>Monitoring</dt><dd><span class="chips"><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Loki</span><span class="chip">Sentry</span><span class="chip">Better Stack</span></span></dd></div><div class="st-row"><dt>AI</dt><dd><span class="chips"><span class="chip">Gemini API</span><span class="chip main">Claude Code</span></span></dd></div><div class="st-row"><dt>Test</dt><dd><span class="chips"><span class="chip">JUnit5</span><span class="chip">TestContainers</span><span class="chip">k6</span></span></dd></div><div class="st-row"><dt>Frontend</dt><dd><span class="chips"><span class="chip">Android</span><span class="chip">Jetpack Compose</span><span class="chip">MVI</span></span></dd></div></dl></div>
+      </section>
 
       <section class="wrap row" id="projects" aria-labelledby="projects-label">
         <h2 class="label" id="projects-label">프로젝트</h2>
@@ -316,31 +339,21 @@
     </div>
   </footer>
   <script>
-    // Keeps the table of contents in view and marks the section being read.
+    // Top tabs: mark the section being read.
     (function () {
-      var links = Array.prototype.slice.call(document.querySelectorAll("#pgtoc a[data-toc]"));
-      if (!links.length || !("IntersectionObserver" in window)) return;
-      var targets = links.map(function (a) {
-        var id = a.dataset.toc;
-        return { a: a, el: id === "main" ? document.querySelector(".hero") : document.getElementById(id) };
-      }).filter(function (t) { return t.el; });
-      var toc = document.getElementById("pgtoc"), sheet = document.querySelector(".sheet");
-      function update() {
-        // The footer slides up from under the page at the very end; fade the list out before the page edge reaches it.
-        if (toc && sheet) {
-          var edge = sheet.getBoundingClientRect().bottom;
-          var overlap = edge < window.innerHeight - 8 || edge < toc.getBoundingClientRect().bottom + 32;
-          toc.classList.toggle("is-hidden", overlap);
-        }
-        var y = window.innerHeight * 0.3, current = targets[0];
-        targets.forEach(function (t) { if (t.el.getClientRects().length && t.el.getBoundingClientRect().top <= y) current = t; });
-        targets.forEach(function (t) {
-          if (t === current) t.a.setAttribute("aria-current", "true"); else t.a.removeAttribute("aria-current");
+      var tabs = Array.prototype.slice.call(document.querySelectorAll("#tabs a[data-tab]"));
+      if (!tabs.length) return;
+      var items = tabs.map(function (a) { return { a: a, el: document.getElementById(a.dataset.tab) }; }).filter(function (t) { return t.el; });
+      function paint() {
+        var y = window.innerHeight * 0.35, cur = null;
+        items.forEach(function (t) { if (t.el.getClientRects().length && t.el.getBoundingClientRect().top <= y) cur = t; });
+        items.forEach(function (t) {
+          if (t === cur) t.a.setAttribute("aria-current", "true"); else t.a.removeAttribute("aria-current");
         });
       }
-      window.addEventListener("scroll", update, { passive: true });
-      window.addEventListener("resize", update);
-      update();
+      window.addEventListener("scroll", paint, { passive: true });
+      window.addEventListener("resize", paint);
+      paint();
     })();
   </script>
   <script>
