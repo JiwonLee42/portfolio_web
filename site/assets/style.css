@@ -430,6 +430,462 @@ strong {
   height: auto;
 }
 
+/* ---------- notion-style home: project write-ups, tech, activity, awards ---------- */
+
+.hero-lead .nt-contact {
+  margin-top: 48px;
+}
+.nt-contact {
+  display: grid;
+  gap: 8px;
+  color: var(--label-neutral);
+  font-size: 15px;
+}
+.nt-contact li {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 12px;
+}
+.nt-contact li > span {
+  color: var(--label-alt, var(--label-neutral));
+  opacity: 0.8;
+}
+.nt-trait + .nt-trait {
+  margin-top: 36px;
+}
+.nt-trait-title {
+  color: var(--primary);
+  font-size: 1.3em;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+}
+.nt-trait p + p {
+  margin-top: 6px;
+}
+
+.nt-stack {
+  display: grid;
+  gap: 88px;
+  min-width: 0;
+}
+#skills .nt-stack,
+#activity-row .nt-stack,
+#awards .nt-stack {
+  gap: 36px;
+}
+.nt-proj-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+.nt-title {
+  color: var(--label-strong);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+}
+.nt-desc {
+  margin-top: 10px;
+  color: var(--label-neutral);
+}
+.nt-desc p + p {
+  margin-top: 4px;
+}
+.nt-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 14px;
+}
+.nt-ext {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--line-primary);
+  text-underline-offset: 3px;
+}
+.nt-ext:hover {
+  text-decoration-color: var(--primary);
+}
+.nt-list li > .nt-ext,
+.nt-list .nt-ext {
+  margin-left: 6px;
+  font-size: 0.92em;
+}
+.nt-meta {
+  display: grid;
+  gap: 2px;
+  margin-top: 14px;
+  color: var(--label-neutral);
+  font-size: 14px;
+}
+.nt-proj-text .chips {
+  margin-top: 14px;
+}
+.nt-proj-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line-neutral);
+}
+.nt-sub {
+  margin-top: 44px;
+  color: var(--label-strong);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line-neutral);
+}
+.nt-group {
+  margin-top: 28px;
+}
+.nt-group h4 {
+  color: var(--label-strong);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+.nt-list {
+  margin-top: 8px;
+  padding-left: 18px;
+  list-style: disc;
+  color: var(--label-neutral);
+}
+.nt-list li + li {
+  margin-top: 4px;
+}
+.nt-list li::marker {
+  color: var(--line-primary, currentColor);
+}
+.nt-tech {
+  margin-top: 14px;
+}
+.nt-list strong {
+  color: var(--label-strong);
+}
+.nt-etc {
+  margin-top: 8px;
+  color: var(--label-neutral);
+}
+.nt-ts {
+  margin-top: 48px;
+  padding: 24px 26px;
+  border-radius: 8px;
+  background: var(--bg-alt);
+  border: 1px solid var(--line-alt);
+}
+.nt-ts > h4 {
+  color: var(--label-strong);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.nt-ts-sec {
+  margin-top: 18px;
+  color: var(--label-neutral);
+}
+.nt-ts-label {
+  color: var(--label-strong);
+  font-weight: 700;
+}
+.nt-ts-sec p + p,
+.nt-ts-sec p + ul {
+  margin-top: 6px;
+}
+.nt-ts-sec .nt-list {
+  margin-top: 6px;
+}
+.nt-lead {
+  margin-top: 4px;
+  color: var(--label-strong);
+  font-weight: 500;
+}
+.nt-nest {
+  margin-left: 18px;
+}
+.nt-nest .nt-list {
+  list-style: circle;
+  margin-top: 4px;
+}
+.nt-quote {
+  margin-top: 8px;
+  padding-left: 12px;
+  border-left: 3px solid var(--line-neutral);
+  color: var(--label-neutral);
+}
+.nt-date {
+  margin-left: 6px;
+  color: var(--label-neutral);
+  font-size: 14px;
+  font-weight: 400;
+}
+.nt-act .nt-title {
+  font-size: 19px;
+}
+code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--fill-alt);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+}
+
+/* bigger, notion-like hierarchy for the home page sections */
+
+#projects.row,
+#skills.row,
+#activity-row.row,
+#awards.row {
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 40px;
+  margin-top: 144px;
+  font-size: 17px;
+}
+#projects.row > .label,
+#skills.row > .label,
+#activity-row.row > .label,
+#awards.row > .label {
+  padding-top: 0;
+  color: var(--primary);
+  font-size: clamp(34px, 6vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+#projects .nt-title {
+  font-size: clamp(26px, 4.4vw, 34px);
+  line-height: 1.3;
+}
+#projects .nt-desc {
+  font-size: 18px;
+  line-height: 1.7;
+}
+#projects .nt-meta {
+  font-size: 16px;
+}
+#projects .nt-sub {
+  margin-top: 56px;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+.nt-group h4 {
+  font-size: clamp(19px, 3.2vw, 22px);
+}
+.nt-group {
+  margin-top: 36px;
+}
+.nt-list {
+  line-height: 1.8;
+}
+.nt-ts > h4 {
+  font-size: clamp(19px, 3.2vw, 22px);
+}
+.nt-act .nt-title {
+  font-size: clamp(22px, 3.8vw, 28px);
+}
+.nt-lead {
+  font-size: 18px;
+}
+.hero-lead .nt-trait-title {
+  font-size: clamp(24px, 4.4vw, 32px);
+  margin-bottom: 12px;
+}
+.hero-lead .prose {
+  max-width: 68ch;
+  font-size: 17px;
+}
+
+.nt-act-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.nt-logo {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--line-neutral);
+  background: #000;
+}
+.nt-logo-wide {
+  width: 96px;
+  object-fit: contain;
+}
+
+/* wider reading column for the home page (the company pages keep the narrow one) */
+.sheet-wide .wrap,
+.sheet-wide ~ .footer .wrap {
+  max-width: 1080px;
+}
+.sheet-wide .hero-body {
+  grid-template-columns: minmax(0, 1fr) 224px;
+  gap: 56px;
+}
+.sheet-wide .hero-lead .prose {
+  max-width: 78ch;
+}
+.sheet-wide .display {
+  max-width: 28em;
+}
+
+/* always-visible table of contents (wide screens only; narrower ones keep the menu button) */
+.pgtoc {
+  display: none;
+}
+@media (min-width: 1200px) {
+  .pgtoc {
+    position: fixed;
+    top: 132px;
+    left: 28px;
+    z-index: 5;
+    display: block;
+    width: 180px;
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .sheet-wide .wrap,
+  .sheet-wide ~ .footer .wrap {
+    max-width: min(1080px, calc(100vw - 480px));
+  }
+  .pgtoc {
+    transition: opacity 0.2s ease-out;
+  }
+  .pgtoc.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .pgtoc-title {
+    margin-bottom: 10px;
+    color: var(--label-neutral);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+  .pgtoc ul ul {
+    margin: 4px 0 6px 12px;
+    padding-left: 10px;
+    border-left: 1px solid var(--line-neutral);
+  }
+  .pgtoc li + li {
+    margin-top: 4px;
+  }
+  .pgtoc a {
+    display: block;
+    padding: 3px 0;
+    color: var(--label-neutral);
+    transition: color 0.15s;
+  }
+  .pgtoc a:hover {
+    color: var(--label-strong);
+  }
+  .pgtoc a[aria-current="true"] {
+    color: var(--primary);
+    font-weight: 600;
+  }
+}
+
+/* contact list under the hero: larger so it reads at a glance */
+.hero-lead .nt-contact {
+  gap: 12px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--label-normal, var(--label-neutral));
+}
+.hero-lead .nt-contact li {
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 16px;
+}
+.hero-lead .nt-contact li > span {
+  color: var(--label-neutral);
+  font-weight: 600;
+  opacity: 1;
+}
+.hero-lead .nt-contact .link {
+  font-weight: 500;
+}
+
+/* UMC cohort shortcuts */
+.nt-cohorts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 6px;
+}
+.nt-cohort {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line-primary, var(--line-neutral));
+  background: var(--bg-alt);
+  color: var(--label-strong);
+  font-size: 15px;
+  font-weight: 500;
+  transition: border-color 0.15s, color 0.15s;
+}
+.nt-cohort b {
+  color: var(--primary);
+  font-weight: 700;
+}
+.nt-cohort:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* diagrams and dashboards inside a project write-up: keep them small enough to sit beside the text */
+.nt-group figure.diagram {
+  max-width: 560px;
+}
+.nt-group .shots {
+  max-width: 600px;
+  gap: 12px;
+}
+.nt-group figure.shot[style*="max-width"] {
+  max-width: 300px !important;
+}
+.nt-group > figure.shot {
+  max-width: 560px;
+}
+.nt-group figure.shot figcaption {
+  font-size: 13px;
+}
+
+/* home hero: headline first, then the one measured result, then the two traits */
+.hero-lead .display {
+  font-size: clamp(26px, 5vw, 34px);
+  font-weight: 500;
+  line-height: 1.5;
+}
+.hero-lead .display .line.minor {
+  margin-top: 18px;
+  font-size: 0.62em;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--label-strong);
+}
+.hero-lead .traits {
+  gap: 32px;
+}
+.hero-lead .trait .motto {
+  font-size: 1.3em;
+  margin-bottom: 6px;
+}
+
 .row {
   display: grid;
   grid-template-columns: 120px minmax(0, 1fr);
@@ -1079,6 +1535,24 @@ figure.diagram a {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-bottom: 32px;
 }
+.stats.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 32px;
+}
+.stats.one {
+  grid-template-columns: minmax(0, 320px);
+  margin-bottom: 32px;
+}
+.gh-strip {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 72px;
+}
+.gh-strip .stats.two {
+  flex: 1;
+  margin-bottom: 0;
+}
 figure.diagram img {
   background: #fff; /* the diagram is drawn on white, so it stays a white card in dark mode */
 }
@@ -1577,6 +2051,21 @@ figure.diagram img {
   }
   .stats.four {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .nt-proj-head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .nt-stack {
+    gap: 64px;
+  }
+  .nt-ts {
+    padding: 18px;
+  }
+  .gh-strip {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    margin-top: 56px;
   }
   .item[data-key] {
     grid-template-columns: 110px minmax(0, 1fr);
