@@ -2386,6 +2386,12 @@ figure.diagram img {
 .commits {
   margin-top: 120px;
 }
+.hero-first .commits {
+  margin-top: 56px;
+}
+.hero-first .commits + .hf-links {
+  margin-top: 32px;
+}
 .cal {
   --cell: 16px;
   --gap: 4px;
@@ -2864,4 +2870,29 @@ figure.diagram img {
   .foot-quote {
     margin-top: 64px;
   }
+}
+
+/* 프로젝트·활동 본문 간격 확대 */
+#projects .nt-group,
+#activity-row .nt-group {
+  margin-top: 52px;
+}
+#projects .nt-list,
+#activity-row .nt-list {
+  margin-top: 14px;
+  line-height: 1.9;
+}
+#projects .nt-list li + li,
+#activity-row .nt-list li + li {
+  margin-top: 10px;
+}
+#projects .nt-ts-sec .nt-list {
+  margin-top: 10px;
+}
+#activity-row .nt-stack {
+  gap: 64px;
+}
+#activity-row .nt-act .nt-lead,
+#activity-row .nt-act .nt-desc {
+  margin-top: 14px;
 }

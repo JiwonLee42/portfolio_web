@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ko" data-lang="ko"
+  data-title-en="HiSujung | Jiwon Lee" data-title-ko="하이수정이 | 이지원"
+  data-desc-en="HiSujung is an activity recommendation and portfolio management app. Jiwon Lee led the team of five and built the AWS deployment and the cosine similarity recommender with Flask."
+  data-desc-ko="하이수정이는 활동 추천과 포트폴리오 관리 앱입니다. 팀장으로 5인 팀을 이끌며 AWS 배포와 Flask 기반 코사인 유사도 추천 시스템을 담당했습니다.">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>하이수정이 | 이지원</title>
+  <meta name="description" content="하이수정이는 활동 추천과 포트폴리오 관리 앱입니다. 팀장으로 5인 팀을 이끌며 AWS 배포와 Flask 기반 코사인 유사도 추천 시스템을 담당했습니다.">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1c1e" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230066ff'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='800' text-anchor='middle' fill='white'%3EJL%3C/text%3E%3C/svg%3E">
+  <script>
+    (function () {
+      var d = document.documentElement, lang, theme;
+      try { lang = new URLSearchParams(location.search).get("lang") || localStorage.getItem("lang"); theme = localStorage.getItem("theme"); } catch (e) {}
+      if (lang !== "en" && lang !== "ko") lang = "ko";
+      d.dataset.lang = lang; d.lang = lang;
+      if (theme === "light" || theme === "dark") d.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script src="../assets/variants.js" defer></script>
+  <script src="../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main"><span data-l="en">Skip to content</span><span data-l="ko">본문으로 건너뛰기</span></a>
+
+  <div class="dock">
+    <header class="nav" id="nav">
+      <div class="nav-bar">
+        <a class="brand" href="../index.html" aria-label="Jiwon Lee, home">JL.</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
+          <span class="lbl-menu"><span data-l="en">Menu</span><span data-l="ko">메뉴</span></span><span class="lbl-close"><span data-l="en">Close</span><span data-l="ko">닫기</span></span>
+        </button>
+      </div>
+      <div class="nav-panel">
+        <nav class="menu" id="menu" aria-label="Site" inert>
+          <ul class="menu-list">
+          <li style="--i:0"><a href="../index.html"><span data-l="en">Home</span><span data-l="ko">홈</span></a></li>
+          <li class="group" style="--i:1"><span data-l="en">Projects</span><span data-l="ko">프로젝트</span></li>
+          <li style="--i:2"><a href="meogeodoe.html"><span data-l="en">Can I eat this?</span><span data-l="ko">먹어도돼?</span></a></li>
+          <li style="--i:3"><a href="nook.html"><span data-l="en">Nook</span><span data-l="ko">누크</span></a></li>
+          <li style="--i:4"><a href="linku.html"><span data-l="en">Linku</span><span data-l="ko">링큐</span></a></li>
+          <li style="--i:5"><a href="jeonhwawasseo.html"><span data-l="en">CallFromAI</span><span data-l="ko">전화왔어</span></a></li>
+          <li class="group" style="--i:6"><span data-l="en">Awards</span><span data-l="ko">수상</span></li>
+          <li style="--i:7"><a href="gamo.html"><span data-l="en">Gamo</span><span data-l="ko">가모</span></a></li>
+          <li style="--i:8"><a href="coedu.html"><span data-l="en">CoEdu</span><span data-l="ko">코에듀</span></a></li>
+          <li style="--i:9"><a href="hisujung.html" aria-current="page"><span data-l="en">HiSujung</span><span data-l="ko">하이수정이</span></a></li>
+          <li class="sep" style="--i:10" role="separator"></li>
+          <li style="--i:11"><a href="#contact" data-scroll-end><span data-l="en">Contact</span><span data-l="ko">연락처</span></a></li>
+          <li style="--i:12"><button type="button" data-toggle-theme><span><span data-l="en">Theme</span><span data-l="ko">테마</span></span><span><span data-mode="light" data-l="en">Light</span><span data-mode="light" data-l="ko">라이트</span><span data-mode="dark" data-l="en" hidden>Dark</span><span data-mode="dark" data-l="ko" hidden>다크</span></span></button></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="lang" role="group" aria-label="Language">
+      <button class="lang-btn" type="button" data-set-lang="ko" aria-pressed="true">한국어</button>
+      <button class="lang-btn" type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+  <nav class="toc" aria-labelledby="toc-title">
+    <h2 id="toc-title"><span data-l="en">On this page</span><span data-l="ko">이 페이지</span></h2>
+    <ol>
+        <li><a href="#sec-award"><span data-l="en">Award</span><span data-l="ko">수상</span></a></li>
+        <li><a href="#sec-ov"><span data-l="en">What it does</span><span data-l="ko">서비스</span></a></li>
+        <li><a href="#sec-facts"><span data-l="en">Facts</span><span data-l="ko">정보</span></a></li>
+        <li><a href="#sec-stack"><span data-l="en">Stack and why</span><span data-l="ko">기술 스택</span></a></li>
+        <li><a href="#sec-did"><span data-l="en">What I did</span><span data-l="ko">역할</span></a></li>
+    </ol>
+  </nav>
+
+  <div class="sheet">
+    <main id="main">
+      <section class="wrap hero">
+        <a class="crumb" href="../index.html#awards"><span data-l="en">Awards</span><span data-l="ko">수상</span></a>
+        <header class="project-head">
+          <h1 data-l="en">HiSujung</h1><h1 data-l="ko">하이수정이</h1>
+          <p class="lede" data-l="en">An activity recommendation and portfolio management app.</p>
+          <p class="lede" data-l="ko">활동을 추천하고 포트폴리오를 관리하는 앱입니다.</p>
+          <div class="tags">
+            <span class="pill">2023 (2개월)</span>
+          </div>
+          <div class="store">
+            <a class="btn" href="https://github.com/JiwonLee42/hisujung-spring-mvc" target="_blank" rel="noopener"><span>GitHub (Backend)</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a>
+            <a class="btn" href="https://github.com/JiwonLee42/hisujung_flask" target="_blank" rel="noopener"><span>GitHub (Recommender)</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a>
+          </div>
+        </header>
+      </section>
+
+      <section class="wrap row tight" id="sec-award">
+        <h2 class="label"><span data-l="en">Award</span><span data-l="ko">수상</span></h2>
+        <div>
+          <ul class="bullets" data-l="en"><li><strong>Silver Prize,</strong> Sungshin Women’s University Software Competition (Sep 2023)</li></ul>
+          <ul class="bullets" data-l="ko"><li><strong>은상,</strong> 성신여자대학교 소프트웨어 경진대회 (2023.09)</li></ul>
+
+        </div>
+      </section>
+
+      <section class="wrap row tight" id="sec-ov">
+        <h2 class="label"><span data-l="en">What it does</span><span data-l="ko">서비스</span></h2>
+        <div>
+          <ul class="bullets" data-l="en"><li>A feature to recommend activities to users.</li><li>A feature to manage a portfolio.</li></ul>
+          <ul class="bullets" data-l="ko"><li>사용자에게 활동을 추천하는 기능</li><li>포트폴리오를 관리하는 기능</li></ul>
+
+        </div>
+      </section>
+
+      <section class="wrap row tight" id="sec-facts">
+        <h2 class="label"><span data-l="en">Facts</span><span data-l="ko">정보</span></h2>
+        <div>
+          <dl class="facts">
+            <div><dt data-l="en">Origin</dt><dt data-l="ko">출처</dt>
+              <dd data-l="en">2023 Sungshin Women’s University Software Competition</dd>
+              <dd data-l="ko">2023 성신여자대학교 소프트웨어 경진대회</dd></div>
+            <div><dt data-l="en">Team</dt><dt data-l="ko">구성원</dt>
+              <dd data-l="en">5 members (Lead, AI, backend, frontend, web crawling), 2 months</dd>
+              <dd data-l="ko">5명(팀장·AI, 백엔드·AI, 백엔드·프론트엔드, 프론트엔드, 웹 크롤링), 2개월</dd></div>
+            <div><dt data-l="en">My part</dt><dt data-l="ko">담당</dt>
+              <dd data-l="en">Team lead (weekly meetings, plan and schedule for two months), AWS deployment, Flask recommender with cosine similarity</dd>
+              <dd data-l="ko">팀장(주간 회의 진행, 2개월간 기획·개발 일정 관리), AWS 배포, Flask 기반 코사인 유사도 추천 시스템</dd></div>
+            <div><dt data-l="en">Repos</dt><dt data-l="ko">레포지토리</dt>
+              <dd data-l="en">Backend: hisujung-spring-mvc, Recommender: hisujung_flask</dd>
+              <dd data-l="ko">백엔드: hisujung-spring-mvc, 추천 시스템: hisujung_flask</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="wrap row tight" id="sec-stack">
+        <h2 class="label"><span data-l="en">Stack and why</span><span data-l="ko">기술 스택</span></h2>
+        <div>
+          <ul class="bullets" data-l="en"><li><strong>Flask</strong>: The recommender is a separate Python server, apart from the Spring backend.</li><li><strong>Cosine similarity</strong>: Measures how similar activities and users’ interests are, to rank recommendations.</li><li><strong>AWS</strong>: Hosts the service so it can run as a deployed app.</li><li><strong>Spring Boot, Spring Security, MySQL</strong>: Backend API, authentication, and data storage (teammates’ backend part).</li></ul>
+          <ul class="bullets" data-l="ko"><li><strong>Flask</strong>: 추천 로직을 Spring 백엔드와 분리된 파이썬 서버로 구성하기 위해 사용</li><li><strong>Cosine similarity</strong>: 활동 간 유사도를 계산해 추천 순위를 정하기 위해 사용</li><li><strong>AWS</strong>: 서비스를 배포해 실제 앱으로 동작시키기 위해 사용</li><li><strong>Spring Boot, Spring Security, MySQL</strong>: 백엔드 API, 인증, 데이터 저장 구성(백엔드 팀원 담당)</li></ul>
+
+        </div>
+      </section>
+
+      <section class="wrap row tight" id="sec-did">
+        <h2 class="label"><span data-l="en">What I did</span><span data-l="ko">역할</span></h2>
+        <div>
+          <ul class="bullets" data-l="en"><li>Implemented the activity recommender with Flask and cosine similarity.</li><li>Implemented the AWS deployment of the service.</li></ul>
+          <ul class="bullets" data-l="ko"><li>Flask와 코사인 유사도 기반 활동 추천 시스템 구현</li><li>AWS 서비스 배포 구현</li></ul>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <div class="foot-grid">
+        <h2 class="foot-title"><span data-l="en">Contact</span><span data-l="ko">연락처</span></h2>
+        <ul class="foot-list">
+          <li>
+            <span><span data-l="en">Email</span><span data-l="ko">이메일</span></span><i class="rule"></i>
+            <span class="val">ljw56b@gmail.com</span>
+            <button class="copy" type="button" data-copy="ljw56b@gmail.com"><svg class="i-clip" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3" width="9" height="10.5" rx="1.5"/><path d="M6 3v-.5a.5.5 0 01.5-.5h3a.5.5 0 01.5.5V3"/></svg><svg class="i-check" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-6.5"/></svg><span class="sr" data-l="en">Copy email address</span><span class="sr" data-l="ko">이메일 주소 복사</span></button>
+            <span class="sr" role="status" data-copy-status></span>
+          </li>
+          <li><a class="ext" href="https://github.com/JiwonLee42" target="_blank" rel="noopener"><span>GitHub</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><i class="rule"></i></li>
+          <li><a class="ext" href="https://velog.io/@jayaione_ele/posts" target="_blank" rel="noopener"><span>Velog</span><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><i class="rule"></i></li>
+        </ul>
+      </div>
+      <p class="foot-quote" data-l="en">Open to backend engineering roles.</p>
+      <p class="foot-quote" data-l="ko">백엔드 개발자로 함께할 곳을 찾고 있습니다.</p>
+      <div class="foot-legal"><small data-l="en">Jiwon Lee, 2026</small><small data-l="ko">이지원, 2026</small></div>
+    </div>
+  </footer>
+</body>
+</html>
